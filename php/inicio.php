@@ -1,0 +1,1 @@
+<?php echo "estas en la pagina de: INICIO" ?>
