@@ -31,7 +31,7 @@
   <body>
     
     <div class="container my-4">
-        
+        <!-- incluimos el encabezado y el menu principal  -->
         <?php include_once("inc/encabezado.inc");?>
         <?php include_once("inc/Menu_Principal.inc");?>
         
