@@ -15,35 +15,35 @@
              <!-- opcion de aulas -->
 
              <li class="nav-item dropdown">
-                <a href="pincipal.php?opcion=aulas" class="nav-link"> Aulas </a>           
+                <a href="principal.php?opcion=aulas" class="nav-link"> Aulas </a>           
              </li>
 
              <!-- opcion de equipos -->
 
              <li class="nav-item dropdown">
-                <a href="pincipal.php?opcion=equipos" class="nav-link "> Equipos </a>                
+                <a href="principal.php?opcion=equipos" class="nav-link "> Equipos </a>                
              </li>
 
               <!-- opcion de profesores -->
 
               <li class="nav-item dropdown">
-                  <a href="pincipal.php?opcion=profesores" class="nav-link"> Profesores </a>
+                  <a href="principal.php?opcion=profesores" class="nav-link"> Profesores </a>
               </li>
 
               <!-- opcion de auxiliares -->
 
               <li class="nav-item dropdown">
-                  <a href="pincipal.php?opcion=auxiliares" class="nav-link"> Auxiliares </a>
+                  <a href="principal.php?opcion=auxiliares" class="nav-link"> Auxiliares </a>
               </li>
 
               <!-- opcion de tikets -->
 
               <li class="nav-item dropdown">
-                  <a href="pincipal.php?opcion=tikets" class="nav-link dropdown-toggle" data-toggle="dropdown"> Tikets </a>
+                  <a href="principal.php?opcion=tikets" class="nav-link dropdown-toggle" data-toggle="dropdown"> Tikets </a>
                   <div class="dropdown-menu">
                       
-                    <a href="principal.php?opcion=contactos" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
-                    <a href="principal.php?opcion=grupos" class="dropdown-item"><i class="fas fa-users"></i> todos los tikets </a>
+                    <a href="principal.php?opcion=nuevo_tiket" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
+                    <a href="principal.php?opcion=all_tikets" class="dropdown-item"><i class="fas fa-users"></i> todos los tikets </a>
                   </div> 
               </li>
 
