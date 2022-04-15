@@ -52,7 +52,12 @@
               include_once("php/aulas/todas_aulas.php");
               break;
             
-/*-----------------Formulario equipos------------- */
+// ------------AULA NUEVA-----------------
+            case 'aulas-nueva':
+              include_once("php/aulas/nueva_aula.php");
+              break;
+
+/*----------------- equipos------------- */
 
             case 'equipos':
               include_once("php/equipos/equipos.php");

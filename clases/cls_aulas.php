@@ -1,6 +1,6 @@
 <?php 
 include_once("cls_conectarB.php");
-class Contacto{
+class Aulas{
     //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
 	private $id;
 	private $nombre;
@@ -88,7 +88,7 @@ class Contacto{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_contactos VALUES (?,?,?,?,?)";
+    $sSQL="INSERT INTO tbl_aulas VALUES (?,?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
@@ -161,10 +161,11 @@ class Contacto{
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
     $sSQL="UPDATE tbl_contactos SET
-           con_nombre    = ?,
-           con_edificio = ?,
-           con_capacidad  = ?,
-           con_comentario    = ?
+           id    = ?,
+           nombre = ?,
+           edificio  = ?,
+           capacidad    = ?
+           comentario    = ?
            WHERE  con_id = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
