@@ -1,6 +1,6 @@
 <?php 
 include_once("cls_conectarB.php");
-class Contacto{
+class Equipos{
     //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
 	private $cod;
 	private $nombre;
@@ -33,7 +33,7 @@ class Contacto{
 		$this->estado = $estado;
 	}
 
-   function setcantidad$cantidad($cantidad)
+   function setcantidad($cantidad)
 	{
 		$this->cantidad = $cantidad;
 	}
@@ -55,7 +55,7 @@ class Contacto{
 		return $this->estado;
 	}
 
-   function getcantidad$cantidad()
+   function getcantidad()
 	{
 		return $this->cantidad;
 	}
@@ -80,7 +80,7 @@ class Contacto{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_contactos VALUES (?,?,?,?)";
+    $sSQL="INSERT INTO tbl_equipos VALUES (?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
@@ -154,7 +154,7 @@ class Contacto{
     $sSQL="UPDATE tbl_contactos SET
            con_nombre    = ?,
            con_estado = ?,
-           con_cantidad$cantidad  = ?,
+           con_cantidad = ?,
            WHERE  con_cod = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
@@ -162,7 +162,7 @@ class Contacto{
      $pst=$conexion->prepare($sSQL);
      $pst->bindParam(1,$this->nombre);
      $pst->bindParam(2,$this->estado);
-     $pst->bindParam(3,$this->cantidad$cantidad);
+     $pst->bindParam(3,$this->cantidad);
      $pst->bindParam(7,$this->cod);
      //se envia a ejecutar la conexion
      $filas=$pst->execute();

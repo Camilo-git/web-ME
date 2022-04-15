@@ -63,6 +63,11 @@
               include_once("php/equipos/equipos.php");
               break;
 
+// ------------equipos-nuevo-----------------
+            case 'equipos-nuevo':
+              include_once("php/equipos/nuevo_equipo.php");
+              break;
+
 
 /*-------------------PROFESORES------------------*/
 
