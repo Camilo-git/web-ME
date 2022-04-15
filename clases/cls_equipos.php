@@ -14,7 +14,7 @@ class Equipos{
      $this->cod=$cod;
      $this->nombre=$nombre;
      $this->estado=$estado;
-     $this->cantida=$cantidad;
+     $this->cantidad=$cantidad;
    }
 
    //SE DEFINEN LOS METODOS SET Y GET
