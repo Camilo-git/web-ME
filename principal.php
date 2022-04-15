@@ -74,6 +74,11 @@
             case 'profesores':
               include_once("php/profesores/profesores.php");
               break;
+
+// ------------profesores-nuevo-----------------
+            case 'docente-nuevo':
+              include_once("php/profesores/nuevo_profesor.php");
+              break;
 /*-----------------------auxiliares--------------*/
             case 'auxiliares':
               include_once("php/auxiliares/auxiliares.php");
