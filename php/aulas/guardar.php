@@ -53,10 +53,10 @@ else{
         ';
     }
 }
-// echo'
-// <script>
-// location.href="../../principal.php?opcion=aulas";
-// </script> 
-// ';
+echo'
+<script>
+location.href="../../principal.php?opcion=aulas";
+</script> 
+';
 
 ?>
