@@ -35,6 +35,11 @@ if ($accion == "ADICIONAR"){
         echo "<script>alert('Registro eliminado correctamente');</script>";
     }
 }
+echo'
+<script>
+location.href="../../principal.php?opcion=inventario";
+</script> 
+';
 
 
 ?>
