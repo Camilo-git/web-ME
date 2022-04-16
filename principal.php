@@ -67,7 +67,14 @@
             case 'equipos-nuevo':
               include_once("php/equipos/nuevo_equipo.php");
               break;
-
+// inventario
+            case 'inventario':
+              include_once("php/inventario/inventario.php");
+              break;
+// nuevo articulo
+            case 'inventario-nuevo':
+              include_once("php/inventario/nuevo_articulo.php");
+              break;
 
 /*-------------------PROFESORES------------------*/
 
