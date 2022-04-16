@@ -4,7 +4,7 @@
 		<h3><i class="fa fa-user-circle"></i> Personal Medios Educativos</h3>
 	</div>
 	<div class="col-2">
-		<a href="./principal.php?opcion=contactos_form&accion=ADICIONAR&id=0" class="btn btn-primary" title="Crear un nuevo Contacto">
+		<a href="./principal.php?opcion=auxiliar-nuevo&accion=ADICIONAR&cedula=0" class="btn btn-primary" title="Crear un nuevo Contacto">
 			<i class="fas fa-plus-circle"></i>
 			Adicionar
 		</a>

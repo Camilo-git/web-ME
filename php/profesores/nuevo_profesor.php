@@ -16,7 +16,7 @@ if ($accion == "ADICIONAR"){
     $programa = "";
     $dependencia = "";
 }else{
-    // creamos una variable para la conexionpara poder conectarnos a la base de datos
+    // creamos una variable para la conexion para poder conectarnos a la base de datos
     $conexion = conectarBD();
     // creamos una variable para la consulta
     $sSQL = "SELECT * FROM tbl_docentes WHERE cedula = '$cedula'";
@@ -39,7 +39,7 @@ echo $cedula;
 
 ?>
 
-<!-- creamos un divcon la clse container para poder centrar el formulario -->
+<!-- creamos un div con la clase container para poder centrar el formulario -->
 <div class="container">
     <!-- creamos un div con la clase card para poder darle estilo a la tarjeta -->
     <div class="card">

@@ -91,6 +91,11 @@
               include_once("php/auxiliares/auxiliares.php");
               break;
 
+// ------------auxiliares-nuevo-----------------
+            case 'auxiliar-nuevo':
+              include_once("php/auxiliares/nuevo_auxiliar.php");
+              break;
+
 /*-----------------------tikets--------------*/
             case 'nuevo_tiket':
               include_once("php/tikets/nuevo_tiket.php");
