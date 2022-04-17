@@ -3,7 +3,7 @@
             <!-- LOGO DEL PROGRAMA -->
             <div class="row">
                 <div class="col-4">
-                    <img src="img/logo-agenda.png" alt="Logo de la Agenda" class="img-fluid">
+                    <img src="img/Escudo.png" alt="Logo de la Agenda" class="img-fluid">
                 </div>            
             </div>
             <div class="row">
