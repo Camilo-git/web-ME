@@ -1,70 +1,84 @@
 <?php 
-include_once("cls_conectarBD.php");
-class Usuario{
-//SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
-	private $id;
+include_once("cls_conectarB.php");
+class Auxiliar{
+    //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
+	private $cedula;
 	private $nombre;
-	private $usuario;
-	private $clave;
+	private $celular;
+	private $correo;
+	private $direccion;
 
-//METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($id,$nombre,$usuario,$clave)
+   //METODO PARA CARGAR TODOS LOS DATOS
+   function cargarDatos($cedula,$nombre,$celular,$correo,$direccion)
    {
-     $this->id=$id;
+     $this->cedula=$cedula;
      $this->nombre=$nombre;
-     $this->usuario=$usuario;
-     $this->clave=$clave;     
+     $this->celular=$celular;
+     $this->correo=$correo;
+     $this->direccion=$direccion;
    }
-	
-//SE DEFINEN LOS METODOS SET Y GET
-	function setId($id)
+
+   //SE DEFINEN LOS METODOS SET Y GET
+   function setcedula($cedula)
 	{
-		$this->id = $id;
+		$this->cedula = $cedula;
 	}
 
-	function setNombre($nombre)
+   function setNombre($nombre)
 	{
 		$this->nombre = $nombre;
 	}
 
-	function setUsuario($usuario)
+   function setcelular($celular)
 	{
-		$this->usuario = $usuario;
+		$this->celular = $celular;
 	}
 
-	function setClave($clave)
+   function setcorreo($correo)
 	{
-		$this->clave = $clave;
+		$this->correo = $correo;
 	}
 
-	
-	function getId()
+   function setdireccion($direccion)
 	{
-		return $this->id;
+		$this->direccion = $direccion;
 	}
 
-	function getNombre()
+
+   function getcedula()
+	{
+		return $this->cedula;
+	}
+
+   function getNombre()
 	{
 		return $this->nombre;
 	}
 
-	function getUsuario()
+   function getcelular()
 	{
-		return $this->usuario;
+		return $this->celular;
 	}
 
-	function getClave()
+   function getcorreo()
 	{
-		return $this->clave;
+		return $this->correo;
 	}
 
-//METODOS CRU CREATE,READ,UPDATE,DELETE
+   function getdireccion()
+	{
+		return $this->direccion;
+	}
+
+   
+
+   //METODOS CRU CREATE,READ,UPDATE,DELETE
 	/*--------------------------------------------------------------------------
 	 Function insertar()
-	 Objetivo: Permite el ingreso de registros nuevos a la tabla de Usuarios
+	 Objetivo: Permite el ingreso de registros nuevos a la tabla de Contactos
 	 Retorno: valor booleano 
-	 1: true -> La operación se ejecutó con éxito
-	 2: false -> La operación no se pudo ejecutar
+	 1: true -> La operaciòn se ejecutò con èxito
+	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
    public function insertar()
    {
@@ -74,15 +88,16 @@ class Usuario{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_usuario VALUES (?,?,?,?)";
+    $sSQL="INSERT INTO tbl_auxiliares VALUES (?,?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
+     $pst->bindParam(1,$this->cedula);
      $pst->bindParam(2,$this->nombre);
-     $pst->bindParam(3,$this->usuario);
-     $pst->bindParam(4,$this->clave);     
+     $pst->bindParam(3,$this->celular);
+     $pst->bindParam(4,$this->correo);
+     $pst->bindParam(5,$this->direccion);
     //se envia a ejecutar la conexion
     $filas=$pst->execute();
     $resultado=($filas>0) ? true : false;
@@ -98,10 +113,10 @@ class Usuario{
   }//cierra el método insertar
   /*--------------------------------------------------------------------------
 	 Function eliminar()
-	 Objetivo: Permite eliminar registros de la tabla de Usuarios
+	 Objetivo: Permite eliminar registros de la tabla de Contactos
 	 Retorno: valor booleano 
-	 1: true -> La operación se ejecutó con éxito
-	 2: false -> La operación no se pudo ejecutar
+	 1: true -> La operaciòn se ejecutò con èxito
+	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
   public function eliminar()
    {
@@ -111,12 +126,12 @@ class Usuario{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="DELETE FROM tbl_usuario WHERE usu_id = ?";
+    $sSQL="DELETE FROM tbl_contactos WHERE con_cedula = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
+     $pst->bindParam(1,$this->cedula);
      //se envia a ejecutar la conexion
      $filas=$pst->execute();
      $resultado=($filas>0) ? true : false;
@@ -132,10 +147,10 @@ class Usuario{
   }//cierra el método eliminar
   /*--------------------------------------------------------------------------
 	 Function modificar()
-	 Objetivo: Permite editar los registros de un usuario
+	 Objetivo: Permite editar los registros de un contacto
 	 Retorno: valor booleano 
-	 1: true -> La operación se ejecutó con éxito
-	 2: false -> La operación no se pudo ejecutar
+	 1: true -> La operaciòn se ejecutò con èxito
+	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
   public function modificar()
    {
@@ -145,19 +160,21 @@ class Usuario{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="UPDATE tbl_usuario SET
-           usu_nombre    = ?,
-           usu_usuario   = ?,
-           usu_clave     = ?          
-           WHERE  usu_id = ?";
+    $sSQL="UPDATE tbl_contactos SET
+           con_nombre    = ?,
+           con_celular = ?,
+           con_correo  = ?,
+           con_direccion    = ?
+           WHERE  con_cedula = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
      $pst->bindParam(1,$this->nombre);
-     $pst->bindParam(2,$this->usuario);
-     $pst->bindParam(3,$this->clave);     
-     $pst->bindParam(4,$this->id);
+     $pst->bindParam(2,$this->celular);
+     $pst->bindParam(3,$this->correo);
+     $pst->bindParam(4,$this->direccion);
+     $pst->bindParam(7,$this->cedula);
      //se envia a ejecutar la conexion
      $filas=$pst->execute();
      $resultado=($filas>0) ? true : false;
@@ -171,42 +188,42 @@ class Usuario{
    }
    return $resultado; 
   }//cierra el método modificar
-}//CIERRA LA CLASE
+}//cierra la clase
 
 //para probar el método insertar
-/*$usuario = new Usuario();
-$usuario->cargarDatos(0,"Ivan Dario Martinez","idamarcal98","vivaelfutbol2018");
+/*$contacto = new Contacto();
+$contacto->cargarDatos(0,"Sofia Angulo","Barrio El Dorado","322777123","sofiaang@gmail.es",2,"1974-05-20");
 //ahora se grabaran los datos
-if ($usuario->insertar())
+if ($contacto->insertar())
 {
-	echo 'El usuario se insertó correctamente';
+	echo 'El contacto se insertó correctamente';
 } else 
 {
-	echo 'El usuario no se pudo insertar correctamente';
+	echo 'El contacto no se pudo insertar correctamente';
 }*/
 
 //para probar el método eliminar
-/*$usuario = new Usuario();
-$usuario->cargarDatos(3,"","","");
-//ahora se grabaran los datos
-if ($usuario->eliminar())
-{
-	echo 'El usuario se eliminó correctamente';
-} else 
-{
-	echo 'El usuario no se pudo eliminar correctamente';
-}*/
+// $contacto = new Contacto();
+// $contacto->cargarDatos(7,"","","","","","");
+// //ahora se grabaran los datos
+// if ($contacto->eliminar())
+// {
+// 	echo 'El contacto se eliminó correctamente';
+// } else 
+// {
+// 	echo 'El contacto no se pudo eliminar correctamente';
+// }
 
 //para probar el método modificar
-/*$usuario = new usuario();
-$usuario->cargarDatos(4,"Doris Calvachi","dorispatryc","7890");
+/*$contacto = new Contacto();
+$contacto->cargarDatos(6,"Andrea Munoz","Barrio Capusigra","3121456105","andreamur@hotmail.es",2,"1975-01-06");
 //ahora se grabaran los datos
-if ($usuario->modificar())
+if ($contacto->modificar())
 {
-	echo 'El usuario se editó correctamente';
+	echo 'El contacto se editó correctamente';
 } else 
 {
-	echo 'El usuario no se pudo editar correctamente';
+	echo 'El contacto no se pudo editar correctamente';
 }*/
 
 

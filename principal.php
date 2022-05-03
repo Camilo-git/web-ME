@@ -31,7 +31,7 @@
   <body>
     
     <div class="container my-4">
-        
+        <!-- incluimos el encabezado y el menu principal  -->
         <?php include_once("inc/encabezado.inc");?>
         <?php include_once("inc/Menu_Principal.inc");?>
         
@@ -46,49 +46,63 @@
             case 'inicio':
               include_once("php/inicio.php");
               break;
-/*-------------------MANTENIMIENTO------------------*/
+/*-------------------AULAS------------------*/
 
-            case 'contactos':
-              include_once("php/mantenimiento/mante_contactos.php");
+            case 'aulas':
+              include_once("php/aulas/todas_aulas.php");
               break;
-            case 'grupos':
-              include_once("php/mantenimiento/mante_grupos.php");
-              break;
-
-/*-----------------Formulario Contactos------------- */
-
-            case 'contactos_form':
-              include_once("php/frm/contactos_form.php");
-              break;
-
-
-/*-------------------CONSULTAS------------------*/
-
-            case 'consu_contactos':
-              include_once("php/consultas/consu_contactos.php");
-              break;
-            case 'consu_grupos':
-              include_once("php/consultas/consu_grupos.php");
-              break;
-/*-----------------------grupos--------------*/
-            case 'repo_contactos':
-              include_once("php/reportes/repo_contactos.php");
-              break;
-            case 'repo_grupos':
-              include_once("php/reportes/repo_grupos.php");
-              break;
-/*-----------------------procesar--------------*/
-            case 'proce_usuarios':
-              include_once("php/procesos/proce_usuarios.php");
-              break;
-            case 'optener_copia':
-              include_once("php/procesos/optener_copia.php");
-              break;
-            case 'descargar_copia':
-              include_once("php/procesos/descargar_copia.php");
-              break;
-
             
+// ------------AULA NUEVA-----------------
+            case 'aulas-nueva':
+              include_once("php/aulas/nueva_aula.php");
+              break;
+
+/*----------------- equipos------------- */
+
+            case 'equipos':
+              include_once("php/equipos/equipos.php");
+              break;
+
+// ------------equipos-nuevo-----------------
+            case 'equipos-nuevo':
+              include_once("php/equipos/nuevo_equipo.php");
+              break;
+// inventario
+            case 'inventario':
+              include_once("php/inventario/inventario.php");
+              break;
+// nuevo articulo
+            case 'inventario-nuevo':
+              include_once("php/inventario/nuevo_articulo.php");
+              break;
+
+/*-------------------PROFESORES------------------*/
+
+            case 'profesores':
+              include_once("php/profesores/profesores.php");
+              break;
+
+// ------------profesores-nuevo-----------------
+            case 'docente-nuevo':
+              include_once("php/profesores/nuevo_profesor.php");
+              break;
+/*-----------------------auxiliares--------------*/
+            case 'auxiliares':
+              include_once("php/auxiliares/auxiliares.php");
+              break;
+
+// ------------auxiliares-nuevo-----------------
+            case 'auxiliar-nuevo':
+              include_once("php/auxiliares/nuevo_auxiliar.php");
+              break;
+
+/*-----------------------tikets--------------*/
+            case 'nuevo_tiket':
+              include_once("php/tikets/nuevo_tiket.php");
+              break;
+            case 'all_tikets':
+              include_once("php/tikets/all_tikets.php");
+              break;
             default:
             echo "error de opcion";
               break;

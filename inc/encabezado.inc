@@ -3,14 +3,24 @@
             <!-- LOGO DEL PROGRAMA -->
             <div class="row">
                 <div class="col-4">
-                    <img src="img/logo-agenda.png" alt="Logo de la Agenda" class="img-fluid">
+                    <img src="img/Escudo.png" alt="Logo de la Agenda" class="img-fluid">
                 </div>            
             </div>
             <div class="row">
                 <div class="col-12 text-right"> 
                    <span>
                    <i class="fa fa-user-circle"></i>
-                     Aqui va el nombre del usuario
+
+                   <!-- creamos un javascript para obtener la hora y la fecha que transcurre en el sistema -->
+                   <script>
+                        var f = new Date();
+                        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+
+                        var g = new Date();
+                        document.write(" " + (g.getHours()-12) + ":" + g.getMinutes() + ":" + g.getSeconds());
+
+                   </script>
+                     
                    </span>
                    <span>
                    <i class="fas fa-external-link-alt"></i>

@@ -4,7 +4,7 @@ function conectarBD()
 {
  //VARIABLES PARA CONEXION
   $servidor  ="localhost";
-  $base_datos="bd_Agenda";
+  $base_datos="web_me";
   $usuario   ="root";
   $clave     ="";
 

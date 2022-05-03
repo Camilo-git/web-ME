@@ -1,1 +1,0 @@
-<?php echo "estas en la pagina de: consultas  GRUPOS" ?>

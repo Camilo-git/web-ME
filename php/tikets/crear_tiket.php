@@ -1,5 +1,5 @@
 <?php
-include_once("clases/cls_conectarBD.php");
+include_once("clases/cls_conectarB.php");
 $accion = $_GET['accion'];
 $id     = $_GET['id'];
 

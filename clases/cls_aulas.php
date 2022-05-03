@@ -1,25 +1,21 @@
 <?php 
-include_once("cls_conectarBD.php");
-class Contacto{
+include_once("cls_conectarB.php");
+class Aulas{
     //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
 	private $id;
 	private $nombre;
-	private $direccion;
-	private $telefono;
-	private $correo;
-	private $grupo;
-	private $fechanac;
+	private $edificio;
+	private $capacidad;
+	private $comentario;
 
    //METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($id,$nombre,$direccion,$telefono,$correo,$grupo,$fechanac)
+   function cargarDatos($id,$nombre,$edificio,$capacidad,$comentario)
    {
      $this->id=$id;
      $this->nombre=$nombre;
-     $this->direccion=$direccion;
-     $this->telefono=$telefono;
-     $this->correo=$correo;
-     $this->grupo=$grupo;
-     $this->fechanac=$fechanac;
+     $this->edificio=$edificio;
+     $this->capacidad=$capacidad;
+     $this->comentario=$comentario;
    }
 
    //SE DEFINEN LOS METODOS SET Y GET
@@ -33,30 +29,21 @@ class Contacto{
 		$this->nombre = $nombre;
 	}
 
-   function setDireccion($direccion)
+   function setedificio($edificio)
 	{
-		$this->direccion = $direccion;
+		$this->edificio = $edificio;
 	}
 
-   function setTelefono($telefono)
+   function setcapacidad($capacidad)
 	{
-		$this->telefono = $telefono;
+		$this->capacidad = $capacidad;
 	}
 
-   function setCorreo($correo)
+   function setcomentario($comentario)
 	{
-		$this->correo = $correo;
+		$this->comentario = $comentario;
 	}
 
-   function setGrupo($grupo)
-	{
-		$this->grupo = $grupo;
-	}
-
-   function setFechaNac($fechanac)
-	{
-		$this->fechanac = $fechanac;
-	}
 
    function getId()
 	{
@@ -68,30 +55,22 @@ class Contacto{
 		return $this->nombre;
 	}
 
-   function getDireccion()
+   function getedificio()
 	{
-		return $this->direccion;
+		return $this->edificio;
 	}
 
-   function getTelefono()
+   function getcapacidad()
 	{
-		return $this->telefono;
+		return $this->capacidad;
 	}
 
-   function getCorreo()
+   function getcomentario()
 	{
-		return $this->correo;
+		return $this->comentario;
 	}
 
-   function getGrupo()
-	{
-		return $this->grupo;
-	}
-
-   function getFechaNac()
-	{
-		return $this->fechaNac;
-	}
+   
 
    //METODOS CRU CREATE,READ,UPDATE,DELETE
 	/*--------------------------------------------------------------------------
@@ -109,18 +88,16 @@ class Contacto{
 	//creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_contactos VALUES (?,?,?,?,?,?,?)";
+    $sSQL="INSERT INTO tbl_aulas VALUES (?,?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
      $pst->bindParam(1,$this->id);
      $pst->bindParam(2,$this->nombre);
-     $pst->bindParam(3,$this->direccion);
-     $pst->bindParam(4,$this->telefono);
-     $pst->bindParam(5,$this->correo);
-     $pst->bindParam(6,$this->grupo);
-     $pst->bindParam(7,$this->fechanac);
+     $pst->bindParam(3,$this->edificio);
+     $pst->bindParam(4,$this->capacidad);
+     $pst->bindParam(5,$this->comentario);
     //se envia a ejecutar la conexion
     $filas=$pst->execute();
     $resultado=($filas>0) ? true : false;
@@ -184,23 +161,20 @@ class Contacto{
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
     $sSQL="UPDATE tbl_contactos SET
-           con_nombre    = ?,
-           con_direccion = ?,
-           con_telefono  = ?,
-           con_correo    = ?,
-           con_grupo     = ?,
-           con_fechanac  = ?
+           id    = ?,
+           nombre = ?,
+           edificio  = ?,
+           capacidad    = ?
+           comentario    = ?
            WHERE  con_id = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
      $pst->bindParam(1,$this->nombre);
-     $pst->bindParam(2,$this->direccion);
-     $pst->bindParam(3,$this->telefono);
-     $pst->bindParam(4,$this->correo);
-     $pst->bindParam(5,$this->grupo);
-     $pst->bindParam(6,$this->fechanac);
+     $pst->bindParam(2,$this->edificio);
+     $pst->bindParam(3,$this->capacidad);
+     $pst->bindParam(4,$this->comentario);
      $pst->bindParam(7,$this->id);
      //se envia a ejecutar la conexion
      $filas=$pst->execute();

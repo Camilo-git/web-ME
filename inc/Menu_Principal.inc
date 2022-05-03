@@ -7,57 +7,47 @@
              <!-- menu principal -->
             <ul class="navbar-nav">
               
-             <!--  primera opcion del menu -->
-             <li class="nav-item">
+             <!--  primera opcion del menu inicio -->
+             <!-- <li class="nav-item">
                 <a href="principal.php?opcion=inicio" class="nav-link">Inicio</a>
-             </li>
-             <!-- opcion de mantenimiento -->
+             </li> -->
+
+             <!-- opcion de aulas -->
 
              <li class="nav-item dropdown">
-                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Mantenimiento</a>
-
-                    <div class="dropdown-menu">
-                      
-                      <a href="principal.php?opcion=contactos" class="dropdown-item"><i class="fa fa-user-circle"></i> Contactos</a>
-                      <a href="principal.php?opcion=grupos" class="dropdown-item"><i class="fas fa-users"></i> Grupos</a>
-                    </div>           
+                <a href="principal.php?opcion=aulas" class="nav-link"> Aulas </a>           
              </li>
 
-             <!-- opcion de consultas -->
+             <!-- opcion de equipos -->
 
              <li class="nav-item dropdown">
-                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Consultas</a>
-                       
-                     <div class="dropdown-menu">
-                         
-                         <a href="principal.php?opcion=consu_contactos" class="dropdown-item"><i class="fa fa-user-circle"></i> Contactos</a>
-                         <a href="principal.php?opcion=consu_grupos" class="dropdown-item"><i class="fas fa-users"></i> Grupos</a>
-                     </div>
-             </li>
+                <a href="principal.php?opcion=equipos" class="nav-link dropdown-toggle" data-toggle="dropdown"> Equipos </a>
+                <div class="dropdown-menu">                      
+                  <a href="principal.php?opcion=equipos" class="dropdown-item"><i class="fa fa-user-circle"></i> Categorias </a>
+                  <a href="principal.php?opcion=inventario" class="dropdown-item"><i class="fas fa-users"></i> Inventario </a>
+                </div> 
+            </li>
+              <!-- opcion de profesores -->
 
-             <!-- opcion de reportes -->
+              <li class="nav-item dropdown">
+                  <a href="principal.php?opcion=profesores" class="nav-link"> Profesores </a>
+              </li>
 
-             <li class="nav-item dropdown">
-               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Reportes</a>
+              <!-- opcion de auxiliares -->
 
-               <div class="dropdown-menu">
-                 
-                 <a href="principal.php?opcion=repo_contactos" class="dropdown-item"> <i class="fa fa-user-circle"></i> Contactos</a>
-                 <a href="principal.php?opcion=repo_grupos" class="dropdown-item"><i class="fas fa-users"></i> Grupos</a>
-               </div>
-             </li>
-              
-              <!-- opcion de procesos -->
-             <li class="nav-item dropdown">
-               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Procesos</a>
-               <div class="dropdown-menu">
+              <li class="nav-item dropdown">
+                  <a href="principal.php?opcion=auxiliares" class="nav-link"> Auxiliares </a>
+              </li>
 
-                  <a href="principal.php?opcion=proce_usuarios" class="dropdown-item"><i class="fa fa-user-circle"></i> Usuarios</a>
-                  <a href="principal.php?opcion=optener_copia" class="dropdown-item"><i class="fas fa-copy"></i> optener copia de seguridad</a>
-                  <a href="principal.php?opcion=descargar_copia" class="dropdown-item"><i class="far fa-copy"></i> restaurar copia de seguridad</a>
+              <!-- opcion de tikets -->
 
-               </div>
-             </li>
+              <li class="nav-item dropdown">
+                  <a href="principal.php?opcion=tikets" class="nav-link dropdown-toggle" data-toggle="dropdown"> Tikets </a>
+                  <div class="dropdown-menu">                      
+                    <a href="principal.php?opcion=nuevo_tiket" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
+                    <a href="principal.php?opcion=all_tikets" class="dropdown-item"><i class="fas fa-users"></i> todos los tikets </a>
+                  </div> 
+              </li>
 
 
             </ul>
