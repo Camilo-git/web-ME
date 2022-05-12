@@ -1,6 +1,6 @@
 /*
-SQLyog Community v1317 (64 bit)
-MySQL - 10421-MariaDB : Database - web_me
+SQLyog Community v13.1.7 (64 bit)
+MySQL - 10.4.24-MariaDB : Database - web_me
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10421-MariaDB : Database - web_me
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`web_me` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`web_me` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci */;
 
 USE `web_me`;
 
@@ -21,14 +21,14 @@ USE `web_me`;
 DROP TABLE IF EXISTS `tbl_aulas`;
 
 CREATE TABLE `tbl_aulas` (
-  `id` int(100) NOT NULL,
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `edificio` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `capacidad` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `comentario` varchar(500) COLLATE utf8_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`nombre`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  PRIMARY KEY (`id`,`nombre`),
+  KEY `nombre` (`nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_aulas` */
 
@@ -53,6 +53,26 @@ CREATE TABLE `tbl_auxiliares` (
 insert  into `tbl_auxiliares`(`cedula`,`nombre`,`celular`,`correo`,`direcion`) values 
 ('1032479967','German Camilo Bernal Muñoz','3104689209','gcbernal@unicesmag.edu.co','carrera 8e #16-09 praga');
 
+/*Table structure for table `tbl_detalle` */
+
+DROP TABLE IF EXISTS `tbl_detalle`;
+
+CREATE TABLE `tbl_detalle` (
+  `id` int(100) NOT NULL,
+  `id_ticket` int(100) NOT NULL,
+  `nom_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `cod_inventario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`,`id_ticket`,`nom_equipo`,`cod_inventario`),
+  KEY `key1` (`id_ticket`),
+  KEY `key2` (`nom_equipo`),
+  KEY `key3` (`cod_inventario`),
+  CONSTRAINT `cod_inventario` FOREIGN KEY (`cod_inventario`) REFERENCES `tbl_inventario` (`codigo`),
+  CONSTRAINT `id_ticket` FOREIGN KEY (`id_ticket`) REFERENCES `tbl_tiket` (`id`),
+  CONSTRAINT `nom_equipo` FOREIGN KEY (`nom_equipo`) REFERENCES `tbl_equipos` (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+/*Data for the table `tbl_detalle` */
+
 /*Table structure for table `tbl_docentes` */
 
 DROP TABLE IF EXISTS `tbl_docentes`;
@@ -70,7 +90,6 @@ CREATE TABLE `tbl_docentes` (
 /*Data for the table `tbl_docentes` */
 
 insert  into `tbl_docentes`(`cedula`,`nombre`,`correo`,`cel`,`programa`,`dependencia`) values 
-('1024788965','Nathalia Burbano','naburbano@unicesmag.edu.co','3105478965','derecho','acompañamiento'),
 ('59818906','Agreda Guerrero Maria Del Pilar','mpagreda@unicesmag.edu.co','','',''),
 ('98386828','Alban Guerrero Juan Francisco','jfalban@unicesmag.edu.co','','',''),
 ('98394281','Almeida Mejia Mario Fernando','mfalmeida@unicesmag.edu.co','','',''),
@@ -442,6 +461,7 @@ insert  into `tbl_docentes`(`cedula`,`nombre`,`correo`,`cel`,`programa`,`depende
 ('1085272983','NARVAEZ VALENCIAS CHRISTIAN GEOVANNY','cgnarvaez@unicesmag.edu.co','','',''),
 ('1085247008','Nasif Arciniegas Jalal Othman','jonasif@unicesmag.edu.co','','',''),
 ('13063742','Naspucil Benavides Antonio Enrique','aenaspucil@unicesmag.edu.co','','',''),
+('1024788965','Nathalia Burbano','naburbano@unicesmag.edu.co','3105478965','derecho','acompañamiento'),
 ('30738235','Navarro Fajardo Dilia Del Pilar','dpnavarro@unicesmag.edu.co','','',''),
 ('12986197','Navarro Fajardo Jesus Misael','jmnavarro@unicesmag.edu.co','','',''),
 ('40399870','Navarro Sanches Maria Angelica','manavarro@unicesmag.edu.co','','',''),
@@ -652,6 +672,7 @@ insert  into `tbl_docentes`(`cedula`,`nombre`,`correo`,`cel`,`programa`,`depende
 ('98386574','Zambrano Hinestrosa Jairo Roberto','jrzambrano@unicesmag.edu.co','','',''),
 ('94460651','Zamora Muñoz Dario Edwin','dezamora@unicesmag.edu.co','','',''),
 ('36759749','Zuleta Medina Alejandra','azuleta@unicesmag.edu.co','','','');
+
 /*Table structure for table `tbl_equipos` */
 
 DROP TABLE IF EXISTS `tbl_equipos`;
@@ -703,26 +724,18 @@ CREATE TABLE `tbl_tiket` (
   `h_entrada` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `nom_aux` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `nom_docente` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cod_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cod_inventario` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  PRIMARY KEY (`id`,`nom_aux`,`nom_docente`,`cod_equipo`,`cod_inventario`,`nombre_aula`),
+  `nom_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `estado` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`,`nom_aux`,`nom_docente`,`nom_aula`),
   KEY `key0` (`nom_aux`),
   KEY `key1` (`nom_docente`),
-  KEY `key2` (`cod_equipo`),
-  KEY `key3` (`nombre_aula`),
-  KEY `key4` (`cod_inventario`),
-  CONSTRAINT `cod_equipo` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_equipos` (`nombre`),
-  CONSTRAINT `cod_inventario` FOREIGN KEY (`cod_inventario`) REFERENCES `tbl_inventario` (`codigo`),
-  CONSTRAINT `nom_aula` FOREIGN KEY (`nombre_aula`) REFERENCES `tbl_aulas` (`nombre`),
+  KEY `key2` (`nom_aula`),
+  CONSTRAINT `nom_aula` FOREIGN KEY (`nom_aula`) REFERENCES `tbl_aulas` (`nombre`),
   CONSTRAINT `nom_aux` FOREIGN KEY (`nom_aux`) REFERENCES `tbl_auxiliares` (`nombre`),
   CONSTRAINT `nom_docente` FOREIGN KEY (`nom_docente`) REFERENCES `tbl_docentes` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `tbl_tiket` */
-
-insert  into `tbl_tiket`(`id`,`comentario`,`h_salida`,`h_entrada`,`nom_aux`,`nom_docente`,`cod_equipo`,`cod_inventario`,`nombre_aula`) values 
-(1,'se realiza entrega a las 11:20','15/4/2022 5:22','15/4/2022 7:00','German Camilo Bernal Muñoz','Nathalia Burbano','Portátil','32','A605');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
