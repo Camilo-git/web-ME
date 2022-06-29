@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2022 a las 02:57:59
+-- Tiempo de generación: 29-06-2022 a las 17:43:33
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `web_me`
+-- Base de datos: `web-me`
 --
 
 -- --------------------------------------------------------
@@ -72,8 +72,8 @@ INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion
 CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
-  `nom_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cod_inventario` int(11) NOT NULL
+  `estado_fk` int(100) NOT NULL,
+  `nom_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -702,17 +702,9 @@ CREATE TABLE `tbl_entrada` (
 CREATE TABLE `tbl_equipos` (
   `cod` int(100) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `estado` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_estado` int(100) NOT NULL,
   `cantidad` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_equipos`
---
-
-INSERT INTO `tbl_equipos` (`cod`, `nombre`, `estado`, `cantidad`) VALUES
-(16, 'Portátil', 'activo', '32'),
-(0, 'Video_Bean', 'activo', '8');
 
 -- --------------------------------------------------------
 
@@ -736,16 +728,9 @@ CREATE TABLE `tbl_inventario` (
   `marca` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `modelo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `comentario` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `estado` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_estado` int(100) NOT NULL,
   `cat_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_inventario`
---
-
-INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `estado`, `cat_equipo`) VALUES
-('32', 'Lenovo', '2018', 'se encuent', 'activo', 'Portátil');
 
 -- --------------------------------------------------------
 
@@ -769,7 +754,10 @@ CREATE TABLE `tbl_salida` (
 CREATE TABLE `tbl_tiket` (
   `id` int(100) NOT NULL,
   `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `id_salida` int(100) NOT NULL,
+  `id_entrada` int(100) NOT NULL,
+  `id_estado` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -793,7 +781,10 @@ ALTER TABLE `tbl_auxiliares`
 -- Indices de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_tiket` (`id_tiket`),
+  ADD KEY `estado_fk` (`estado_fk`),
+  ADD KEY `nom_equipo` (`nom_equipo`);
 
 --
 -- Indices de la tabla `tbl_docentes`
@@ -805,14 +796,17 @@ ALTER TABLE `tbl_docentes`
 -- Indices de la tabla `tbl_entrada`
 --
 ALTER TABLE `tbl_entrada`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nom_auxiliar_in` (`nom_auxiliar_in`),
+  ADD KEY `nom_docente_in` (`nom_docente_in`);
 
 --
 -- Indices de la tabla `tbl_equipos`
 --
 ALTER TABLE `tbl_equipos`
   ADD PRIMARY KEY (`nombre`),
-  ADD KEY `cod` (`cod`);
+  ADD KEY `cod` (`cod`),
+  ADD KEY `id_estado` (`id_estado`);
 
 --
 -- Indices de la tabla `tbl_estados`
@@ -824,21 +818,27 @@ ALTER TABLE `tbl_estados`
 -- Indices de la tabla `tbl_inventario`
 --
 ALTER TABLE `tbl_inventario`
-  ADD PRIMARY KEY (`codigo`,`cat_equipo`),
-  ADD KEY `key` (`cat_equipo`);
+  ADD PRIMARY KEY (`codigo`),
+  ADD KEY `key` (`cat_equipo`),
+  ADD KEY `estado` (`id_estado`);
 
 --
 -- Indices de la tabla `tbl_salida`
 --
 ALTER TABLE `tbl_salida`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nom_auxiliar_out` (`nom_auxiliar_out`),
+  ADD KEY `nom_docente_out` (`nom_docente_out`);
 
 --
 -- Indices de la tabla `tbl_tiket`
 --
 ALTER TABLE `tbl_tiket`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `key2` (`nombre_aula`) USING BTREE;
+  ADD PRIMARY KEY (`id`,`nombre_aula`,`id_salida`,`id_entrada`,`id_estado`) USING BTREE,
+  ADD KEY `key2` (`nombre_aula`) USING BTREE,
+  ADD KEY `key3` (`id_salida`),
+  ADD KEY `key4` (`id_entrada`),
+  ADD KEY `key5` (`id_estado`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -879,20 +879,47 @@ ALTER TABLE `tbl_tiket`
 --
 
 --
+-- Filtros para la tabla `tbl_detalle`
+--
+ALTER TABLE `tbl_detalle`
+  ADD CONSTRAINT `tbl_detalle_ibfk_1` FOREIGN KEY (`id_tiket`) REFERENCES `tbl_tiket` (`id`),
+  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`id`) REFERENCES `tbl_estados` (`id`);
+
+--
+-- Filtros para la tabla `tbl_entrada`
+--
+ALTER TABLE `tbl_entrada`
+  ADD CONSTRAINT `tbl_entrada_ibfk_1` FOREIGN KEY (`nom_auxiliar_in`) REFERENCES `tbl_auxiliares` (`nombre`),
+  ADD CONSTRAINT `tbl_entrada_ibfk_2` FOREIGN KEY (`nom_docente_in`) REFERENCES `tbl_docentes` (`nombre`);
+
+--
+-- Filtros para la tabla `tbl_equipos`
+--
+ALTER TABLE `tbl_equipos`
+  ADD CONSTRAINT `tbl_equipos_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
+
+--
 -- Filtros para la tabla `tbl_inventario`
 --
 ALTER TABLE `tbl_inventario`
-  ADD CONSTRAINT `cat_equipo` FOREIGN KEY (`cat_equipo`) REFERENCES `tbl_equipos` (`nombre`);
+  ADD CONSTRAINT `cat_equipo` FOREIGN KEY (`cat_equipo`) REFERENCES `tbl_equipos` (`nombre`),
+  ADD CONSTRAINT `tbl_inventario_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
+
+--
+-- Filtros para la tabla `tbl_salida`
+--
+ALTER TABLE `tbl_salida`
+  ADD CONSTRAINT `tbl_salida_ibfk_1` FOREIGN KEY (`nom_auxiliar_out`) REFERENCES `tbl_auxiliares` (`nombre`),
+  ADD CONSTRAINT `tbl_salida_ibfk_2` FOREIGN KEY (`nom_docente_out`) REFERENCES `tbl_docentes` (`nombre`);
 
 --
 -- Filtros para la tabla `tbl_tiket`
 --
 ALTER TABLE `tbl_tiket`
-  ADD CONSTRAINT `cod_equipo` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_equipos` (`nombre`),
-  ADD CONSTRAINT `cod_inventario` FOREIGN KEY (`cod_inventario`) REFERENCES `tbl_inventario` (`codigo`),
-  ADD CONSTRAINT `nom_aula` FOREIGN KEY (`nombre_aula`) REFERENCES `tbl_aulas` (`nombre`),
-  ADD CONSTRAINT `nom_aux` FOREIGN KEY (`nom_aux`) REFERENCES `tbl_auxiliares` (`nombre`),
-  ADD CONSTRAINT `nom_docente` FOREIGN KEY (`nom_docente`) REFERENCES `tbl_docentes` (`nombre`);
+  ADD CONSTRAINT `tbl_tiket_ibfk_1` FOREIGN KEY (`nombre_aula`) REFERENCES `tbl_aulas` (`nombre`),
+  ADD CONSTRAINT `tbl_tiket_ibfk_2` FOREIGN KEY (`id_salida`) REFERENCES `tbl_salida` (`id`),
+  ADD CONSTRAINT `tbl_tiket_ibfk_3` FOREIGN KEY (`id_entrada`) REFERENCES `tbl_entrada` (`id`),
+  ADD CONSTRAINT `tbl_tiket_ibfk_4` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
