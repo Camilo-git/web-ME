@@ -4,7 +4,7 @@ function conectarBD()
 {
  //VARIABLES PARA CONEXION
   $servidor  ="localhost";
-  $base_datos="web_me";
+  $base_datos="web-me";
   $usuario   ="root";
   $clave     ="";
 
