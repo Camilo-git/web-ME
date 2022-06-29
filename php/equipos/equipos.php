@@ -49,7 +49,7 @@
 										<tr>
 											<td><?php echo $fila['cod'];         ?></td>											
 											<td><?php echo $fila['nombre'];     ?></td>
-											<td><?php echo $fila['estado'];  ?></td>
+											<td><?php echo $fila['id_estado'];  ?></td>
 											<td><?php echo $fila['cantidad'];   ?></td>
 											<?php 
 												echo'<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id='.$fila	['cod'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
