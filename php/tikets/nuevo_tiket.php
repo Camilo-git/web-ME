@@ -8,7 +8,37 @@ include_once("clases/cls_conectarB.php");
     <div class="row">
         <div class="col-md-12">
             <h1>
-                codigo <span> id codigo</span>
+                codigo
+                <span>
+                    <?php 
+                        $conexion = conectarBD();
+                        $sSQL = "SELECT MAX(id) AS id FROM tbl_tiket";
+
+                        $dato = $conexion->query($sSQL);
+                        
+                        // imprimimos el resultado
+                        foreach( $dato as $fila)
+                        {
+                            echo $fila['id']+1;
+                        }
+                    ?>
+                    <div class="col-12 text-right"> 
+                        <span>
+                            <h2>hora de salida </h2>
+                            <i class="fa fa-user-circle"></i>
+
+                            <!-- creamos un javascript para obtener la hora y la fecha que transcurre en el sistema -->
+                            <script>
+                                var f = new Date();
+                                document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+
+                                var g = new Date();
+                                document.write(" " + (g.getHours()-12) + ":" + g.getMinutes() + ":" + g.getSeconds());
+                            </script>
+                     
+                        </span>
+                    </div>
+                </span>
             </h1>
         </div>
     </div><br>
@@ -50,7 +80,7 @@ include_once("clases/cls_conectarB.php");
             </select>
         </div>
     </div>
-    <!-- creamos un boton  de 6 unidades y lo centramos -->
+    <!-- creamos un boton -->
     <div class="row form-group">
         <div class="col-md-6">
             <button class="btn btn-primary btn-block" id="btn_guardar" name="btn_guardar">
@@ -58,7 +88,8 @@ include_once("clases/cls_conectarB.php");
             </button>
         </div>
     </div>
-
+    
+    
     
 </div>
 
