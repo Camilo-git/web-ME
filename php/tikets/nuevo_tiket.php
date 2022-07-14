@@ -33,7 +33,7 @@ include_once("clases/cls_conectarB.php");
                                 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                                 var g = new Date();
-                                document.write(" " + (g.getHours()-12) + ":" + g.getMinutes() + ":" + g.getSeconds());
+                                document.write(" " + (g.getHours()) + ":" + g.getMinutes() + ":" + g.getSeconds());
                             </script>
                      
                         </span>
