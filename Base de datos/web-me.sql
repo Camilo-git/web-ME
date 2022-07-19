@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2022 a las 04:41:52
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 19-07-2022 a las 15:42:31
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,6 +40,7 @@ CREATE TABLE `tbl_aulas` (
 --
 
 INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) VALUES
+(0, 'A404', 'San Francisco', '55', 'todas las sillas'),
 (13, 'A605', 'San Francisco', '59', 'con su video-bean empotrado');
 
 -- --------------------------------------------------------
@@ -61,7 +62,8 @@ CREATE TABLE `tbl_auxiliares` (
 --
 
 INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion`) VALUES
-('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga');
+('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga'),
+('0000000', 'sthwsh|', '161561', 'asdf', '156sdf');
 
 -- --------------------------------------------------------
 
@@ -72,9 +74,16 @@ INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion
 CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
-  `nom_estado` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `estado_fk` int(100) NOT NULL,
   `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_detalle`
+--
+
+INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `estado_fk`, `cod_equipo`) VALUES
+(1, 11, 1, '1120');
 
 -- --------------------------------------------------------
 
@@ -120,6 +129,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('59123399', 'Arteaga Figueroa Angela Maria', 'amarteaga@unicesmag.edu.co', '', '', ''),
 ('34556308', 'Arteaga Hoyos Amanda Del Rosario', 'ararteaga@unicesmag.edu.co', '', '', ''),
 ('98384398', 'Arturo Calvache Jorge Armando', 'jaarturo@unicesmag.edu.co', '', '', ''),
+('qasdf', 'asdfasdf', 'qwerqwer', 'asdggh', 'asdfa', 'asdfa'),
 ('87100617', 'Aux Patiño Over Hernan', 'ohaux@unicesmag.edu.co', '', '', ''),
 ('87067598', 'Ayala Benavides Joan Carlos', 'jcayala@unicesmag.edu.co', '', '', ''),
 ('30728738', 'Ayala Guatusmal Liliana', 'layala@unicesmag.edu.co', '', '', ''),
@@ -693,6 +703,13 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tbl_entrada`
+--
+
+INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
+(1, 'German Camilo Bernal Muñoz', 'BELTRAN JARAMILLO KAROL LIZETTE', '2022-07-19 15:02:40');
+
 -- --------------------------------------------------------
 
 --
@@ -702,7 +719,7 @@ CREATE TABLE `tbl_entrada` (
 CREATE TABLE `tbl_equipos` (
   `cod` int(100) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nom_estado` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `id_estado` int(100) NOT NULL,
   `cantidad` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -710,9 +727,11 @@ CREATE TABLE `tbl_equipos` (
 -- Volcado de datos para la tabla `tbl_equipos`
 --
 
-INSERT INTO `tbl_equipos` (`cod`, `nombre`, `nom_estado`, `cantidad`) VALUES
-(1, 'portatil', 'activo', '32'),
-(2, 'video-bean', 'activo', '10');
+INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
+(2, 'HDMI', 2, '100'),
+(0, 'Portatil', 2, '32'),
+(3, 'VGA', 2, '100'),
+(1, 'Video_Bean', 2, '10');
 
 -- --------------------------------------------------------
 
@@ -730,8 +749,12 @@ CREATE TABLE `tbl_estados` (
 --
 
 INSERT INTO `tbl_estados` (`id`, `estado`) VALUES
-(1, 'inactivo'),
-(9, 'activo');
+(1, 'Prestamo'),
+(2, 'Oficina'),
+(3, 'Pendiente'),
+(4, 'Vencido'),
+(5, 'Salida'),
+(6, 'Mantenimiento');
 
 -- --------------------------------------------------------
 
@@ -743,8 +766,8 @@ CREATE TABLE `tbl_inventario` (
   `codigo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `marca` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `modelo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(1000) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nom_estado` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `comentario` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_estado` int(100) NOT NULL,
   `cat_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -752,9 +775,9 @@ CREATE TABLE `tbl_inventario` (
 -- Volcado de datos para la tabla `tbl_inventario`
 --
 
-INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `nom_estado`, `cat_equipo`) VALUES
-('1120', 'lenovo', '2017', 'actualizado', 'activo', 'portatil'),
-('32', 'Epson', '2020', 'cambio de lampara', 'inactivo', 'video-bean');
+INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
+('1120', 'Lenovo', '2017', 'sin coment', 2, 'Portatil'),
+('8', 'Epson', '2020', 'Reparado', 2, 'Video_Bean');
 
 -- --------------------------------------------------------
 
@@ -769,6 +792,13 @@ CREATE TABLE `tbl_salida` (
   `fecha_out` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tbl_salida`
+--
+
+INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
+(0, 'German Camilo Bernal Muñoz', 'BELTRAN JARAMILLO KAROL LIZETTE', '2022-07-06 07:51:48');
+
 -- --------------------------------------------------------
 
 --
@@ -778,19 +808,18 @@ CREATE TABLE `tbl_salida` (
 CREATE TABLE `tbl_tiket` (
   `id` int(100) NOT NULL,
   `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `id_salida` int(100) DEFAULT NULL,
-  `id_entrada` int(100) DEFAULT NULL,
-  `nom_estado` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `id_salida` int(100) NOT NULL,
+  `id_entrada` int(100) NOT NULL,
+  `id_estado` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_tiket`
 --
 
-INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `nom_estado`) VALUES
-(8, 'sin comentario', 'A605', NULL, NULL, NULL),
-(9, 'comentario 01', 'A605', NULL, NULL, NULL);
+INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
+(11, 'sin comentario', 'A404', 0, 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -815,10 +844,8 @@ ALTER TABLE `tbl_auxiliares`
 ALTER TABLE `tbl_detalle`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tiket` (`id_tiket`),
-  ADD KEY `estado_fk` (`nom_estado`),
-  ADD KEY `nom_equipo` (`cod_equipo`),
-  ADD KEY `cod_equipo` (`cod_equipo`),
-  ADD KEY `nom_estado` (`nom_estado`);
+  ADD KEY `estado_fk` (`estado_fk`),
+  ADD KEY `cod_equipo` (`cod_equipo`) USING BTREE;
 
 --
 -- Indices de la tabla `tbl_docentes`
@@ -840,23 +867,21 @@ ALTER TABLE `tbl_entrada`
 ALTER TABLE `tbl_equipos`
   ADD PRIMARY KEY (`nombre`),
   ADD KEY `cod` (`cod`),
-  ADD KEY `nom_estado` (`nom_estado`);
+  ADD KEY `id_estado` (`id_estado`);
 
 --
 -- Indices de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
-  ADD PRIMARY KEY (`id`,`estado`) USING BTREE,
-  ADD KEY `estado` (`estado`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tbl_inventario`
 --
 ALTER TABLE `tbl_inventario`
   ADD PRIMARY KEY (`codigo`),
-  ADD KEY `nom_estado` (`nom_estado`),
-  ADD KEY `cat_equipo` (`cat_equipo`),
-  ADD KEY `nom_estado_2` (`nom_estado`);
+  ADD KEY `key` (`cat_equipo`),
+  ADD KEY `estado` (`id_estado`);
 
 --
 -- Indices de la tabla `tbl_salida`
@@ -874,7 +899,7 @@ ALTER TABLE `tbl_tiket`
   ADD KEY `key2` (`nombre_aula`) USING BTREE,
   ADD KEY `key3` (`id_salida`),
   ADD KEY `key4` (`id_entrada`),
-  ADD KEY `nom_estado` (`nom_estado`);
+  ADD KEY `key5` (`id_estado`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -884,25 +909,25 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_entrada`
 --
 ALTER TABLE `tbl_entrada`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_salida`
+-- AUTO_INCREMENT de la tabla `tbl_tiket`
 --
-ALTER TABLE `tbl_salida`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_tiket`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
@@ -913,8 +938,8 @@ ALTER TABLE `tbl_salida`
 --
 ALTER TABLE `tbl_detalle`
   ADD CONSTRAINT `tbl_detalle_ibfk_1` FOREIGN KEY (`id_tiket`) REFERENCES `tbl_tiket` (`id`),
-  ADD CONSTRAINT `tbl_detalle_ibfk_3` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_inventario` (`codigo`),
-  ADD CONSTRAINT `tbl_detalle_ibfk_4` FOREIGN KEY (`nom_estado`) REFERENCES `tbl_estados` (`estado`);
+  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`estado_fk`) REFERENCES `tbl_estados` (`id`),
+  ADD CONSTRAINT `tbl_detalle_ibfk_3` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_inventario` (`codigo`);
 
 --
 -- Filtros para la tabla `tbl_entrada`
@@ -927,14 +952,14 @@ ALTER TABLE `tbl_entrada`
 -- Filtros para la tabla `tbl_equipos`
 --
 ALTER TABLE `tbl_equipos`
-  ADD CONSTRAINT `tbl_equipos_ibfk_1` FOREIGN KEY (`nom_estado`) REFERENCES `tbl_estados` (`estado`);
+  ADD CONSTRAINT `tbl_equipos_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
 
 --
 -- Filtros para la tabla `tbl_inventario`
 --
 ALTER TABLE `tbl_inventario`
   ADD CONSTRAINT `cat_equipo` FOREIGN KEY (`cat_equipo`) REFERENCES `tbl_equipos` (`nombre`),
-  ADD CONSTRAINT `tbl_inventario_ibfk_1` FOREIGN KEY (`nom_estado`) REFERENCES `tbl_estados` (`estado`);
+  ADD CONSTRAINT `tbl_inventario_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
 
 --
 -- Filtros para la tabla `tbl_salida`
@@ -950,7 +975,7 @@ ALTER TABLE `tbl_tiket`
   ADD CONSTRAINT `tbl_tiket_ibfk_1` FOREIGN KEY (`nombre_aula`) REFERENCES `tbl_aulas` (`nombre`),
   ADD CONSTRAINT `tbl_tiket_ibfk_2` FOREIGN KEY (`id_salida`) REFERENCES `tbl_salida` (`id`),
   ADD CONSTRAINT `tbl_tiket_ibfk_3` FOREIGN KEY (`id_entrada`) REFERENCES `tbl_entrada` (`id`),
-  ADD CONSTRAINT `tbl_tiket_ibfk_4` FOREIGN KEY (`nom_estado`) REFERENCES `tbl_estados` (`estado`);
+  ADD CONSTRAINT `tbl_tiket_ibfk_4` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
