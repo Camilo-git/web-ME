@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2022 a las 15:42:31
+-- Tiempo de generación: 25-07-2022 a las 20:43:23
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.3.31
 
@@ -75,15 +75,16 @@ CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
   `estado_fk` int(100) NOT NULL,
-  `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `comentario` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_detalle`
 --
 
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `estado_fk`, `cod_equipo`) VALUES
-(1, 11, 1, '1120');
+INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `estado_fk`, `cod_equipo`, `comentario`) VALUES
+(1, 11, 1, '1120', '');
 
 -- --------------------------------------------------------
 
@@ -787,9 +788,9 @@ INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_est
 
 CREATE TABLE `tbl_salida` (
   `id` int(100) NOT NULL,
-  `nom_auxiliar_out` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nom_docente_out` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_out` datetime NOT NULL
+  `nom_auxiliar_out` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nom_docente_out` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -819,7 +820,9 @@ CREATE TABLE `tbl_tiket` (
 --
 
 INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(11, 'sin comentario', 'A404', 0, 1, 1);
+(11, 'sin comentario', 'A404', 0, 1, 1),
+(13, 'se realiza mediante sql', 'A404', 0, 1, 1),
+(14, 'sin comentario', 'A605', 0, 1, 2);
 
 --
 -- Índices para tablas volcadas
@@ -927,7 +930,7 @@ ALTER TABLE `tbl_estados`
 -- AUTO_INCREMENT de la tabla `tbl_tiket`
 --
 ALTER TABLE `tbl_tiket`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
