@@ -106,7 +106,13 @@
             default:
             echo "error de opcion";
               break;
-          }
+            case 'entrada_tiket':
+              include_once("php/tikets/entrada_tiket.php");
+              break;
+
+
+
+          } // fin del switch
 
 
 

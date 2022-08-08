@@ -61,7 +61,7 @@ if ($accion == "ADICIONAR") {
 }
 echo'
     <script>
-    location.href="guardar_tiket.php";
+    location.href="../../principal.php?opcion=entrada_tiket";
     </script> 
     ';
 ?>
