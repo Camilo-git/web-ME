@@ -97,8 +97,8 @@
               break;
 
 /*-----------------------tikets--------------*/
-            case 'nuevo_tiket':
-              include_once("php/tikets/nuevo_tiket.php");
+            case 'salida_tiket':
+              include_once("php/tikets/salida_tiket.php");
               break;
             case 'all_tikets':
               include_once("php/tikets/all_tikets.php");

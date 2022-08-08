@@ -1,79 +1,91 @@
-<?php 
+<?php
 include_once("cls_conectarB.php");
-class Auxiliar{
-    //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
-	private $cedula;
-	private $nombre;
-	private $celular;
-	private $correo;
-	private $direccion;
+class Auxiliar
+{
+   //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
+   private $cedula;
+   private $nombre;
+   private $celular;
+   private $correo;
+   private $direccion;
+
+   // METODO CONSTRUCTOR DE LA CLASE
+   public function __construct()
+   {
+      // SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
+      $this->cedula = 0;
+      $this->nombre = "";
+      $this->celular = "";
+      $this->correo = "";
+      $this->direccion = "";
+   }
 
    //METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($cedula,$nombre,$celular,$correo,$direccion)
+   function cargarDatos($cedula, $nombre, $celular, $correo, $direccion)
    {
-     $this->cedula=$cedula;
-     $this->nombre=$nombre;
-     $this->celular=$celular;
-     $this->correo=$correo;
-     $this->direccion=$direccion;
+      $this->cedula = $cedula;
+      $this->nombre = $nombre;
+      $this->celular = $celular;
+      $this->correo = $correo;
+      $this->direccion = $direccion;
    }
 
    //SE DEFINEN LOS METODOS SET Y GET
    function setcedula($cedula)
-	{
-		$this->cedula = $cedula;
-	}
+   {
+      $this->cedula = $cedula;
+   }
 
    function setNombre($nombre)
-	{
-		$this->nombre = $nombre;
-	}
+   {
+      $this->nombre = $nombre;
+   }
 
    function setcelular($celular)
-	{
-		$this->celular = $celular;
-	}
+   {
+      $this->celular = $celular;
+   }
 
    function setcorreo($correo)
-	{
-		$this->correo = $correo;
-	}
+   {
+      $this->correo = $correo;
+   }
 
    function setdireccion($direccion)
-	{
-		$this->direccion = $direccion;
-	}
+   {
+      $this->direccion = $direccion;
+   }
 
 
    function getcedula()
-	{
-		return $this->cedula;
-	}
+   {
+      return $this->cedula;
+   }
 
    function getNombre()
-	{
-		return $this->nombre;
-	}
+   {
+      return $this->nombre;
+   }
 
    function getcelular()
-	{
-		return $this->celular;
-	}
+   {
+      return $this->celular;
+   }
 
    function getcorreo()
-	{
-		return $this->correo;
-	}
+   {
+      return $this->correo;
+   }
 
    function getdireccion()
-	{
-		return $this->direccion;
-	}
+   {
+      return $this->direccion;
+   }
 
-   
+
 
    //METODOS CRU CREATE,READ,UPDATE,DELETE
-	/*--------------------------------------------------------------------------
+   /*--------------------------------------------------------------------------
 	 Function insertar()
 	 Objetivo: Permite el ingreso de registros nuevos a la tabla de Contactos
 	 Retorno: valor booleano 
@@ -82,112 +94,103 @@ class Auxiliar{
 	 --------------------------------------------------------------------------*/
    public function insertar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_auxiliares VALUES (?,?,?,?,?)";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->cedula);
-     $pst->bindParam(2,$this->nombre);
-     $pst->bindParam(3,$this->celular);
-     $pst->bindParam(4,$this->correo);
-     $pst->bindParam(5,$this->direccion);
-    //se envia a ejecutar la conexion
-    $filas=$pst->execute();
-    $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método insertar
-  /*--------------------------------------------------------------------------
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "INSERT INTO tbl_auxiliares VALUES (?,?,?,?,?)";
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->cedula);
+         $pst->bindParam(2, $this->nombre);
+         $pst->bindParam(3, $this->celular);
+         $pst->bindParam(4, $this->correo);
+         $pst->bindParam(5, $this->direccion);
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método insertar
+   /*--------------------------------------------------------------------------
 	 Function eliminar()
 	 Objetivo: Permite eliminar registros de la tabla de Contactos
 	 Retorno: valor booleano 
 	 1: true -> La operaciòn se ejecutò con èxito
 	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
-  public function eliminar()
+   public function eliminar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="DELETE FROM tbl_contactos WHERE con_cedula = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->cedula);
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método eliminar
-  /*--------------------------------------------------------------------------
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "DELETE FROM tbl_contactos WHERE con_cedula = ?";
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->cedula);
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método eliminar
+   /*--------------------------------------------------------------------------
 	 Function modificar()
 	 Objetivo: Permite editar los registros de un contacto
 	 Retorno: valor booleano 
 	 1: true -> La operaciòn se ejecutò con èxito
 	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
-  public function modificar()
+   public function modificar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="UPDATE tbl_contactos SET
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "UPDATE tbl_contactos SET
            con_nombre    = ?,
            con_celular = ?,
            con_correo  = ?,
            con_direccion    = ?
            WHERE  con_cedula = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->nombre);
-     $pst->bindParam(2,$this->celular);
-     $pst->bindParam(3,$this->correo);
-     $pst->bindParam(4,$this->direccion);
-     $pst->bindParam(7,$this->cedula);
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método modificar
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->nombre);
+         $pst->bindParam(2, $this->celular);
+         $pst->bindParam(3, $this->correo);
+         $pst->bindParam(4, $this->direccion);
+         $pst->bindParam(7, $this->cedula);
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método modificar
 }//cierra la clase
 
 //para probar el método insertar
@@ -225,6 +228,3 @@ if ($contacto->modificar())
 {
 	echo 'El contacto no se pudo editar correctamente';
 }*/
-
-
- ?>
