@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2022 a las 20:43:23
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.31
+-- Tiempo de generación: 09-08-2022 a las 03:57:13
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,18 +62,11 @@ CREATE TABLE `tbl_auxiliares` (
 --
 
 INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion`) VALUES
+('1085265396', 'Benavides Castro Jose Luis ', '3135271772', 'jlbenavides@unicesmag.edu.co', ''),
+('1085251168', 'De La Cruz Hernandez Miguel Ignacio', '3177474845', 'midelacruz@unicesmag.edu.co', ''),
+('30735249', 'Diaz Pabon Nelsy Eugenia', '3053406408', 'nediaz@unicesmag.edu.co', ''),
 ('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga'),
-('1085265396','Benavides Castro Jose Luis ','3135271772','jlbenavides@unicesmag.edu.co',''),
-('1085251168','De La Cruz Hernandez Miguel Ignacio','3177474845','midelacruz@unicesmag.edu.co',''),
-('30735249','Diaz Pabon Nelsy Eugenia','3053406408','nediaz@unicesmag.edu.co',''),
-('1032479967','German Camilo Bernal Muñoz','3104689209','gcbernal@unicesmag.edu.co','carrera 8e #16-09 praga'),
-('30738181','Hernandez Benavides Maria Elena','3104726405','mehernandez1@unicesmag.edu.co','MzaC/casa55A Santa Monica'),
-('94509957','Insuasti Quevedo William Alexander','3186652786','wainsuasti@unicesmag.edu.co','calle 23 #2-99 Carolina'),
-('1085339826', 'Leidy Daniela Bacca Potosi', '3145639902', 'ldbacca@unicesmag.edu.co', 'mz B4 cz 7 B/Belen'),
-('1004508418', 'Lisseth Katherine Enriquez Delgado', '3122510352', 'lkenriquez@unicesmag.edu.co', 'Clle 22b #26-112'),
-('1004623930','Ruales Luna Miller Manuel','3183758760','mmruales@unicesmag.edu.co',''),
-('1085249941','Salazar Usamag Diego Armando','3206863043','dasalazar@unicesmag.edu.co',''),
-('27224776','Tobar Guerrero Ana Del Pilar','3127749019','aptobar@unicesmag.edu.co','');
+('0000000', 'sthwsh|', '161561', 'asdf', '156sdf');
 
 -- --------------------------------------------------------
 
@@ -86,15 +79,8 @@ CREATE TABLE `tbl_detalle` (
   `id_tiket` int(100) NOT NULL,
   `estado_fk` int(100) NOT NULL,
   `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_detalle`
---
-
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `estado_fk`, `cod_equipo`, `comentario`) VALUES
-(1, 11, 1, '1120', '');
 
 -- --------------------------------------------------------
 
@@ -709,9 +695,9 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 
 CREATE TABLE `tbl_entrada` (
   `id` int(100) NOT NULL,
-  `nom_auxiliar_in` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nom_docente_in` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_in` datetime NOT NULL
+  `nom_auxiliar_in` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nom_docente_in` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -719,7 +705,8 @@ CREATE TABLE `tbl_entrada` (
 --
 
 INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
-(1, 'German Camilo Bernal Muñoz', 'BELTRAN JARAMILLO KAROL LIZETTE', '2022-07-19 15:02:40');
+(2, NULL, NULL, NULL),
+(3, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -808,7 +795,7 @@ CREATE TABLE `tbl_salida` (
 --
 
 INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
-(0, 'German Camilo Bernal Muñoz', 'BELTRAN JARAMILLO KAROL LIZETTE', '2022-07-06 07:51:48');
+(2, 'German Camilo Bernal Muñoz', 'Arcos Castillo Luz Nayibe', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -824,15 +811,6 @@ CREATE TABLE `tbl_tiket` (
   `id_entrada` int(100) NOT NULL,
   `id_estado` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_tiket`
---
-
-INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(11, 'sin comentario', 'A404', 0, 1, 1),
-(13, 'se realiza mediante sql', 'A404', 0, 1, 1),
-(14, 'sin comentario', 'A605', 0, 1, 2);
 
 --
 -- Índices para tablas volcadas
@@ -925,22 +903,10 @@ ALTER TABLE `tbl_detalle`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_entrada`
---
-ALTER TABLE `tbl_entrada`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `tbl_tiket`
---
-ALTER TABLE `tbl_tiket`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas

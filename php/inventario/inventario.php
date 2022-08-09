@@ -54,7 +54,7 @@
 											<td><?php echo $fila['marca'];     ?></td>
 											<td><?php echo $fila['modelo'];  ?></td>
 											<td><?php echo $fila['comentario'];   ?></td>
-											<td><?php echo $fila['nom_estado'];   ?></td>
+											<td><?php echo $fila['id_estado'];   ?></td>
 											<td><?php echo $fila['cat_equipo'];   ?></td>
 											<?php 
 												echo'<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id='.$fila	['codigo'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
