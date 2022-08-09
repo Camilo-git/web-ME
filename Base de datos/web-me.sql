@@ -63,7 +63,17 @@ CREATE TABLE `tbl_auxiliares` (
 
 INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion`) VALUES
 ('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga'),
-('0000000', 'sthwsh|', '161561', 'asdf', '156sdf');
+('1085265396','Benavides Castro Jose Luis ','3135271772','jlbenavides@unicesmag.edu.co',''),
+('1085251168','De La Cruz Hernandez Miguel Ignacio','3177474845','midelacruz@unicesmag.edu.co',''),
+('30735249','Diaz Pabon Nelsy Eugenia','3053406408','nediaz@unicesmag.edu.co',''),
+('1032479967','German Camilo Bernal Muñoz','3104689209','gcbernal@unicesmag.edu.co','carrera 8e #16-09 praga'),
+('30738181','Hernandez Benavides Maria Elena','3104726405','mehernandez1@unicesmag.edu.co','MzaC/casa55A Santa Monica'),
+('94509957','Insuasti Quevedo William Alexander','3186652786','wainsuasti@unicesmag.edu.co','calle 23 #2-99 Carolina'),
+('1085339826', 'Leidy Daniela Bacca Potosi', '3145639902', 'ldbacca@unicesmag.edu.co', 'mz B4 cz 7 B/Belen'),
+('1004508418', 'Lisseth Katherine Enriquez Delgado', '3122510352', 'lkenriquez@unicesmag.edu.co', 'Clle 22b #26-112'),
+('1004623930','Ruales Luna Miller Manuel','3183758760','mmruales@unicesmag.edu.co',''),
+('1085249941','Salazar Usamag Diego Armando','3206863043','dasalazar@unicesmag.edu.co',''),
+('27224776','Tobar Guerrero Ana Del Pilar','3127749019','aptobar@unicesmag.edu.co','');
 
 -- --------------------------------------------------------
 
