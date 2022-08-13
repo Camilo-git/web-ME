@@ -10,13 +10,14 @@
     // creamos un objeto de la clase cls_tikets
     $obj_tikets = new Tikets();
     // creamos las variables con los datos que recibimos por el metodo POST
-    $accion = 'ADICIONAR';
+    
     $id     = $_POST['id'];
-    $comentario = $_POST['comentario'];
-    $nombre_aula   = $_POST['nombre_aula'];
-    $id_salida = $_POST['id_salida'];
-    $id_entrada = $_POST['id_entrada'];
-    $id_estado = $_POST['id_estado'];
+    $nombre_aula   = $_POST['txt_aula'];
+    $id_estado = $_POST['txt_estado'];
+    $comentario = $_POST['txt_comentario'];
+    $accion = $_POST ['btn_guardar'];
+    $id_salida = $id;
+    $id_entrada = $id;
     // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_tikets
     $obj_tikets->cargarDatos($id, $comentario, $nombre_aula, $id_salida, $id_entrada, $id_estado);
 

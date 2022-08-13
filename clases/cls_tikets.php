@@ -111,7 +111,6 @@ class Tikets{
         $pst->bindParam(2,$this->comentario);
         $pst->bindParam(3,$this->nombre_aula);
         $pst->bindParam(4,$this->id_salida);
-        $pst->execute();
         $pst->bindParam(5,$this->id_entrada);
         $pst->bindParam(6,$this->id_estado);
         $filas = $pst->execute();

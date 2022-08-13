@@ -1,3 +1,6 @@
+<?php
+include_once("clases/cls_conectarB.php");
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -7,7 +10,19 @@
         </div>
         <div class="col-md-6">
             <h3 class="text-primary">
-                N° sql--
+                <span>
+                    <?php
+                    $conexion = conectarBD();
+                    $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+                    $dato = $conexion->query($sSQL);
+                    // imprimimos el resultado
+                    foreach ($dato as $fila) {
+                        $fila = $fila['id'];
+                        echo $fila;
+                        echo " <input type='hidden' name='num_id' value='$fila'br />";
+                    }
+                    ?>
+                </span>
             </h3>
         </div>
     </div>
@@ -23,7 +38,19 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class="text-primary">
-                        N° sql--
+                        <span>
+                            <?php
+                            $conexion = conectarBD();
+                            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+                            $dato = $conexion->query($sSQL);
+                            // imprimimos el resultado
+                            foreach ($dato as $fila) {
+                                $fila = $fila['id'];
+                                echo $fila;
+                                echo " <input type='hidden' name='num_id' value='$fila'br />";
+                            }
+                            ?>
+                        </span>
                     </h3>
                 </div>
             </div>
@@ -37,10 +64,29 @@
                 <div class="col-md-6">
 
                     <button type="button" class="btn btn-block btn-primary">
-                        id_auxiliar
+
+                        <?php
+
+                        $conexion = conectarBD();
+
+                        $sSQL = "SELECT * FROM tbl_salida WHERE id = (SELECT MAX(id) FROM tbl_salida)";
+                        $dato = $conexion->query($sSQL);
+                        // imprimimos el resultado
+                        foreach ($dato as $fila) {
+                            $fila = $fila['nom_auxiliar_out'];
+                            echo $fila;
+                            echo " <input type='hidden' name='nom_auxiliar_out' value='$fila'br />";
+                        }
+
+                        $datos = $conexion->query($sSQL);
+                        ?>
+
                     </button>
+
                 </div>
+
             </div>
+
             <div class="row">
                 <div class="col-md-6">
                     <h3 class="text-right">
@@ -50,7 +96,23 @@
                 <div class="col-md-6">
 
                     <button type="button" class="btn btn-block btn-primary active">
-                        id_docente
+
+                        <?php
+
+                        $conexion = conectarBD();
+
+                        $sSQL = "SELECT * FROM tbl_salida WHERE id = (SELECT MAX(id) FROM tbl_salida)";
+                        $dato = $conexion->query($sSQL);
+                        // imprimimos el resultado
+                        foreach ($dato as $fila) {
+                            $fila = $fila['nom_docente_out'];
+                            echo $fila;
+                            echo " <input type='hidden' name='nom_docente_out' value='$fila'br />";
+                        }
+
+                        $datos = $conexion->query($sSQL);
+                        ?>
+
                     </button>
                 </div>
             </div>
@@ -64,7 +126,19 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class="text-primary">
-                        N° sql--
+                        <span>
+                            <?php
+                            $conexion = conectarBD();
+                            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+                            $dato = $conexion->query($sSQL);
+                            // imprimimos el resultado
+                            foreach ($dato as $fila) {
+                                $fila = $fila['id'];
+                                echo $fila;
+                                echo " <input type='hidden' name='num_id' value='$fila'br />";
+                            }
+                            ?>
+                        </span>
                     </h3>
                 </div>
             </div>
@@ -100,7 +174,20 @@
     <br>
     <hr>
     <!-- creamos el formulario para tiket -->
-    <form action="php/tikets/guardar_tiket.php">
+    <form action="php/tikets/guardar_tiket.php" method="POST">
+        <span>
+            <?php
+            $conexion = conectarBD();
+            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+            $dato = $conexion->query($sSQL);
+            // imprimimos el resultado
+            foreach ($dato as $fila) {
+                $fila = $fila['id'];
+                echo " <input type='hidden' name='id' value='$fila'br />";
+            }
+            ?>
+        </span>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -160,19 +247,24 @@
                         </h3>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" placeholder="Ingrese el comentario" value="" id="txt">
+                        <input type="text" class="form-control" placeholder="Ingrese el comentario" name="txt_comentario" value="" id="txt">
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-md-12">
 
-                        <button type="button" class="btn btn-block active btn-lg btn-outline-danger">
+                        
+
+                        <button class="btn btn-block active btn-lg btn-outline-danger" name="btn_guardar" value="ADICIONAR">
                             Guardar
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </form>
 </div>
