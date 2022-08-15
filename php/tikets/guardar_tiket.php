@@ -55,20 +55,10 @@
             ';
         }
     }
-    else{
-        if ($obj_tikets->cerrar()){
-            echo'
-            <script> 
-           
-            alert("El registro SE cerró CORRECTAMENTE");
-            
-            </script>
-            ';
-        }
-    }
+  
     // echo'
     // <script>
-    // location.href="../../principal.php?opcion=tikets";
+    // location.href="../../principal.php?opcion=";
     // </script>
     // ';
 

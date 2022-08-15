@@ -102,7 +102,7 @@ class Tikets{
     //creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_contactos VALUES (?,?,?,?,?,?)";
+    $sSQL="INSERT INTO tbl_tiket VALUES (?,?,?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
