@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2022 a las 03:57:13
+-- Tiempo de generación: 15-08-2022 a las 04:30:12
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Versión de PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,7 +83,7 @@ INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion
 CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
-  `estado_fk` int(100) NOT NULL,
+  `id_estado` int(100) NOT NULL,
   `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -706,14 +706,6 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_entrada`
---
-
-INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
-(2, NULL, NULL, NULL),
-(3, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -796,13 +788,6 @@ CREATE TABLE `tbl_salida` (
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_salida`
---
-
-INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
-(2, 'German Camilo Bernal Muñoz', 'Arcos Castillo Luz Nayibe', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -841,7 +826,7 @@ ALTER TABLE `tbl_auxiliares`
 ALTER TABLE `tbl_detalle`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tiket` (`id_tiket`),
-  ADD KEY `estado_fk` (`estado_fk`),
+  ADD KEY `id_estado` (`id_estado`),
   ADD KEY `cod_equipo` (`cod_equipo`) USING BTREE;
 
 --
@@ -923,7 +908,7 @@ ALTER TABLE `tbl_estados`
 --
 ALTER TABLE `tbl_detalle`
   ADD CONSTRAINT `tbl_detalle_ibfk_1` FOREIGN KEY (`id_tiket`) REFERENCES `tbl_tiket` (`id`),
-  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`estado_fk`) REFERENCES `tbl_estados` (`id`),
+  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`),
   ADD CONSTRAINT `tbl_detalle_ibfk_3` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_inventario` (`codigo`);
 
 --

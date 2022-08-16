@@ -56,10 +56,10 @@
         }
     }
   
-    // echo'
-    // <script>
-    // location.href="../../principal.php?opcion=";
-    // </script>
-    // ';
+    echo'
+    <script>
+    location.href="../../principal.php?opcion=nuevo_detalle";
+    </script>
+    ';
 
 ?>
