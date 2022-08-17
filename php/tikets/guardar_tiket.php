@@ -9,6 +9,20 @@
     include_once("../../clases/cls_tikets.php");
     // creamos un objeto de la clase cls_tikets
     $obj_tikets = new Tikets();
+
+    //  traemos de la tabla salida el id_salida mas alto
+$conexion = conectarBD();
+$sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+$dato = $conexion->query($sSQL);                            
+// imprimimos el resultado
+foreach( $dato as $fila)
+{
+    $fila = $fila['id'];
+    echo $fila;
+    echo " <input type='hidden' name='num_id' value='$fila'br />";
+}
+
+
     // creamos las variables con los datos que recibimos por el metodo POST
     
     $id     = $_POST['id'];
@@ -25,12 +39,12 @@
     
         if ($obj_tikets->insertar()){
             echo'
-            <script> 
+            // <script> 
            
-            alert("El registro SE guardo CORRECTAMENTE");
+            // alert("El registro SE guardo CORRECTAMENTE");
             
-            </script>
-            ';
+            // </script>
+            // ';
         }
     }
     elseif ($accion == "EDITAR"){
@@ -61,5 +75,3 @@
     location.href="../../principal.php?opcion=nuevo_detalle";
     </script>
     ';
-
-?>

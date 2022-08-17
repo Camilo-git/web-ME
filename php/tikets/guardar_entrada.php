@@ -6,7 +6,7 @@ $obj_entrada = new Entrada();
 // creamos las variables vacias
 $accion = "ADICIONAR";
 
- 
+//  traemos de la tabla salida el id_salida mas alto
 $conexion = conectarBD();
 $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
 $dato = $conexion->query($sSQL);                            
