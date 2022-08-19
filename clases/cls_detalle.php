@@ -11,17 +11,25 @@ class Detalle{
     private $comentario;
 
     // metodo constructor de la clase
-    public function cargarDatos( $id_tiket, $id_estado, $cod_equipo, $comentario){
+    public function cargarDatos($id, $id_tiket, $id_estado, $cod_equipo, $comentario){
         // se definen las variables para manejar los campos de la clase
         
+        $this->id = $id;
         $this->id_tiket = $id_tiket;
         $this->id_estado = $id_estado;
         $this->cod_equipo = $cod_equipo;
         $this->comentario = $comentario;
     }
 
+
    
     // metodos get y set de la clase
+    public function getId(){
+        return $this->id;
+    }
+    public function setId($id){
+        $this->id = $id;
+    }
     public function getId_tiket(){
         return $this->id_tiket;
     }
