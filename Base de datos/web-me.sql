@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2022 a las 18:59:09
+-- Tiempo de generación: 21-08-2022 a las 05:54:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
@@ -83,17 +83,18 @@ INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion
 CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
-  `id_estado` int(100) NOT NULL,
-  `cod_equipo` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Comentario` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
+  `id_estado` int(100) DEFAULT NULL,
+  `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_detalle`
 --
 
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `Comentario`) VALUES
-(2, 3, 2, '178', 'sin comentario');
+INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
+(12, 4, 1, '1120', 'sin comentario'),
+(13, 4, 1, '1120', 'sin comentario');
 
 -- --------------------------------------------------------
 
@@ -778,7 +779,7 @@ CREATE TABLE `tbl_inventario` (
   `codigo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `marca` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `modelo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `comentario` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_estado` int(100) NOT NULL,
   `cat_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -788,8 +789,8 @@ CREATE TABLE `tbl_inventario` (
 --
 
 INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
-('1122', 'Lenovo', '2017', 'esta actua', 2, 'Video_Bean'),
-('178', 'epson', '2022', 'actualizad', 2, 'Portatil');
+('1120', 'Lenovo', '2017', 'sin coment', 2, 'Portatil'),
+('8', 'Epson', '2020', 'Reparado', 2, 'Video_Bean');
 
 -- --------------------------------------------------------
 
@@ -810,8 +811,8 @@ CREATE TABLE `tbl_salida` (
 
 INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
 (2, 'German Camilo Bernal Muñoz', 'Arcos Castillo Luz Nayibe', '0000-00-00 00:00:00'),
-(3, 'Lisseth Katherine Enriquez Delgado', 'Argoty Constain Sonia Patricia', '0000-00-00 00:00:00'),
-(4, 'Benavides Castro Jose Luis ', 'Argoty Constain Sonia Patricia', '0000-00-00 00:00:00');
+(3, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '0000-00-00 00:00:00'),
+(4, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -833,7 +834,7 @@ CREATE TABLE `tbl_tiket` (
 --
 
 INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(3, 'Se realiza salida para San Damian.', 'A404', 3, 3, 1),
+(3, 'sin comentario', 'A404', 3, 3, 1),
 (4, 'sin comentario', 'A404', 4, 4, 1);
 
 --
@@ -859,8 +860,8 @@ ALTER TABLE `tbl_auxiliares`
 ALTER TABLE `tbl_detalle`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tiket` (`id_tiket`),
-  ADD KEY `id_estado` (`id_estado`),
-  ADD KEY `cod_equipo` (`cod_equipo`) USING BTREE;
+  ADD KEY `cod_equipo` (`cod_equipo`) USING BTREE,
+  ADD KEY `id_estado` (`id_estado`);
 
 --
 -- Indices de la tabla `tbl_docentes`
@@ -924,7 +925,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
@@ -940,8 +941,8 @@ ALTER TABLE `tbl_estados`
 -- Filtros para la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  ADD CONSTRAINT `tbl_detalle_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`),
-  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`id_tiket`) REFERENCES `tbl_tiket` (`id`),
+  ADD CONSTRAINT `tbl_detalle_ibfk_1` FOREIGN KEY (`id_tiket`) REFERENCES `tbl_tiket` (`id`),
+  ADD CONSTRAINT `tbl_detalle_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`),
   ADD CONSTRAINT `tbl_detalle_ibfk_3` FOREIGN KEY (`cod_equipo`) REFERENCES `tbl_inventario` (`codigo`);
 
 --

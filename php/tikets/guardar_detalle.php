@@ -13,13 +13,13 @@
     // creamos las variables con los datos que llegan por el metodo post
     $id = 0;
     $accion = $_POST['btn_guardar'];
-    $num_id = $_POST['num_id'];
+    $id_tiket = $_POST['num_id'];
     $cod_inventario = $_POST['cod_inventario'];
     $estado = $_POST['txt_estado'];
     $comentario = $_POST['txt_comentario'];
 
     // llamamos al objeto de la clase cls_detalle para ejeccutar la accion
-    $obj_detalle->cargarDatos($id, $num_id, $cod_inventario, $estado, $comentario);
+    $obj_detalle->cargarDatos($id, $id_tiket,  $estado, $cod_inventario, $comentario);
 
     // si la accion es ADICIONAR
     if ($accion == "ADICIONAR") {
@@ -58,11 +58,11 @@
          }
     }
 
-    // echo'
-    // <script>
-    // location.href="../../principal.php?opcion=nuevo_detalle";
-    // </script>
-    // ';
+    echo'
+    <script>
+    location.href="../../principal.php?opcion=nuevo_detalle";
+    </script>
+    ';
 
 
 

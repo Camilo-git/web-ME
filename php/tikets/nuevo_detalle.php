@@ -4,9 +4,7 @@ include_once("clases/cls_conectarB.php");
 
 <div class="container-fluid">
     <!-- agregamos el formulario -->
-    <form action="php/tikets/guardar_detalle.php" method="POST"
-    
-    <!-- traemos el ultimo id de la salida pra grabar varios detalles con ese id -->
+    <form action="php/tikets/guardar_detalle.php" method="POST" <!-- traemos el ultimo id de la salida pra grabar varios detalles con ese id -->
         <span>
             <?php
             $conexion = conectarBD();
@@ -41,7 +39,7 @@ include_once("clases/cls_conectarB.php");
                                     <div class="col-md-12">
                                         <!-- creamos una lista desplegable -->
                                         <select class="form-control" id="num_id_equipo" name="cod_inventario">
-                                            <option value="0">Equipo N°</option>
+                                            <option value="1">Equipo N°</option>
                                             <?php
                                             include_once("php/listas/cargar_equipo.php");
                                             ?>
