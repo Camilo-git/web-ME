@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2022 a las 05:54:34
+-- Tiempo de generación: 22-08-2022 a las 14:36:45
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
@@ -40,6 +40,9 @@ CREATE TABLE `tbl_aulas` (
 --
 
 INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) VALUES
+(100, 'A401', 'San Francisco', '65', 'con video beam'),
+(100, 'A402', 'San Francisco', '35', 'sillas casani'),
+(100, 'A403', 'San Francisco', '45', 'sillas completas '),
 (0, 'A404', 'San Francisco', '55', 'todas las sillas'),
 (13, 'A605', 'San Francisco', '59', 'con su video-bean empotrado');
 
@@ -87,14 +90,6 @@ CREATE TABLE `tbl_detalle` (
   `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_detalle`
---
-
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
-(12, 4, 1, '1120', 'sin comentario'),
-(13, 4, 1, '1120', 'sin comentario');
 
 -- --------------------------------------------------------
 
@@ -714,15 +709,6 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_entrada`
---
-
-INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
-(2, NULL, NULL, NULL),
-(3, NULL, NULL, NULL),
-(4, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -733,7 +719,7 @@ CREATE TABLE `tbl_equipos` (
   `cod` int(100) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `id_estado` int(100) NOT NULL,
-  `cantidad` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `cantidad` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -741,10 +727,21 @@ CREATE TABLE `tbl_equipos` (
 --
 
 INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
-(2, 'HDMI', 2, '100'),
-(0, 'Portatil', 2, '32'),
-(3, 'VGA', 2, '100'),
-(1, 'Video_Bean', 2, '10');
+(8, 'cabina', 2, 6),
+(4, 'control', 2, 42),
+(6, 'convertidor', 2, 20),
+(5, 'extencion ', 2, 23),
+(10, 'faldon', 2, 30),
+(12, 'florero', 2, 6),
+(2, 'hdmi', 2, 100),
+(11, 'mantel', 2, 30),
+(9, 'mesa', 2, 15),
+(7, 'palantes', 2, 20),
+(0, 'Portatil', 2, 32),
+(13, 'señalizador laser', 2, 5),
+(14, 'sillas', 2, 300),
+(3, 'vga', 2, 100),
+(1, 'video beam', 2, 10);
 
 -- --------------------------------------------------------
 
@@ -789,8 +786,12 @@ CREATE TABLE `tbl_inventario` (
 --
 
 INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
-('1120', 'Lenovo', '2017', 'sin coment', 2, 'Portatil'),
-('8', 'Epson', '2020', 'Reparado', 2, 'Video_Bean');
+('1', 'Epson', '2018', 'necesita m', 2, 'video beam'),
+('1291', 'Lenovo', '2015', 'sin actual', 2, 'Portatil'),
+('1303', 'Lenovo', '2015', 'sn-c', 2, 'Portatil'),
+('1400', 'Lenovo', '2015', 'presenta f', 2, 'Portatil'),
+('2', 'Epson', '2018', 'sn-c', 2, 'video beam'),
+('3', 'Epson', '2018', 'sn-c', 2, 'video beam');
 
 -- --------------------------------------------------------
 
@@ -804,15 +805,6 @@ CREATE TABLE `tbl_salida` (
   `nom_docente_out` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_salida`
---
-
-INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
-(2, 'German Camilo Bernal Muñoz', 'Arcos Castillo Luz Nayibe', '0000-00-00 00:00:00'),
-(3, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '0000-00-00 00:00:00'),
-(4, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -830,18 +822,7 @@ CREATE TABLE `tbl_tiket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `tbl_tiket`
---
 
-INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(3, 'sin comentario', 'A404', 3, 3, 1),
-(4, 'sin comentario', 'A404', 4, 4, 1);
-
---
--- Índices para tablas volcadas
---
-
---
 -- Indices de la tabla `tbl_aulas`
 --
 ALTER TABLE `tbl_aulas`
@@ -931,7 +912,7 @@ ALTER TABLE `tbl_detalle`
 -- AUTO_INCREMENT de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- Restricciones para tablas volcadas
