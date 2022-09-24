@@ -1,107 +1,87 @@
 <?php 
 include_once("cls_conectarB.php");
-class Contacto{
+class Tikets{
     //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
     private $id;
     private $comentario;
-    private $h_salida;
-    private $h_entrada;
-    private $ced_aux;
-   private $ced_docentes;
-   private $cod_equipos;
-   private $id_aula;
+    private $nombre_aula;
+    private $id_salida;
+    private $id_entrada;
+    private $id_estado;
 
    //METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($id,$comentario,$celular,$h_entrada,$direch_salida)
+   function cargarDatos($id,$comentario,$nombre_aula,$id_salida,$id_entrada,$id_estado)
    {
      $this->id=$id;
      $this->comentario=$comentario;
-     $this->celh_salida;
-     $this->h_entrada=$h_entrada;
-     $this->ced_aux=$ced_aux;
-     $this->ced_docentes=$ced_docentes;
-     $this->cod_equipos=$cod_equipos;
-     $this->id_aula=$id_aula;
+     $this->nombre_aula=$nombre_aula;
+     $this->id_salida=$id_salida;
+     $this->id_entrada=$id_entrada;
+     $this->id_estado=$id_estado;
    }
-
+   
    //SE DEFINEN LOS METODOS SET Y GET
-   function setid($id)
+    function setId($id)
     {
         $this->id = $id;
     }
 
-   function setcomentario($comenth_salida)
-   {
-        $this->comentario = $comenth_salida;
-   
-
-   function setcelular($celular)
+    function setComentario($comentario)
     {
-        $this->celular = $celular;
+        $this->comentario = $comentario;
     }
 
-   function seth_entrada($h_entrada)
+    function setNombre_aula($nombre_aula)
     {
-        $this->h_entrada = $h_entrada;
+        $this->nombre_aula = $nombre_aula;
     }
 
-   function setced_aux($ced_aux)
+    function setId_salida($id_salida)
     {
-        $this->ced_aux = $ced_aux;
-    }
-   function setced_docentes($ced_docentes)
-   {
-       $this->ced_docentes = $ced_docentes;
-    }
-   function setcod_equipos($cod_equipos)
-   {
-       $this->cod_equipos = $cod_equipos;
-    }
-   function setid_aula($id_aula)
-   {
-       $this->id_aula = $id_aula;
+        $this->id_salida = $id_salida;
     }
 
+    function setId_entrada($id_entrada)
+    {
+        $this->id_entrada = $id_entrada;
+    }
 
+    function setId_estado($id_estado)
+    {
+        $this->id_estado = $id_estado;
+    }
 
-   function getid()
+    function getId()
     {
         return $this->id;
     }
 
-   function getcomentah_salida()
-   {
-        return $this->comenth_salida;
-   }
-
-   function getcelular()
+    function getComentario()
     {
-        return $this->celular;
-    }
+        return $this->comentario;
+    }   
 
-   function geth_entrada()
+    function getNombre_aula()
     {
-        return $this->h_entrada;
+        return $this->nombre_aula;
     }
 
-   function getced_aux()
+    function getId_salida()
     {
-        return $this->ced_aux;
+        return $this->id_salida;
     }
 
-   function getced_docentes()
-   {
-       return $this->ced_docentes;
+    function getId_entrada()
+    {
+        return $this->id_entrada;
     }
-   function getcod_equipos()
-   {
-       return $this->cod_equipos;
+
+    function getId_estado()
+    {
+        return $this->id_estado;
     }
-   function getid_aula()
-   {
-       return $this->id_aula;
-    }
-    
+
+       
 
    
 
@@ -113,7 +93,7 @@ class Contacto{
      1: true -> La operaciòn se ejecutò con èxito
      2: false -> La operaciòn no se pudo ejecutar
      --------------------------------------------------------------------------*/
-
+ //METODO PARA INSERTAR UN NUEVO REGISTRO
    function insertar()
  {
     //variables de trabajo
@@ -122,19 +102,20 @@ class Contacto{
     //creamos la conexion
     $conexion = conectarBD();
     // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_contactos VALUES (?,?,?,?,?)";
+    $sSQL="INSERT INTO tbl_tiket VALUES (?,?,?,?,?,?)";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
-     $pst->bindParam(2,$this->comentario);
-     $pst->bindParam(3,$this->ch_salida);
-     $pst->bindParam(4,$this->h_entrada);
-     $pst->bindParam(5,$this->ced_aux);
-    //se envia a ejecutar la conexion
-    $filas=$pst->execute();
-    $resultado=($filas>0) ? true : false;
+        $pst = $conexion->prepare($sSQL);
+        $pst->bindParam(1,$this->id);
+        $pst->bindParam(2,$this->comentario);
+        $pst->bindParam(3,$this->nombre_aula);
+        $pst->bindParam(4,$this->id_salida);
+        $pst->bindParam(5,$this->id_entrada);
+        $pst->bindParam(6,$this->id_estado);
+        $filas = $pst->execute();
+        $resultado=($filas>0) ? true : false;
+     
    }
    catch (Exception $e)
    {

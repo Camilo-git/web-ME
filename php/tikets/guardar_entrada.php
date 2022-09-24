@@ -6,14 +6,14 @@ $obj_entrada = new Entrada();
 // creamos las variables vacias
 $accion = "ADICIONAR";
 
- 
+//  traemos de la tabla salida el id_salida mas alto
 $conexion = conectarBD();
 $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
 $dato = $conexion->query($sSQL);                            
 // imprimimos el resultado
 foreach( $dato as $fila)
 {
-    $fila = $fila['id']+1;
+    $fila = $fila['id'];
     echo $fila;
     echo " <input type='hidden' name='num_id' value='$fila'br />";
 }
@@ -29,12 +29,12 @@ if ($accion == "ADICIONAR") {
     // si la opcion es insertar
     if ($obj_entrada->insertar()) {
         echo'
-        <script> 
+        // <script> 
        
-        alert("El registro SE guardo CORRECTAMENTE");
+        // alert("El registro SE guardo CORRECTAMENTE");
         
-        </script>
-        ';
+        // </script>
+        // ';
      }
 } elseif ($accion == "EDITAR") {
     // si la opcion es modificar

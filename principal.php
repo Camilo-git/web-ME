@@ -97,21 +97,27 @@
               break;
 
 /*-----------------------tikets--------------*/
+// salida y entrada de tikets
             case 'salida_tiket':
               include_once("php/tikets/salida_tiket.php");
               break;
+// todos los tikets
             case 'all_tikets':
               include_once("php/tikets/all_tikets.php");
               break;
-            default:
-            echo "error de opcion";
-              break;
+// formulario para ingresar el tiket
             case 'entrada_tiket':
               include_once("php/tikets/entrada_tiket.php");
               break;
+// formulario para ingresar el detalle
+            case 'nuevo_detalle':
+              include_once("php/tikets/nuevo_detalle.php");
+              break;
 
-
-
+            default:
+              include_once("php/inicio.php");
+              break;
+            
           } // fin del switch
 
 

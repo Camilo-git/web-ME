@@ -24,12 +24,12 @@
         // si la opcion es insertar
         if ($obj_salida->insertar()) {
             echo'
-            <script> 
+            // <script> 
            
-            alert("El registro SE guardo CORRECTAMENTE");
+            // alert("El registro SE guardo CORRECTAMENTE");
             
-            </script>
-            ';
+            // </script>
+            // ';
          }
     }elseif ($accion == "EDITAR") {
         // si la opcion es modificar
