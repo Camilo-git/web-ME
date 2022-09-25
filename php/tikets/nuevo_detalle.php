@@ -105,4 +105,68 @@ include_once("clases/cls_conectarB.php");
             </button>
         </div>
     </form>
+    <div class="row my-3">
+
+        <div class="col-12">
+
+            <table id="miTabla" class="table table-striped table-bordered table-hover">
+                <thead>
+
+                    <tr>
+                        <th>cod equipo</th>
+                        <th>Comentario</th>
+                        <th>Estado</th>
+                        <!-- th como titulos deben aver en td espacios -->
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+
+                    include_once("clases/cls_conectarB.php");
+
+                    $conexion = conectarBD();
+
+                    // damos a la busqueda
+
+                    $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+                    $dato = $conexion->query($sSQL);
+                    // imprimimos el resultado
+                    foreach ($dato as $fila) {
+                        $fila = $fila['id'];
+                        echo $fila;
+                        echo " <input type='hidden' name='num_id' value='$fila'br />";
+                    }
+
+                    $sSQL = "SELECT *  FROM `tbl_detalle` WHERE `id_tiket` = $fila;";;
+
+                    $datos = $conexion->query($sSQL);
+
+                    foreach ($datos as $fila) :
+
+                    ?>
+
+                        <tr>
+                            <td><?php echo $fila['cod_equipo'];         ?></td>
+                            <td><?php echo $fila['comentario'];     ?></td>
+                            <td><?php echo $fila['estado_fk'];  ?></td>
+                        </tr>
+
+                    <?php
+
+                    endforeach;
+
+                    desconectarBD($conexion);
+                    ?>
+
+
+                </tbody>
+
+
+
+
+            </table>
+        </div>
+    </div>
 </div>
