@@ -11,7 +11,7 @@ include_once("../../clases/cls_aulas.php");
 $obj_aulas = new Aulas();
 // creamos las variables con los datos que recibimos por el metodo POST
 $accion = $_POST['accion'];
-$id     = 100;
+$id     = 0;
 $nombre = $_POST['nombre'];
 $edificio = $_POST['edificio'];
 $capacidad = $_POST['capacidad'];

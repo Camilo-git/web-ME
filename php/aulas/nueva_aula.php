@@ -7,7 +7,7 @@ $id     = $_GET['id'];
 // si la accion es adicionar
 if ($accion == "ADICIONAR") {    
    
-    $id          = 0;
+    $id          = 00;
    
     $nombre      = "";
     $edificio    = "";
@@ -18,7 +18,7 @@ else{
     // creamos una variable conexion para poder conectarnos a la base de datos
     $conexion   = conectarBD();
     // creamos una variable sSQL para poder ejecutar la consulta
-    $sSQL       = 'SELECT * FROM tbl_aulas WERE con_id='.$id;
+    $sSQL       ="SELECT *  FROM `tbl_aulas` WHERE `id` = $id;";
     // creamos una variable datos para poder ejecutar la consulta
     $datos      = $conexion->query($sSQL);
     // creamos una variable fila para poder recorrer los datos

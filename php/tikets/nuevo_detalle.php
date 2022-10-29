@@ -114,8 +114,8 @@ include_once("clases/cls_conectarB.php");
 
                     <tr>
                         <th>cod equipo</th>
-                        <th>Comentario</th>
                         <th>Estado</th>
+                        <th>Comentario</th>
                         <!-- th como titulos deben aver en td espacios -->
 
                     </tr>
@@ -154,8 +154,8 @@ include_once("clases/cls_conectarB.php");
 
                         <tr>
                             <td><?php echo $fila['categoria'];         ?></td>
-                            <td><?php echo $fila['comentario'];     ?></td>
                             <td><?php echo $fila['estado'] ;  ?></td> 
+                            <td><?php echo $fila['comentario'];     ?></td>
                         </tr>
 
                     <?php

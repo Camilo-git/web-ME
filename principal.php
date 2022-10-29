@@ -57,6 +57,10 @@
               include_once("php/aulas/nueva_aula.php");
               break;
 
+// ------------ EDITAR AULA--------------------
+              case 'editar-aula';
+                include_once("php/aulas/nueva_aula.php");
+
 /*----------------- equipos------------- */
 
             case 'equipos':

@@ -54,7 +54,7 @@
 											<td><?php echo $fila['capacidad'];   ?></td>
 											<td><?php echo $fila['comentario'];     ?></td>
 											<?php 
-												echo'<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id='.$fila	['id'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
+												echo'<td><a href="./principal.php?opcion=editar-aula&accion=EDITAR&id='.$fila	['id'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
 												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id='.$fila	['id'].'" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 											?>
 										</tr>
