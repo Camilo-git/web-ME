@@ -11,11 +11,11 @@ include_once("clases/cls_conectarB.php");
             $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
             $dato = $conexion->query($sSQL);
             // imprimimos el resultado
-            foreach ($dato as $fila) {
+            foreach ($dato as $fila) :
                 $fila = $fila['id'];
                 echo $fila;
                 echo " <input type='hidden' name='num_id' value='$fila'br />";
-            }
+            endforeach;
             ?>
         </span>
 
@@ -133,29 +133,36 @@ include_once("clases/cls_conectarB.php");
                     $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
                     $dato = $conexion->query($sSQL);
                     // imprimimos el resultado
-                    foreach ($dato as $fila) {
+                    foreach ($dato as $fila) :
                         $fila = $fila['id'];
-                        echo $fila;
+                        
                         echo " <input type='hidden' name='num_id' value='$fila'br />";
-                    }
+                    endforeach;
 
-                    $sSQL = "SELECT *  FROM `tbl_detalle` WHERE `id_tiket` = $fila;";;
+                    $sql = "SELECT CONCAT(tbl_inventario.codigo, ' -- ', tbl_inventario.cat_equipo) as categoria, tbl_detalle.comentario, CONCAT(tbl_detalle.id_estado, ' -- ', tbl_estados.estado) as estado FROM tbl_detalle INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo INNER JOIN tbl_estados on tbl_detalle.id_estado = tbl_estados.id WHERE tbl_detalle.id_tiket= $fila";
 
-                    $datos = $conexion->query($sSQL);
+
+
+                    $datos = $conexion->query($sql);
+
+                    
 
                     foreach ($datos as $fila) :
-
+                        
+                        echo $fila['categoria']."==";
                     ?>
 
                         <tr>
-                            <td><?php echo $fila['cod_equipo'];         ?></td>
+                            <td><?php echo $fila['categoria'];         ?></td>
                             <td><?php echo $fila['comentario'];     ?></td>
-                            <td><?php echo $fila['estado_fk'];  ?></td>
+                            <td><?php echo $fila['estado'] ;  ?></td> 
                         </tr>
 
                     <?php
 
                     endforeach;
+                    
+                    
 
                     desconectarBD($conexion);
                     ?>
@@ -169,4 +176,4 @@ include_once("clases/cls_conectarB.php");
             </table>
         </div>
     </div>
-</div>
+</div> 
