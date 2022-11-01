@@ -13,7 +13,8 @@
     $id_salida = $_POST['num_id'];
     $nom_auxiliar = $_POST['txt_auxiliar'];
     $nom_docente = $_POST['txt_docente'];
-    $fecha_out = "";
+    $fecha_out = date('Y-m-d h:i:s a', time());
+    echo $fecha_out;
     
     // llamamos al objeto de la clase cls_salida para ejeccutar la accion
     $obj_salida->cargarDatos($id_salida, $nom_auxiliar, $nom_docente, $fecha_out);
@@ -46,7 +47,7 @@
         // si la opcion es eliminar
         if ($obj_salida->eliminar()) {
             echo'
-            <script> 
+            <> 
            
             alert("El registro SE elimino CORRECTAMENTE");
             

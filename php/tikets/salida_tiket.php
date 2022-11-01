@@ -31,13 +31,11 @@ include_once("clases/cls_conectarB.php");
                                 <i class="fa fa-user-circle"></i>
 
                                 <!-- creamos un javascript para obtener la hora y la fecha que transcurre en el sistema -->
-                                    <script>
-                                        var f = new Date();
-                                        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-                                        var g = new Date();
-                                        document.write("--" + (g.getHours()) + ":" + g.getMinutes());
-                                    </script>
-                        
+                                <?php
+                                    $DateAndTime = date('Y-m-d h:i:s a', time());  
+                                    echo "Hola actual = $DateAndTime.";
+                                ?>
+                                   
                             </span>
                         </div>
                     </span>
