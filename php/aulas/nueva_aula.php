@@ -1,24 +1,23 @@
-<?php  
+<?php
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y el id
 $accion = $_GET['accion'];
 $id     = $_GET['id'];
 // si la accion es adicionar
-if ($accion == "ADICIONAR") {    
-   
+if ($accion == "ADICIONAR") {
+
     $id          = 00;
-   
+
     $nombre      = "";
     $edificio    = "";
     $capacidad   = "";
     $comentario  = "";
-}
-else{
+} elseif ($accion == "EDITAR") {
     // creamos una variable conexion para poder conectarnos a la base de datos
     $conexion   = conectarBD();
     // creamos una variable sSQL para poder ejecutar la consulta
-    $sSQL       ="SELECT *  FROM `tbl_aulas` WHERE `id` = $id;";
+    $sSQL       = "SELECT *  FROM `tbl_aulas` WHERE `id` = $id;";
     // creamos una variable datos para poder ejecutar la consulta
     $datos      = $conexion->query($sSQL);
     // creamos una variable fila para poder recorrer los datos
@@ -26,15 +25,14 @@ else{
         # code...
         $id               =  $fila['id'];
         $nombre           =  $fila['nombre'];
-        $edificio        =  $fila['edificio'];
-        $capacidad         =  $fila['capacidad'];
-        $comentario           =  $fila['comentario'];
-                
+        $edificio         =  $fila['edificio'];
+        $capacidad        =  $fila['capacidad'];
+        $comentario       =  $fila['comentario'];
     }
-    
 }
 // creamos el formulario
-echo $accion;
+echo $opcion;
+echo $accion . "</br>";
 echo $id;
 ?>
 
@@ -72,12 +70,12 @@ echo $id;
                     <br><button class="btn btn-primary">Guardar</button>
                 </center>
 
-            
+
             </form>
         </div>
     </div>
 </div>
 <?php
 
- print_r($_POST);
+print_r($_POST);
 ?>

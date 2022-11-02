@@ -54,9 +54,9 @@ else{
     }
 }
 echo'
-<script>
-location.href="../../principal.php?opcion=aulas";
-</script> 
+// <script>
+// location.href="../../principal.php?opcion=aulas";
+// </script> 
 ';
 
 ?>
