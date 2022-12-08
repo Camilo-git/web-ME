@@ -1,82 +1,83 @@
-<?php 
+<?php
 include_once("cls_conectarB.php");
-class Aulas{
-    //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
-	private $id;
-	private $nombre;
-	private $edificio;
-	private $capacidad;
-	private $comentario;
+class Aulas
+{
+   //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
+   private $id;
+   private $nombre;
+   private $edificio;
+   private $capacidad;
+   private $comentario;
 
    //METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($id,$nombre,$edificio,$capacidad,$comentario)
+   function cargarDatos($id, $nombre, $edificio, $capacidad, $comentario)
    {
-     $this->id=$id;
-     $this->nombre=$nombre;
-     $this->edificio=$edificio;
-     $this->capacidad=$capacidad;
-     $this->comentario=$comentario;
+      $this->id = $id;
+      $this->nombre = $nombre;
+      $this->edificio = $edificio;
+      $this->capacidad = $capacidad;
+      $this->comentario = $comentario;
    }
 
    //SE DEFINEN LOS METODOS SET Y GET
 
-      function setId($id)
-      {
-         $this->id = $id;
-      }
+   function setId($id)
+   {
+      $this->id = $id;
+   }
 
-      function setNombre($nombre)
-      {
-         $this->nombre = $nombre;
-      }
+   function setNombre($nombre)
+   {
+      $this->nombre = $nombre;
+   }
 
-      function setedificio($edificio)
-      {
-         $this->edificio = $edificio;
-      }
+   function setedificio($edificio)
+   {
+      $this->edificio = $edificio;
+   }
 
-      function setcapacidad($capacidad)
-      {
-         $this->capacidad = $capacidad;
-      }
+   function setcapacidad($capacidad)
+   {
+      $this->capacidad = $capacidad;
+   }
 
-      function setcomentario($comentario)
-      {
-         $this->comentario = $comentario;
-      }
+   function setcomentario($comentario)
+   {
+      $this->comentario = $comentario;
+   }
 
 
-      function getId()
-      {
-         return $this->id;
-      }
+   function getId()
+   {
+      return $this->id;
+   }
 
-      function getNombre()
-      {
-         return $this->nombre;
-      }
+   function getNombre()
+   {
+      return $this->nombre;
+   }
 
-      function getedificio()
-      {
-         return $this->edificio;
-      }
+   function getedificio()
+   {
+      return $this->edificio;
+   }
 
-      function getcapacidad()
-      {
-         return $this->capacidad;
-      }
+   function getcapacidad()
+   {
+      return $this->capacidad;
+   }
 
-      function getcomentario()
-      {
-         return $this->comentario;
-      }
+   function getcomentario()
+   {
+      return $this->comentario;
+   }
 
-   
 
-   
-   
-      //METODOS CRU CREATE,READ,UPDATE,DELETE
-	/*--------------------------------------------------------------------------
+
+
+
+   //METODOS CRU CREATE,READ,UPDATE,DELETE
+   /*--------------------------------------------------------------------------
 	 Function insertar()
 	 Objetivo: Permite el ingreso de registros nuevos a la tabla de Contactos
 	 Retorno: valor booleano 
@@ -85,116 +86,107 @@ class Aulas{
 	 --------------------------------------------------------------------------*/
    public function insertar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_aulas VALUES (?,?,?,?,?)";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
-     $pst->bindParam(2,$this->nombre);
-     $pst->bindParam(3,$this->edificio);
-     $pst->bindParam(4,$this->capacidad);
-     $pst->bindParam(5,$this->comentario);
-    //se envia a ejecutar la conexion
-    $filas=$pst->execute();
-    $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método insertar
-  /*--------------------------------------------------------------------------
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "INSERT INTO tbl_aulas VALUES (?,?,?,?,?)";
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->id);
+         $pst->bindParam(2, $this->nombre);
+         $pst->bindParam(3, $this->edificio);
+         $pst->bindParam(4, $this->capacidad);
+         $pst->bindParam(5, $this->comentario);
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método insertar
+   /*--------------------------------------------------------------------------
 	 Function eliminar()
 	 Objetivo: Permite eliminar registros de la tabla de Contactos
 	 Retorno: valor booleano 
 	 1: true -> La operaciòn se ejecutò con èxito
 	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
-  public function eliminar()
+   public function eliminar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="DELETE FROM tbl_contactos WHERE con_id = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método eliminar
-  /*--------------------------------------------------------------------------
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "DELETE FROM tbl_contactos WHERE con_id = ?";
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->id);
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método eliminar
+   /*--------------------------------------------------------------------------
 	 Function modificar()
 	 Objetivo: Permite editar los registros de un contacto
 	 Retorno: valor booleano 
 	 1: true -> La operaciòn se ejecutò con èxito
 	 2: false -> La operaciòn no se pudo ejecutar
 	 --------------------------------------------------------------------------*/
-  public function modificar()
+   public function modificar()
    {
-	//variables de trabajo
-	$resultado = false;
-	$filas =0;
-	//creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="UPDATE tbl_contactos SET
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "UPDATE tbl_contactos SET
            id    = ?,
            nombre = ?,
            edificio  = ?,
            capacidad    = ?
            comentario    = ?
            WHERE id = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
-    {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
-     $pst->bindParam(2,$this->nombre);
-     $pst->bindParam(3,$this->edificio);
-     $pst->bindParam(4,$this->capacidad);
-     $pst->bindParam(5,$this->comentario);
-     $pst->bindParam(6,$this->id);
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->id);
+         $pst->bindParam(2, $this->nombre);
+         $pst->bindParam(3, $this->edificio);
+         $pst->bindParam(4, $this->capacidad);
+         $pst->bindParam(5, $this->comentario);
+         $pst->bindParam(6, $this->id);
 
-     
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-	echo "No se pudo realizar la conexión a la Base de Datos";
-	echo "<br>";
-	echo "Error:".$e->getMessage();
-	$resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método modificar
+
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método modificar
 }//cierra la clase
 
 //para probar el método insertar
@@ -232,6 +224,3 @@ if ($contacto->insertar())
 // {
 // 	echo 'El contacto no se pudo editar correctamente';
 // }
-
-
- ?>
