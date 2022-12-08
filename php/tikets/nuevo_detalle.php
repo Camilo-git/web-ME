@@ -135,7 +135,7 @@ include_once("clases/cls_conectarB.php");
                     // imprimimos el resultado
                     foreach ($dato as $fila) :
                         $fila = $fila['id'];
-                        
+
                         echo " <input type='hidden' name='num_id' value='$fila'br />";
                     endforeach;
 
@@ -145,24 +145,24 @@ include_once("clases/cls_conectarB.php");
 
                     $datos = $conexion->query($sql);
 
-                    
+
 
                     foreach ($datos as $fila) :
-                        
-                        echo $fila['categoria']."==";
+
+                        echo $fila['categoria'] . "==";
                     ?>
 
                         <tr>
-                            <td><?php echo $fila['categoria'];         ?></td>
-                            <td><?php echo $fila['estado'] ;  ?></td> 
-                            <td><?php echo $fila['comentario'];     ?></td>
+                            <td><?php echo $fila['categoria'];  ?></td>
+                            <td><?php echo $fila['estado'];  ?></td>
+                            <td><?php echo $fila['comentario'];  ?></td>
                         </tr>
 
                     <?php
 
                     endforeach;
-                    
-                    
+
+
 
                     desconectarBD($conexion);
                     ?>
@@ -176,4 +176,4 @@ include_once("clases/cls_conectarB.php");
             </table>
         </div>
     </div>
-</div> 
+</div>
