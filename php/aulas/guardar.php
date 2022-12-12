@@ -1,9 +1,9 @@
 <?php
 // cremos un script para visualizar los datos que llegan por post   
  
- echo "<pre>";
-   print_r($_REQUEST);
-   echo "</pre>";
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
 
 // incluimos la clase cls_aulas para crear la clase
 include_once("../../clases/cls_aulas.php");
@@ -58,5 +58,3 @@ echo'
 // location.href="../../principal.php?opcion=aulas";
 // </script> 
 ';
-
-?>

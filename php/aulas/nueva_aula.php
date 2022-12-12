@@ -1,15 +1,19 @@
 <?php
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
+
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y el id
 $accion = $_GET['accion'];
-$id     = $_GET['id'];
+$nombre     = $_GET['nombre'];
 // si la accion es adicionar
 if ($accion == "ADICIONAR") {
 
     $id          = 00;
 
-    $nombre      = "";
+
     $edificio    = "";
     $capacidad   = "";
     $comentario  = "";
@@ -17,7 +21,7 @@ if ($accion == "ADICIONAR") {
     // creamos una variable conexion para poder conectarnos a la base de datos
     $conexion   = conectarBD();
     // creamos una variable sSQL para poder ejecutar la consulta
-    $sSQL       = "SELECT *  FROM `tbl_aulas` WHERE `id` = $id;";
+    $sSQL       = "SELECT *  FROM tbl_aulas WHERE nombre LIKE  '$nombre;'";
     // creamos una variable datos para poder ejecutar la consulta
     $datos      = $conexion->query($sSQL);
     // creamos una variable fila para poder recorrer los datos
@@ -33,7 +37,7 @@ if ($accion == "ADICIONAR") {
 // creamos el formulario
 echo $opcion;
 echo $accion . "</br>";
-echo $id;
+echo $nombre;
 ?>
 
 <!-- creamos un div con clase container para poder centrar el formulario -->

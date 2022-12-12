@@ -127,7 +127,7 @@ class Aulas
       //creamos la conexion
       $conexion = conectarBD();
       // creamos la variable con el QUERY -> orden para la base de datos
-      $sSQL = "DELETE FROM tbl_contactos WHERE con_id = ?";
+      $sSQL = "DELETE FROM tbl_aulas WHERE nombre = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
@@ -158,11 +158,11 @@ class Aulas
       //creamos la conexion
       $conexion = conectarBD();
       // creamos la variable con el QUERY -> orden para la base de datos
-      $sSQL = "UPDATE tbl_contactos SET
+      $sSQL = "UPDATE tbl_aulas SET
            id    = ?,
            nombre = ?,
            edificio  = ?,
-           capacidad    = ?
+           capacidad    = ?,
            comentario    = ?
            WHERE id = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
