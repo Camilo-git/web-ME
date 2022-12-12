@@ -1,5 +1,5 @@
 <div class="row my-3">
-	
+
 	<div class="col-10">
 		<h3><i class="fa fa-user-circle"></i> Prestamos Realizados </h3>
 	</div>
@@ -16,62 +16,108 @@
 
 	<div class="col-12">
 
-			<table id="miTabla"  class="table table-striped table-bordered table-hover">
+		<table id="miTabla" class="table table-striped table-bordered table-hover">
 			<thead>
-			
-					<tr>
-						<th>id</th>
-						<th>Comentario</th>
-						<th>h_salida</th>
-						<th>h_entrada</th>
-						<th>ced_aux</th>
-						<th>ced_docente</th>
-						<th>cod_equipos</th>
-						<th>id_aula</th>
-						<th>Editar</th>
-						<th>Borrar</th>
-						<!-- th como titulos deben aver en td espacios -->
-						
-					</tr>
+
+				<tr>
+					<th>id</th>
+					<th>Comentario</th>
+					<th>Salida</th>
+					<th>Entrada</th>
+					<th>Elementos</th>
+					<th>Estado</th>
+					<th>Aula</th>
+					<th>Edi</th>
+					<th>Borrar</th>
+					<!-- th como titulos deben aver en td espacios -->
+
+				</tr>
 			</thead>
 
 			<tbody>
-						<?php 
-							
-							include_once("clases/cls_conectarB.php");
+				<?php
 
-							$conexion = conectarBD();
+				include_once("clases/cls_conectarB.php");
 
-							$sSQL = "SELECT * FROM tbl_tiket";
+				$conexion = conectarBD();
+
+				$sSQL = "SELECT
+					tbl_tiket.id,
+					tbl_tiket.comentario,
+					CONCAT(
+						
+						tbl_salida.nom_docente_out,
+						' <br> ',
+						tbl_salida.nom_auxiliar_out,
+						' <br> ',
+						tbl_salida.fecha_out
+					) AS salida,
+					CONCAT(
+						tbl_entrada.nom_docente_in,
+						' <br> ',
+						tbl_entrada.nom_auxiliar_in,
+						' <br> ',
+						tbl_entrada.fecha_in
+					) AS entrada,
+					tbl_estados.estado,
+					tbl_tiket.nombre_aula
+					FROM
+						tbl_tiket
+					INNER JOIN tbl_salida ON tbl_tiket.id_salida = tbl_salida.id
+					INNER JOIN tbl_entrada ON tbl_tiket.id_entrada = tbl_entrada.id
+					INNER JOIN tbl_estados ON tbl_tiket.id_estado = tbl_estados.id;";
+
+				$datos = $conexion->query($sSQL);
+
+				foreach ($datos as $fila) :
+					// imprimimos las respuestas del arreglo
+
+
+				?>
+					<tr>
+						<td><?php echo $fila['id'];         ?></td>
+						<td><?php echo $fila['comentario'];     ?></td>
+						<td><?php echo $fila['salida'];  ?></td>
+						<td><?php echo $fila['entrada'];   ?></td>
+						<td><?php
+
+							$sSQL = "SELECT
+							CONCAT(
+								tbl_inventario.codigo,
+								' -- ',
+								tbl_inventario.cat_equipo,
+								'<br>'
+							) AS categoria
+							FROM
+								tbl_detalle
+							INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = 												tbl_inventario.codigo
+							WHERE
+								tbl_detalle.id_tiket = $fila[id];";
 
 							$datos = $conexion->query($sSQL);
-						 
-							foreach ($datos as $fila):
 
-									?>
+							foreach ($datos as $filas) :
+								echo $filas['categoria'];
 
-										<tr>
-											<td><?php echo $fila['id'];         ?></td>											
-											<td><?php echo $fila['comentario'];     ?></td>
-											<td><?php echo $fila['h_salida'];  ?></td>
-											<td><?php echo $fila['h_entrada'];   ?></td>
-											<td><?php echo $fila['nom_aux'];     ?></td>
-											<td><?php echo $fila['nom_docente'];     ?></td>
-											<td><?php echo $fila['cod_equipo'];     ?></td>
-											<td><?php echo $fila['nombre_aula'];     ?></td>
-											<?php 
-												echo'<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id='.$fila	['id'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
-												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id='.$fila	['id'].'" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
-											?>
-										</tr>
 
-									<?php  
-								
 							endforeach;
-								
-							desconectarBD($conexion);						
+
+							?></td>
+						<td><?php echo $fila['estado'];     ?></td>
+						<td><?php echo $fila['nombre_aula'];     ?></td>
+						<?php
+						echo '<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id=' . $fila['id'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
+												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 						?>
-				
+					</tr>
+
+				<?php
+
+				endforeach;
+
+				desconectarBD($conexion);
+				?>
+
 
 			</tbody>
 
@@ -81,6 +127,3 @@
 		</table>
 	</div>
 </div>
-
-
-

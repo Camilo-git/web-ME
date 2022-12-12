@@ -62,7 +62,7 @@ include_once("clases/cls_conectarB.php");
                                 <div class="row">
 
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" placeholder="Ingrese el comentario" name="txt_comentario" value="" id="txt">
+                                        <input type="text" class="form-control" placeholder="Ingrese el comentario" name="txt_comentario" value="Sin Comentario" id="txt">
                                     </div>
                                 </div>
 
@@ -135,34 +135,51 @@ include_once("clases/cls_conectarB.php");
                     // imprimimos el resultado
                     foreach ($dato as $fila) :
                         $fila = $fila['id'];
-                        
+
                         echo " <input type='hidden' name='num_id' value='$fila'br />";
                     endforeach;
 
-                    $sql = "SELECT CONCAT(tbl_inventario.codigo, ' -- ', tbl_inventario.cat_equipo) as categoria, tbl_detalle.comentario, CONCAT(tbl_detalle.id_estado, ' -- ', tbl_estados.estado) as estado FROM tbl_detalle INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo INNER JOIN tbl_estados on tbl_detalle.id_estado = tbl_estados.id WHERE tbl_detalle.id_tiket= $fila";
+                    $sql = "SELECT
+                    CONCAT(
+                        tbl_inventario.codigo,
+                        ' -- ',
+                        tbl_inventario.cat_equipo
+                    ) AS categoria,
+                    tbl_detalle.comentario,
+                    CONCAT(
+                        tbl_detalle.id_estado,
+                        ' -- ',
+                        tbl_estados.estado
+                    ) AS estado
+                FROM
+                    tbl_detalle
+                INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo
+                INNER JOIN tbl_estados ON tbl_detalle.id_estado = tbl_estados.id
+                WHERE
+                    tbl_detalle.id_tiket = $fila ";
 
 
 
                     $datos = $conexion->query($sql);
 
-                    
+
 
                     foreach ($datos as $fila) :
-                        
-                        echo $fila['categoria']."==";
+
+                        echo $fila['categoria'] . "==";
                     ?>
 
                         <tr>
                             <td><?php echo $fila['categoria'];         ?></td>
-                            <td><?php echo $fila['estado'] ;  ?></td> 
+                            <td><?php echo $fila['estado'];  ?></td>
                             <td><?php echo $fila['comentario'];     ?></td>
                         </tr>
 
                     <?php
 
                     endforeach;
-                    
-                    
+
+
 
                     desconectarBD($conexion);
                     ?>
@@ -176,4 +193,4 @@ include_once("clases/cls_conectarB.php");
             </table>
         </div>
     </div>
-</div> 
+</div>
