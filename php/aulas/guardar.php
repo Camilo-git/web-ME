@@ -1,6 +1,6 @@
 <?php
 // cremos un script para visualizar los datos que llegan por post   
- 
+
 echo "<pre>";
 print_r($_REQUEST);
 echo "</pre>";
@@ -19,32 +19,31 @@ $comentario = $_POST['comentario'];
 // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_aulas
 $obj_aulas->cargarDatos($id, $nombre, $edificio, $capacidad, $comentario);
 
-if ($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
 
-    if ($obj_aulas->insertar()){
-        echo'
-        <script> 
-       
-        alert("El registro SE guardo CORRECTAMENTE");
-        
-        </script>
-        ';
-    }
-}
-elseif ($accion == "EDITAR"){
-    if ($obj_aulas->modificar()){
-        echo'
+    if ($obj_aulas->insertar()) {
+        echo '
         <script> 
        
         alert("El registro SE modifico CORRECTAMENTE");
+        location.href="../../principal.php?opcion=aulas";
         
         </script>
         ';
     }
-}
-else{
-    if ($contacto->eliminar()){
-        echo'
+} elseif ($accion == "EDITAR") {
+    if ($obj_aulas->modificar()) {
+        echo '
+        <script> 
+       
+        alert("El registro SE modifico CORRECTAMENTE");
+        location.href="../../principal.php?opcion=aulas";
+        </script>
+        ';
+    }
+} else {
+    if ($obj_aulas->eliminar()) {
+        echo '
         <script> 
        
         alert("El registro SE elimino CORRECTAMENTE");
@@ -53,7 +52,7 @@ else{
         ';
     }
 }
-echo'
+echo '
 // <script>
 // location.href="../../principal.php?opcion=aulas";
 // </script> 

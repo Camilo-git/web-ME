@@ -65,8 +65,8 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
           break;
 
           // ------------ ELIMINAR AULA--------------------
-        case 'editar-aula';
-          include_once("php/aulas/nueva_aula.php");
+        case 'eliminar-aula';
+          include_once("php/aulas/guardar.php");
           break;
 
           /*----------------- equipos------------- */

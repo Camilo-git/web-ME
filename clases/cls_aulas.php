@@ -127,11 +127,11 @@ class Aulas
       //creamos la conexion
       $conexion = conectarBD();
       // creamos la variable con el QUERY -> orden para la base de datos
-      $sSQL = "DELETE FROM tbl_aulas WHERE nombre = ?";
+      $sSQL = "DELETE FROM tbl_aulas WHERE nombre = ?;";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
-         $pst->bindParam(1, $this->id);
+         $pst->bindParam(1, $this->nombre);
          //se envia a ejecutar la conexion
          $filas = $pst->execute();
          $resultado = ($filas > 0) ? true : false;
@@ -164,7 +164,7 @@ class Aulas
            edificio  = ?,
            capacidad    = ?,
            comentario    = ?
-           WHERE id = ?";
+           WHERE nombre = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
@@ -173,7 +173,7 @@ class Aulas
          $pst->bindParam(3, $this->edificio);
          $pst->bindParam(4, $this->capacidad);
          $pst->bindParam(5, $this->comentario);
-         $pst->bindParam(6, $this->id);
+         $pst->bindParam(6, $this->nombre);
 
 
          //se envia a ejecutar la conexion
