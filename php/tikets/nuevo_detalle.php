@@ -11,11 +11,11 @@ include_once("clases/cls_conectarB.php");
             $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
             $dato = $conexion->query($sSQL);
             // imprimimos el resultado
-            foreach ($dato as $fila) {
+            foreach ($dato as $fila) :
                 $fila = $fila['id'];
                 echo $fila;
                 echo " <input type='hidden' name='num_id' value='$fila'br />";
-            }
+            endforeach;
             ?>
         </span>
 
@@ -105,4 +105,75 @@ include_once("clases/cls_conectarB.php");
             </button>
         </div>
     </form>
+    <div class="row my-3">
+
+        <div class="col-12">
+
+            <table id="miTabla" class="table table-striped table-bordered table-hover">
+                <thead>
+
+                    <tr>
+                        <th>cod equipo</th>
+                        <th>Estado</th>
+                        <th>Comentario</th>
+                        <!-- th como titulos deben aver en td espacios -->
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+
+                    include_once("clases/cls_conectarB.php");
+
+                    $conexion = conectarBD();
+
+                    // damos a la busqueda
+
+                    $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
+                    $dato = $conexion->query($sSQL);
+                    // imprimimos el resultado
+                    foreach ($dato as $fila) :
+                        $fila = $fila['id'];
+
+                        echo " <input type='hidden' name='num_id' value='$fila'br />";
+                    endforeach;
+
+                    $sql = "SELECT CONCAT(tbl_inventario.codigo, ' -- ', tbl_inventario.cat_equipo) as categoria, tbl_detalle.comentario, CONCAT(tbl_detalle.id_estado, ' -- ', tbl_estados.estado) as estado FROM tbl_detalle INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo INNER JOIN tbl_estados on tbl_detalle.id_estado = tbl_estados.id WHERE tbl_detalle.id_tiket= $fila";
+
+
+
+                    $datos = $conexion->query($sql);
+
+
+
+                    foreach ($datos as $fila) :
+
+                        echo $fila['categoria'] . "==";
+                    ?>
+
+                        <tr>
+                            <td><?php echo $fila['categoria'];  ?></td>
+                            <td><?php echo $fila['estado'];  ?></td>
+                            <td><?php echo $fila['comentario'];  ?></td>
+                        </tr>
+
+                    <?php
+
+                    endforeach;
+
+
+
+                    desconectarBD($conexion);
+                    ?>
+
+
+                </tbody>
+
+
+
+
+            </table>
+        </div>
+    </div>
 </div>

@@ -19,60 +19,63 @@ class Aulas{
    }
 
    //SE DEFINEN LOS METODOS SET Y GET
-   function setId($id)
-	{
-		$this->id = $id;
-	}
 
-   function setNombre($nombre)
-	{
-		$this->nombre = $nombre;
-	}
+      function setId($id)
+      {
+         $this->id = $id;
+      }
 
-   function setedificio($edificio)
-	{
-		$this->edificio = $edificio;
-	}
+      function setNombre($nombre)
+      {
+         $this->nombre = $nombre;
+      }
 
-   function setcapacidad($capacidad)
-	{
-		$this->capacidad = $capacidad;
-	}
+      function setedificio($edificio)
+      {
+         $this->edificio = $edificio;
+      }
 
-   function setcomentario($comentario)
-	{
-		$this->comentario = $comentario;
-	}
+      function setcapacidad($capacidad)
+      {
+         $this->capacidad = $capacidad;
+      }
+
+      function setcomentario($comentario)
+      {
+         $this->comentario = $comentario;
+      }
 
 
-   function getId()
-	{
-		return $this->id;
-	}
+      function getId()
+      {
+         return $this->id;
+      }
 
-   function getNombre()
-	{
-		return $this->nombre;
-	}
+      function getNombre()
+      {
+         return $this->nombre;
+      }
 
-   function getedificio()
-	{
-		return $this->edificio;
-	}
+      function getedificio()
+      {
+         return $this->edificio;
+      }
 
-   function getcapacidad()
-	{
-		return $this->capacidad;
-	}
+      function getcapacidad()
+      {
+         return $this->capacidad;
+      }
 
-   function getcomentario()
-	{
-		return $this->comentario;
-	}
+      function getcomentario()
+      {
+         return $this->comentario;
+      }
 
    
 
-   //METODOS CRU CREATE,READ,UPDATE,DELETE
+   
+   
+      //METODOS CRU CREATE,READ,UPDATE,DELETE
 	/*--------------------------------------------------------------------------
 	 Function insertar()
 	 Objetivo: Permite el ingreso de registros nuevos a la tabla de Contactos
@@ -166,16 +169,19 @@ class Aulas{
            edificio  = ?,
            capacidad    = ?
            comentario    = ?
-           WHERE  con_id = ?";
+           WHERE id = ?";
     //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
     try
     {
      $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->nombre);
-     $pst->bindParam(2,$this->edificio);
-     $pst->bindParam(3,$this->capacidad);
-     $pst->bindParam(4,$this->comentario);
-     $pst->bindParam(7,$this->id);
+     $pst->bindParam(1,$this->id);
+     $pst->bindParam(2,$this->nombre);
+     $pst->bindParam(3,$this->edificio);
+     $pst->bindParam(4,$this->capacidad);
+     $pst->bindParam(5,$this->comentario);
+     $pst->bindParam(6,$this->id);
+
+     
      //se envia a ejecutar la conexion
      $filas=$pst->execute();
      $resultado=($filas>0) ? true : false;
@@ -216,16 +222,16 @@ if ($contacto->insertar())
 // }
 
 //para probar el método modificar
-/*$contacto = new Contacto();
-$contacto->cargarDatos(6,"Andrea Munoz","Barrio Capusigra","3121456105","andreamur@hotmail.es",2,"1975-01-06");
-//ahora se grabaran los datos
-if ($contacto->modificar())
-{
-	echo 'El contacto se editó correctamente';
-} else 
-{
-	echo 'El contacto no se pudo editar correctamente';
-}*/
+// $contacto = new Aulas();
+// $contacto->cargarDatos(6,"Andrea Munoz","55","aaaandreamur@hotmail.es",2,"1975-01-06");
+// //ahora se grabaran los datos
+// if ($contacto->modificar())
+// {
+// 	echo 'El contacto se editó correctamente';
+// } else 
+// {
+// 	echo 'El contacto no se pudo editar correctamente';
+// }
 
 
  ?>
