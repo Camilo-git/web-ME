@@ -164,7 +164,7 @@ class Aulas
            edificio  = ?,
            capacidad    = ?,
            comentario    = ?
-           WHERE id = ?";
+           WHERE nombre = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
@@ -173,7 +173,7 @@ class Aulas
          $pst->bindParam(3, $this->edificio);
          $pst->bindParam(4, $this->capacidad);
          $pst->bindParam(5, $this->comentario);
-         $pst->bindParam(6, $this->id);
+         $pst->bindParam(6, $this->nombre);
 
 
          //se envia a ejecutar la conexion

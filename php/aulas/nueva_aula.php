@@ -21,7 +21,7 @@ if ($accion == "ADICIONAR") {
     // creamos una variable conexion para poder conectarnos a la base de datos
     $conexion   = conectarBD();
     // creamos una variable sSQL para poder ejecutar la consulta
-    $sSQL       = "SELECT *  FROM tbl_aulas WHERE nombre LIKE  '$nombre;'";
+    $sSQL       = "SELECT *  FROM tbl_aulas WHERE nombre = '$nombre';";
     // creamos una variable datos para poder ejecutar la consulta
     $datos      = $conexion->query($sSQL);
     // creamos una variable fila para poder recorrer los datos
@@ -37,7 +37,6 @@ if ($accion == "ADICIONAR") {
 // creamos el formulario
 echo $opcion;
 echo $accion . "</br>";
-echo $nombre;
 ?>
 
 <!-- creamos un div con clase container para poder centrar el formulario -->

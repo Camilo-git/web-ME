@@ -20,7 +20,6 @@
 			<thead>
 
 				<tr>
-					<th>Id</th>
 					<th>Nombre</th>
 					<th>Edificio</th>
 					<th>Capacidad</th>
@@ -48,7 +47,6 @@
 				?>
 
 					<tr>
-						<td><?php echo $fila['id'];         ?></td>
 						<td><?php echo $fila['nombre'];     ?></td>
 						<td><?php echo $fila['edificio'];  ?></td>
 						<td><?php echo $fila['capacidad'];   ?></td>
