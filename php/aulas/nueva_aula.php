@@ -35,6 +35,11 @@ if ($accion == "ADICIONAR") {
     }
 }
 // creamos el formulario
+<<<<<<< HEAD
+=======
+echo $opcion;
+echo $accion . "</br>";
+>>>>>>> 49a6ce0f7360aadce100ef226e4af2e7049da5e1
 ?>
 
 <!-- creamos un div con clase container para poder centrar el formulario -->
