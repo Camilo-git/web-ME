@@ -53,7 +53,7 @@
 						<td><?php echo $fila['comentario'];     ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-aula&accion=EDITAR&nombre=' . $fila['nombre'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
-												<td><a href="./principal.php?opcion=eliminar-aula&accion=ELIMINAR&nombre=' . $fila['nombre'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
+												<td><a href="./principal.php?opcion=eliminar-aula&accion=ELIMINAR&nombre=' . $fila['nombre'] . '&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 						?>
 					</tr>
 

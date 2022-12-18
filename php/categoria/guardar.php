@@ -1,12 +1,12 @@
 <?php
 // cremos un script para visualizar los datos que llegan por post   
- 
- echo "<pre>";
-   print_r($_REQUEST);
-   echo "</pre>";
+
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
 
 // incluimos la clase cls_equipos para crear la clase
-include_once("../../clases/cls_equipos.php");
+include_once("../../clases/cls_categoria.php");
 // creamos un objeto de la clase cls_equipos
 $obj_equipos = new Equipos();
 // creamos las variables con los datos que recibimos por el metodo POST
@@ -19,10 +19,10 @@ $cantidad = $_POST['cantidad'];
 // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_equipos
 $obj_equipos->cargarDatos($cod, $nombre, $estado, $cantidad);
 
-if ($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
 
-    if ($obj_equipos->insertar()){
-        echo'
+    if ($obj_equipos->insertar()) {
+        echo '
         <script> 
        
         alert("El registro SE guardo CORRECTAMENTE");
@@ -30,9 +30,9 @@ if ($accion == "ADICIONAR"){
         </script>
         ';
     }
-}elseif ($accion == "EDITAR"){
-    if ($obj_equipos->modificar()){
-        echo'
+} elseif ($accion == "EDITAR") {
+    if ($obj_equipos->modificar()) {
+        echo '
         <script> 
        
         alert("El registro SE modifico CORRECTAMENTE");
@@ -40,9 +40,9 @@ if ($accion == "ADICIONAR"){
         </script>
         ';
     }
-}else{
-    if ($obj_equipos->eliminar()){
-        echo'
+} elseif ($accion == "ELIMINAR") {
+    if ($obj_equipos->eliminar()) {
+        echo '
         <script> 
        
         alert("El registro SE elimino CORRECTAMENTE");
@@ -53,10 +53,8 @@ if ($accion == "ADICIONAR"){
 }
 
 
-echo'
-<script>
-location.href="../../principal.php?opcion=equipos";
-</script> 
-';
-
-?>
+// echo '
+// <script>
+// location.href="../../principal.php?opcion=categorias";
+// </script> 
+// ';

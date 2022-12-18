@@ -48,7 +48,12 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
         case 'inicio':
           include_once("php/inicio.php");
           break;
-          /*-------------------AULAS------------------*/
+
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+          /******************* AULAS*********************/
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+
+          // imprimimos todas las aulas **
 
         case 'aulas':
           include_once("php/aulas/todas_aulas.php");
@@ -69,26 +74,47 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
           include_once("php/aulas/guardar.php");
           break;
 
+
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+          // ------------categoria nueva-----------------
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+        case 'categorias':
+          include_once("php/categoria/todas_categorias.php");
+          break;
+          // ------------ NUEVA categoria--------------------
+
+        case 'categoria-nueva':
+          include_once("php/categoria/nueva_categoria.php");
+          break;
+          // ------------ EDITAR categoria--------------------
+
+        case 'editar-categoria':
+          include_once("php/categoria/nueva_categoria.php");
+          break;
+
+          // ------------ ELIMINAR categoria--------------------
+        case 'eliminar-categoria';
+          include_once("php/aulas/guardar.php");
+          break;
+
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           /*----------------- equipos------------- */
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
 
-        case 'equipos':
-          include_once("php/equipos/equipos.php");
-          break;
-
-          // ------------equipos-nuevo-----------------
-        case 'equipos-nuevo':
-          include_once("php/equipos/nuevo_equipo.php");
-          break;
           // inventario
         case 'inventario':
-          include_once("php/inventario/inventario.php");
+          include_once("php/inventario/todos_equipos.php");
           break;
           // nuevo articulo
         case 'inventario-nuevo':
           include_once("php/inventario/nuevo_articulo.php");
           break;
 
+
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           /*-------------------PROFESORES------------------*/
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+
 
         case 'profesores':
           include_once("php/profesores/profesores.php");

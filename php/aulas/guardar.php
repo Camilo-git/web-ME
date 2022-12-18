@@ -6,12 +6,12 @@ print_r($_REQUEST);
 echo "</pre>";
 
 // incluimos la clase cls_aulas para crear la clase
-include_once("../../clases/cls_aulas.php");
+include_once('../../clases/cls_aulas.php');
 // creamos un objeto de la clase cls_aulas
 $obj_aulas = new Aulas();
 // creamos las variables con los datos que recibimos por el metodo POST
 $accion = $_POST['accion'];
-$id     = 0;
+$id     = $_POST['id'];
 $nombre = $_POST['nombre'];
 $edificio = $_POST['edificio'];
 $capacidad = $_POST['capacidad'];
@@ -41,7 +41,7 @@ if ($accion == "ADICIONAR") {
         </script>
         ';
     }
-} else {
+} elseif ($accion == "ELIMINAR") {
     if ($obj_aulas->eliminar()) {
         echo '
         <script> 

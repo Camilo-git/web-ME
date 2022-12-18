@@ -1,31 +1,30 @@
-<?php  
+<?php
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y el codigo
 $accion = $_GET['accion'];
-$codigo = $_GET['codigo'];
+$codigo = $_GET['cod'];
 // si la accion es adicionar
-if ($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
     // creamos las variables para los datos
     $codigo = "";
 
     $nombre = "";
     $estado = "";
     $cantidad = "";
-
-}else{
+} elseif ($accion == "EDITAR") {
     // creamos una variable conexion para poder conectarnos a la base de datos
     $conexion   = conectarBD();
     // creamos una variable sSQL para poder ejecutar la consulta
-    $sSQL       = 'SELECT * FROM tbl_equipos WHERE codigo='.$codigo;
+    $sSQL       = "SELECT * FROM tbl_equipos WHERE cod= '$codigo';";
     // creamos una variable datos para poder ejecutar la consulta
     $datos      = $conexion->query($sSQL);
     // creamos una variable fila para poder recorrer los datos
     foreach ($datos as $fila) {
         # code...
-        $codigo       =  $fila['codigo'];
+        $codigo       =  $fila['cod'];
         $nombre       =  $fila['nombre'];
-        $estado       =  $fila['estado'];
+        $estado       =  $fila['id_estado'];
         $cantidad     =  $fila['cantidad'];
     }
 }
@@ -45,7 +44,7 @@ echo $codigo;
         <!-- creamos un div con clase card-body para poder darle estilo al cuerpo de la tarjeta -->
         <div class="card-body">
             <!-- creamos un formulario con clase form-group para poder enviarle los datos a guardar.php darle estilo al formulario -->
-            <form class="form-group" action="php/equipos/guardar.php" method="POST">
+            <form class="form-group" action="php/categoria/guardar.php" method="POST">
                 <input type="hidden" name="accion" value="<?php echo $accion; ?>">
                 <!-- creamos un input con clase form-control para poder darle estilo al input -->
                 <input type="hidden" name="codigo" value="<?php echo $codigo; ?>">
@@ -68,5 +67,5 @@ echo $codigo;
 
 <?php
 
- print_r($_POST);
+print_r($_POST);
 ?>

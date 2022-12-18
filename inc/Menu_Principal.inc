@@ -22,7 +22,8 @@
     <li class="nav-item dropdown">
       <a href="principal.php?opcion=equipos" class="nav-link dropdown-toggle" data-toggle="dropdown"> Equipos </a>
       <div class="dropdown-menu">
-        <a href="principal.php?opcion=equipos" class="dropdown-item"><i class="fa fa-user-circle"></i> Categorias </a>
+        <a href="principal.php?opcion=categorias" class="dropdown-item"><i class="fa fa-user-circle"></i> Categorias
+        </a>
         <a href="principal.php?opcion=inventario" class="dropdown-item"><i class="fas fa-users"></i> Inventario </a>
       </div>
     </li>
