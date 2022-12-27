@@ -44,12 +44,12 @@ if ($accion == "ADICIONAR") {
     if ($obj_equipos->eliminar()) {
         echo '
         <script> 
-       
-        alert("El registro SE elimino CORRECTAMENTE");
-        
-        </script>
-        ';
-    }
+
+    //     alert("El registro SE elimino CORRECTAMENTE");
+
+    //     </script>
+    //     ';
+    // }
 }
 
 

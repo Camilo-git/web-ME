@@ -94,7 +94,7 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
 
           // ------------ ELIMINAR categoria--------------------
         case 'eliminar-categoria';
-          include_once("php/aulas/guardar.php");
+          include_once("php/categoria/nueva_categoria.php");
           break;
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
