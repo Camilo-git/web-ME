@@ -49,6 +49,7 @@ if ($accion == "ADICIONAR") {
        
         alert("El registro SE elimino CORRECTAMENTE");
         location.href="../../principal.php?opcion=aulas";
+
         
         </script>
         ';
