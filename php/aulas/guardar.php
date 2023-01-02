@@ -10,15 +10,15 @@ include_once('../../clases/cls_aulas.php');
 // creamos un objeto de la clase cls_aulas
 $obj_aulas = new Aulas();
 // creamos las variables con los datos que recibimos por el metodo POST
-$accion = $_POST['accion'];
-$id     = $_POST['id'];
-$nombre = $_POST['nombre'];
-$edificio = $_POST['edificio'];
-$capacidad = $_POST['capacidad'];
-$comentario = $_POST['comentario'];
+$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];;
+$id     = isset($_POST['id']) ? $_POST['id'] : "";;
+$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $_GET['nombre'];
+$edificio = isset($_POST['edificio']) ? $_POST['edificio'] : "";
+$capacidad = isset($_POST['capacidad']) ? $_POST['capacidad'] : "";
+$comentario = isset($_POST['comentario']) ? $_POST['comentario'] : "";
 // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_aulas
 $obj_aulas->cargarDatos($id, $nombre, $edificio, $capacidad, $comentario);
-
+    echo    $accion, $id, $nombre, $accion;
 if ($accion == "ADICIONAR") {
 
     if ($obj_aulas->insertar()) {
@@ -43,10 +43,12 @@ if ($accion == "ADICIONAR") {
     }
 } elseif ($accion == "ELIMINAR") {
     if ($obj_aulas->eliminar()) {
+        echo    $accion, $id, $nombre;
         echo '
         <script> 
        
         alert("El registro SE elimino CORRECTAMENTE");
+        location.href="../../principal.php?opcion=aulas";
         
         </script>
         ';
