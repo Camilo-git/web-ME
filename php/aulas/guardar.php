@@ -10,7 +10,7 @@ include_once('../../clases/cls_aulas.php');
 // creamos un objeto de la clase cls_aulas
 $obj_aulas = new Aulas();
 // creamos las variables con los datos que recibimos por el metodo POST
-$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];;
+$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['nombre'];;
 $id     = isset($_POST['id']) ? $_POST['id'] : "";;
 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $_GET['nombre'];
 $edificio = isset($_POST['edificio']) ? $_POST['edificio'] : "";
@@ -48,7 +48,6 @@ if ($accion == "ADICIONAR") {
         <script> 
        
         alert("El registro SE elimino CORRECTAMENTE");
-        location.href="../../principal.php?opcion=aulas";
         
         </script>
         ';
