@@ -1047,7 +1047,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`

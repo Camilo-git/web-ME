@@ -10,11 +10,12 @@ include_once("../../clases/cls_categoria.php");
 // creamos un objeto de la clase cls_equipos
 $obj_equipos = new Equipos();
 // creamos las variables con los datos que recibimos por el metodo POST
-$accion = $_POST['accion'];
-$cod    = $_POST['codigo'];
-$nombre = $_POST['nombre'];
-$estado = $_POST['estado'];
-$cantidad = $_POST['cantidad'];
+$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];
+$cod     = isset($_POST['codigo']) ? $_POST['codigo'] : "";
+$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $_GET['nombre'];
+$estado = isset($_POST['estado']) ? $_POST['estado'] : "";
+$cantidad = isset($_POST['cantidad']) ? $_POST['cantidad'] : "";
+
 
 // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_equipos
 $obj_equipos->cargarDatos($cod, $nombre, $estado, $cantidad);
@@ -45,10 +46,11 @@ if ($accion == "ADICIONAR") {
         echo '
         <script> 
 
-    //     alert("El registro SE elimino CORRECTAMENTE");
+         alert("El registro SE elimino CORRECTAMENTE");
+         location.href="../../principal.php?opcion=categorias";
 
-    //     </script>
-    //     ';
+        </script>
+         ';
     }
 }
 

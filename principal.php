@@ -76,8 +76,10 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
 
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
-          // ------------categoria nueva-----------------
+          // ------------categorias-----------------
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+          // ------------ imprimimos todas las categorias-------------
+
         case 'categorias':
           include_once("php/categoria/todas_categorias.php");
           break;
@@ -94,7 +96,7 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
 
           // ------------ ELIMINAR categoria--------------------
         case 'eliminar-categoria';
-          include_once("php/categoria/nueva_categoria.php");
+          include_once("php/categoria/guardar.php");
           break;
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/

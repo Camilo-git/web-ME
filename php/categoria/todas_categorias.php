@@ -53,7 +53,8 @@
 						<td><?php echo $fila['cantidad'];   ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-categoria&accion=EDITAR&cod=' . $fila['cod'] . '&nombre' . $fila['nombre'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
-												<td><a href="./principal.php?opcion=eliminar-categoria&accion=ELIMINAR&nombre=' . $fila['nombre'] . '" title="Borrar la categoria"><i class="fas fa-trash-alt"></i></a></td>';
+											
+						<td><a href="./php/categoria/guardar.php?&accion=ELIMINAR&nombre=' . $fila['nombre'] . '" title="Borrarla categoria"><i class="fas fa-trash-alt"></i><a></td>';
 						?>
 					</tr>
 

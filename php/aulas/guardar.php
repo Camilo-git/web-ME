@@ -10,8 +10,8 @@ include_once('../../clases/cls_aulas.php');
 // creamos un objeto de la clase cls_aulas
 $obj_aulas = new Aulas();
 // creamos las variables con los datos que recibimos por el metodo POST
-$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];;
-$id     = isset($_POST['id']) ? $_POST['id'] : "";;
+$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];
+$id     = isset($_POST['id']) ? $_POST['id'] : "";
 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $_GET['nombre'];
 $edificio = isset($_POST['edificio']) ? $_POST['edificio'] : "";
 $capacidad = isset($_POST['capacidad']) ? $_POST['capacidad'] : "";
