@@ -20,13 +20,10 @@
 			<thead>
 
 				<tr>
-					<th>id</th>
-					<th>Comentario</th>
+					<th>id - - Comentario - - Aula</th>					
 					<th>Salida</th>
 					<th>Entrada</th>
-					<th>Elementos</th>
-					<th>Estado</th>
-					<th>Aula</th>
+					<th>Elementos</th>						
 					<th>Edi</th>
 					<th>Borrar</th>
 					<!-- th como titulos deben aver en td espacios -->
@@ -47,16 +44,16 @@
 					CONCAT(
 						
 						tbl_salida.nom_docente_out,
-						' <br> ',
+						' <br><hr> ',
 						tbl_salida.nom_auxiliar_out,
-						' <br> ',
+						' <br><hr> ',
 						tbl_salida.fecha_out
 					) AS salida,
 					CONCAT(
 						tbl_entrada.nom_docente_in,
-						' <br> ',
+						' <br><hr> ',
 						tbl_entrada.nom_auxiliar_in,
-						' <br> ',
+						' <br><hr> ',
 						tbl_entrada.fecha_in
 					) AS entrada,
 					tbl_estados.estado,
@@ -75,8 +72,8 @@
 
 				?>
 					<tr>
-						<td><?php echo $fila['id'];         ?></td>
-						<td><?php echo $fila['comentario'];     ?></td>
+						<td><?php echo $fila['id']. " ) -----> ". $fila['estado'] .  " -----> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
+						
 						<td><?php echo $fila['salida'];  ?></td>
 						<td><?php echo $fila['entrada'];   ?></td>
 						<td><?php
@@ -86,7 +83,7 @@
 								tbl_inventario.codigo,
 								' -- ',
 								tbl_inventario.cat_equipo,
-								'<br>'
+								'<br><hr>'
 							) AS categoria
 							FROM
 								tbl_detalle
@@ -103,8 +100,8 @@
 							endforeach;
 
 							?></td>
-						<td><?php echo $fila['estado'];     ?></td>
-						<td><?php echo $fila['nombre_aula'];     ?></td>
+						
+						
 						<?php
 						echo '<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id=' . $fila['id'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
 												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
