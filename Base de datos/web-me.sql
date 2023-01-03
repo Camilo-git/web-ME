@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2022 a las 14:36:45
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.0.19
+-- Tiempo de generación: 03-01-2023 a las 17:55:38
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_aulas` (
   `id` int(100) NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `edificio` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `capacidad` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(500) COLLATE utf8_spanish_ci DEFAULT NULL
+  `nombre` varchar(100) NOT NULL,
+  `edificio` varchar(100) DEFAULT NULL,
+  `capacidad` int(100) DEFAULT NULL,
+  `comentario` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -40,11 +40,126 @@ CREATE TABLE `tbl_aulas` (
 --
 
 INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) VALUES
-(100, 'A401', 'San Francisco', '65', 'con video beam'),
-(100, 'A402', 'San Francisco', '35', 'sillas casani'),
-(100, 'A403', 'San Francisco', '45', 'sillas completas '),
-(0, 'A404', 'San Francisco', '55', 'todas las sillas'),
-(13, 'A605', 'San Francisco', '59', 'con su video-bean empotrado');
+
+(0, 'San Damian', 'Catambuco', '1500', 'esta cede se encuentra en el corregimiento de Catambuco'),
+
+(1,'B 311','Ed.',28,'Sin comentario'),
+(2,'B 312','Ed.',43,'Sin comentario'),
+(3,'B 313','Ed.',36,'Sin comentario'),
+(4,'B 314','Ed.',49,'Sin comentario'),
+(5,'B 315','Ed.',51,'Sin comentario'),
+(6,'B 316','Ed.',44,'Sin comentario'),
+(7,'B 317','Ed.',40,'Sin comentario'),
+(8,'B 318','Ed.',40,'Sin comentario'),
+(9,'B 319','Ed.',46,'Sin comentario'),
+(10,'B 320','Ed.',38,'Sin comentario'),
+(11,'B 327','Ed.',40,'Sin comentario'),
+(12,'B 328','Ed.',40,'Sin comentario'),
+(13,'B 329','Ed.',54,'Sin comentario'),
+(14,'C 201','Ed.',41,'Sin comentario'),
+(15,'C 202','Ed.',37,'Sin comentario'),
+(16,'C 203','Ed.',36,'Sin comentario'),
+(17,'i 100','Ed.',20,'Sin comentario'),
+(18,'H 201F','Ed.',20,'Sin comentario'),
+(19,'S. Bellina','Ed.',20,'Sin comentario'),
+(20,'i 208','Ed.',30,'Sin comentario'),
+(21,'i 209','Ed.',45,'Sin comentario'),
+(22,'i 212','Ed.',50,'Sin comentario'),
+(23,'i 213','Ed.',50,'Sin comentario'),
+(24,'H 302','Ed.',35,'Sin comentario'),
+(25,'H 305','Ed.',32,'Sin comentario'),
+(26,'H 306','Ed.',60,'Sin comentario'),
+(27,'i 308','Ed.',34,'Sin comentario'),
+(28,'i 309','Ed.',60,'Sin comentario'),
+(29,'i 310','Ed.',38,'Sin comentario'),
+(30,'i 311','Ed.',36,'Sin comentario'),
+(31,'i 312','Ed.',48,'Sin comentario'),
+(32,'i 315','Ed.',46,'Sin comentario'),
+(33,'i 316','Ed.',48,'Sin comentario'),
+(34,'i 317','Ed.',45,'Sin comentario'),
+(35,'H 401','Ed.',32,'Sin comentario'),
+(36,'H 402','Ed.',41,'Sin comentario'),
+(37,'H 403','Ed.',27,'Sin comentario'),
+(38,'H 406','Ed.',22,'Sin comentario'),
+(39,'I 407','Ed.',22,'Sin comentario'),
+(40,'i 409','Ed.',38,'Sin comentario'),
+(41,'I 410','Ed.',18,'Sin comentario'),
+(42,'i 411','Ed.',36,'Sin comentario'),
+(43,'i 412','Ed.',31,'Sin comentario'),
+(44,'i 413','Ed.',50,'Sin comentario'),
+(45,'i 416','Ed.',50,'Sin comentario'),
+(46,'i 417','Ed.',50,'Sin comentario'),
+(47,'i 418','Ed.',50,'Sin comentario'),
+(48,'H 501','Ed.',36,'Sin comentario'),
+(49,'H 502','Ed.',19,'Sin comentario'),
+(50,'H 503','Ed.',29,'Sin comentario'),
+(51,'H 505','Ed.',31,'Sin comentario'),
+(52,'H 506','Ed.',50,'Sin comentario'),
+(53,'H 510LB','Ed.',47,'Sin comentario'),
+(54,'H 601 LS','Ed.',30,'Sin comentario'),
+(55,'H 602 LF','Ed.',60,'Sin comentario'),
+(56,'A 100','Ed.',37,'Sin comentario'),
+(57,'A 101','Ed.',37,'Sin comentario'),
+(58,'A 301','Ed.',60,'Sin comentario'),
+(59,'A 401','Ed.',40,'Sin comentario'),
+(60,'A 403','Ed.',65,'Sin comentario'),
+(61,'A 406','Ed.',34,'Sin comentario'),
+(62,'A 407','Ed.',36,'Sin comentario'),
+(63,'A 408','Ed.',35,'Sin comentario'),
+(64,'A 409','Ed.',40,'Sin comentario'),
+(65,'A 410','Ed.',40,'Sin comentario'),
+(66,'A 501','Ed.',34,'Sin comentario'),
+(67,'A 502','Ed.',40,'Sin comentario'),
+(68,'A 503','Ed.',48,'Sin comentario'),
+(69,'A 504','Ed.',49,'Sin comentario'),
+(70,'A 505','Ed.',44,'Sin comentario'),
+(71,'A 506','Ed.',40,'Sin comentario'),
+(72,'A 507','Ed.',40,'Sin comentario'),
+(73,'A 508','Ed.',47,'Sin comentario'),
+(74,'A 509','Ed.',32,'Sin comentario'),
+(75,'A 510','Ed.',38,'Sin comentario'),
+(76,'A 511','Ed.',40,'Sin comentario'),
+(77,'A 512','Ed.',41,'Sin comentario'),
+(78,'A 513','Ed.',40,'Sin comentario'),
+(79,'A 514','Ed.',32,'Sin comentario'),
+(80,'A 515','Ed.',30,'Sin comentario'),
+(81,'A 516','Ed.',31,'Sin comentario'),
+(82,'A 601','Ed.',32,'Sin comentario'),
+(83,'A 602','Ed.',40,'Sin comentario'),
+(84,'A 603','Ed.',44,'Sin comentario'),
+(85,'A 604','Ed.',44,'Sin comentario'),
+(86,'A 605','Ed.',40,'Sin comentario'),
+(87,'A 606','Ed.',43,'Sin comentario'),
+(88,'A 607','Ed.',35,'Sin comentario'),
+(89,'A 608','Ed.',45,'Sin comentario'),
+(90,'A 609','Ed.',35,'Sin comentario'),
+(91,'A 610','Ed.',35,'Sin comentario'),
+(92,'A 611','Ed.',37,'Sin comentario'),
+(93,'A 612','Ed.',41,'Sin comentario'),
+(94,'A 613','Ed.',36,'Sin comentario'),
+(95,'A 614','Ed.',31,'Sin comentario'),
+(96,'A 615','Ed.',30,'Sin comentario'),
+(97,'A 616','Ed.',26,'Sin comentario'),
+(98,'S 201','Ed.',53,'Sin comentario'),
+(99,'S 202','Ed.',29,'Sin comentario'),
+(100,'S 203','Ed.',23,'Sin comentario'),
+(101,'S 204','Ed.',36,'Sin comentario'),
+(102,'S 205','Ed.',20,'Sin comentario'),
+(103,'S 206','Ed.',20,'Sin comentario'),
+(104,'S207Lab','Ed.',5,'Sin comentario'),
+(105,'S 208','Ed.',55,'Sin comentario'),
+(106,'Cancha 1','Ed.',12,'Sin comentario'),
+(107,'Cancha 2','Ed.',12,'Sin comentario'),
+(108,'Cancha 3','Ed.',12,'Sin comentario'),
+(109,'Gimnasio','Ed.',30,'Sin comentario'),
+(110,'Danzas','Ed.',30,'Sin comentario'),
+(111,'Coliseo','Ed.',1500,'Sin comentario'),
+(112,'Hall Italia','Ed.',20,'Sin comentario'),
+(113,'Hall_1SFA','Ed.',100,'Sin comentario'),
+(114,'Hall_2SFA','Ed.',300,'Sin comentario'),
+(115,'Audit.SClara','Ed.',70,'Sin comentario'),
+(116,'Sala De Audien','Ed.',50,'Sin comentario')
+;
 
 -- --------------------------------------------------------
 
@@ -53,11 +168,11 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 --
 
 CREATE TABLE `tbl_auxiliares` (
-  `cedula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `celular` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `correo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `direcion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `cedula` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `celular` varchar(100) DEFAULT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `direcion` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -87,8 +202,8 @@ CREATE TABLE `tbl_detalle` (
   `id` int(100) NOT NULL,
   `id_tiket` int(100) NOT NULL,
   `id_estado` int(100) DEFAULT NULL,
-  `cod_equipo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `cod_equipo` varchar(100) DEFAULT NULL,
+  `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -98,12 +213,12 @@ CREATE TABLE `tbl_detalle` (
 --
 
 CREATE TABLE `tbl_docentes` (
-  `cedula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cel` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `programa` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `dependencia` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `cedula` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `cel` varchar(100) NOT NULL,
+  `programa` varchar(100) DEFAULT NULL,
+  `dependencia` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -704,8 +819,8 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 
 CREATE TABLE `tbl_entrada` (
   `id` int(100) NOT NULL,
-  `nom_auxiliar_in` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nom_docente_in` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nom_auxiliar_in` varchar(100) DEFAULT NULL,
+  `nom_docente_in` varchar(100) DEFAULT NULL,
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -717,7 +832,7 @@ CREATE TABLE `tbl_entrada` (
 
 CREATE TABLE `tbl_equipos` (
   `cod` int(100) NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `id_estado` int(100) NOT NULL,
   `cantidad` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -727,21 +842,29 @@ CREATE TABLE `tbl_equipos` (
 --
 
 INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
-(8, 'cabina', 2, 6),
-(4, 'control', 2, 42),
-(6, 'convertidor', 2, 20),
-(5, 'extencion ', 2, 23),
-(10, 'faldon', 2, 30),
-(12, 'florero', 2, 6),
-(2, 'hdmi', 2, 100),
-(11, 'mantel', 2, 30),
-(9, 'mesa', 2, 15),
-(7, 'palantes', 2, 20),
-(0, 'Portatil', 2, 32),
-(13, 'señalizador laser', 2, 5),
-(14, 'sillas', 2, 300),
-(3, 'vga', 2, 100),
-(1, 'video beam', 2, 10);
+(20, 'Bandera', 2, 18),
+(17, 'Base micrófono', 2, 18),
+(6, 'Cabinas', 2, 8),
+(0, 'Cables HDMI', 2, 152),
+(21, 'Cables VGA', 2, 100),
+(15, 'Camara Web', 2, 6),
+(16, 'Consola de Sonido', 2, 4),
+(3, 'Control', 2, 100),
+(4, 'Extensión', 2, 45),
+(9, 'florero', 2, 4),
+(19, 'Grabadora Periodistica', 2, 2),
+(14, 'llaves', 2, 100),
+(8, 'Mantel', 2, 45),
+(7, 'Mesa', 2, 40),
+(13, 'Microfono', 2, 18),
+(18, 'Panel', 2, 10),
+(5, 'Parlantes', 2, 20),
+(1, 'Portatil', 2, 45),
+(10, 'Señalizador Laser', 2, 5),
+(11, 'sillas', 2, 400),
+(12, 'Tablero Movil', 2, 15),
+(12, 'Tablones', 2, 5),
+(2, 'Video-beam', 2, 100);
 
 -- --------------------------------------------------------
 
@@ -751,7 +874,7 @@ INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
 
 CREATE TABLE `tbl_estados` (
   `id` int(100) NOT NULL,
-  `estado` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `estado` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -764,7 +887,9 @@ INSERT INTO `tbl_estados` (`id`, `estado`) VALUES
 (3, 'Pendiente'),
 (4, 'Vencido'),
 (5, 'Salida'),
-(6, 'Mantenimiento');
+(6, 'Mantenimiento'),
+(7, 'entrada'),
+(8, 'otro');
 
 -- --------------------------------------------------------
 
@@ -773,12 +898,12 @@ INSERT INTO `tbl_estados` (`id`, `estado`) VALUES
 --
 
 CREATE TABLE `tbl_inventario` (
-  `codigo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `marca` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `modelo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `comentario` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `codigo` varchar(100) NOT NULL,
+  `marca` varchar(100) DEFAULT NULL,
+  `modelo` varchar(100) DEFAULT NULL,
+  `comentario` varchar(1000) DEFAULT NULL,
   `id_estado` int(100) NOT NULL,
-  `cat_equipo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `cat_equipo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -786,12 +911,25 @@ CREATE TABLE `tbl_inventario` (
 --
 
 INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
-('1', 'Epson', '2018', 'necesita m', 2, 'video beam'),
-('1291', 'Lenovo', '2015', 'sin actual', 2, 'Portatil'),
-('1303', 'Lenovo', '2015', 'sn-c', 2, 'Portatil'),
-('1400', 'Lenovo', '2015', 'presenta f', 2, 'Portatil'),
-('2', 'Epson', '2018', 'sn-c', 2, 'video beam'),
-('3', 'Epson', '2018', 'sn-c', 2, 'video beam');
+('01', 'hd', '2015', 'sin datos', 2, 'Cables HDMI'),
+('02', 'hdVGA', '2019', 'SIN COMENTARIO', 2, 'Cables VGA'),
+('1101', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
+('1102', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
+('1103', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
+('1104', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
+('1105', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
+('1111', 'Hewlett Packard', '2022', 'Actualizad', 2, 'Portatil'),
+('1112', 'Hewlett Packard', '2022', 'Actualizado y con mantenimiento', 2, 'Portatil'),
+('2001', 'Epson', '2021', 'Con mantenimiento ', 2, 'Video-beam'),
+('2002', 'Epson', '2021', 'Con mantenimiento ', 2, 'Video-beam'),
+('3001', 'Generica', '2022', 'Con mantenimiento ', 2, 'Extensión'),
+('3002', 'Generica', '2022', 'Con mantenimiento ', 2, 'Extensión'),
+('4001', 'Epson', '2021', 'con pilas', 2, 'Control'),
+('4002', 'Epson', '2021', 'con pilas', 2, 'Control'),
+('5001', 'jbl', '2022', 'Con su cable de carga', 2, 'Parlantes'),
+('5002', 'jbl', '2022', 'Con su cable de carga', 2, 'Parlantes'),
+('5003', 'genius', '2019', 'realizada reparacion', 2, 'Parlantes'),
+('5004', 'genius', '2019', 'Con mantenimiento ', 2, 'Parlantes');
 
 -- --------------------------------------------------------
 
@@ -801,8 +939,8 @@ INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_est
 
 CREATE TABLE `tbl_salida` (
   `id` int(100) NOT NULL,
-  `nom_auxiliar_out` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nom_docente_out` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nom_auxiliar_out` varchar(100) DEFAULT NULL,
+  `nom_docente_out` varchar(100) DEFAULT NULL,
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -814,15 +952,18 @@ CREATE TABLE `tbl_salida` (
 
 CREATE TABLE `tbl_tiket` (
   `id` int(100) NOT NULL,
-  `comentario` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nombre_aula` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `comentario` varchar(100) DEFAULT NULL,
+  `nombre_aula` varchar(100) NOT NULL,
   `id_salida` int(100) NOT NULL,
   `id_entrada` int(100) NOT NULL,
   `id_estado` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Índices para tablas volcadas
+--
 
+--
 -- Indices de la tabla `tbl_aulas`
 --
 ALTER TABLE `tbl_aulas`
@@ -906,13 +1047,13 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
