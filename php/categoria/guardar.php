@@ -34,7 +34,7 @@ if ($accion == "ADICIONAR") {
     if ($obj_equipos->modificar()) {
         echo '
         <script> 
-       
+        location.href="../../principal.php?opcion=categorias";
         alert("El registro SE modifico CORRECTAMENTE");
         
         </script>
@@ -49,7 +49,7 @@ if ($accion == "ADICIONAR") {
 
     //     </script>
     //     ';
-    // }
+    }
 }
 
 
