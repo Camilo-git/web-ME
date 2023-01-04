@@ -78,6 +78,7 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           // ------------categorias-----------------
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+
           // ------------ imprimimos todas las categorias-------------
 
         case 'categorias':
@@ -119,7 +120,7 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
         break;
 
         // ------------ ELIMINAR ARTICULO--------------------
-      case 'eliminar-articulo';
+        case 'eliminar-articulo';
         include_once("php/inventario/guardar.php");
         break;
 
@@ -137,7 +138,24 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
         case 'docente-nuevo':
           include_once("php/profesores/nuevo_profesor.php");
           break;
+          
+
+          // ------------ EDITAR profesor--------------------
+        case 'editar-profesor';
+        include_once("php/profesores/nuevo_profesor.php");
+        break;
+
+        // ------------ ELIMINAR profesor--------------------
+      case 'eliminar-profesor';
+        include_once("php/profesores/guardar.php");
+        break;
+
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           /*-----------------------auxiliares--------------*/
+          /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
+
+          // ------------Imprimir todos los auxiliares-----------------
+
         case 'auxiliares':
           include_once("php/auxiliares/auxiliares.php");
           break;

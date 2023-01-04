@@ -10,13 +10,14 @@ include_once '../../clases/cls_docentes.php';
 // creamos un objeto de la clase cls_equipos
 $obj_equipos = new Docente();
 // creamos las variables con los datos que llegan por el metodo post
-$accion = $_POST['accion'];
-$cedula = $_POST['cedula'];
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$cel = $_POST['cel'];
-$programa = $_POST['programa'];
-$dependencia = $_POST['dependencia'];
+$accion = isset($_POST['accion']) ? $_POST['accion'] : $_GET['accion'];
+$cedula = isset($_POST['cedula']) ? $_POST['cedula'] : $_GET['cedula'];
+$nombre     = isset($_POST['nombre']) ? $_POST['nombre'] : "";
+$correo     = isset($_POST['correo']) ? $_POST['correo'] : "";
+$cel     = isset($_POST['cel']) ? $_POST['cel'] : "";
+$programa     = isset($_POST['programa']) ? $_POST['programa'] : "";
+$dependencia     = isset($_POST['dependencia']) ? $_POST['dependencia'] : "";
+
 // llamamos al objeto de la clase cls_equipos para ejecutar la accion
 $obj_equipos->cargarDatos($cedula, $nombre, $correo, $cel, $programa, $dependencia);
 

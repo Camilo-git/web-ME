@@ -1,4 +1,7 @@
 <?php 
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y la cedula del profesor
@@ -56,7 +59,7 @@ echo $cedula;
 
                 <!-- creamos un input con la clase form-control para poder darle estilo al input -->
                 <label for="cedula">Cedula</label>
-                <input type="text" name="cedula" class="form-control value="<?php echo $cedula; ?>">
+                <input type="text" name="cedula" class="form-control" value="<?php echo $cedula; ?>">
                 <!-- creamos un input con la clase form-control para poder darle estilo al input -->
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" class="form-control" value="<?php echo $nombre; ?>">
