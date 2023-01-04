@@ -112,6 +112,17 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
           include_once("php/inventario/nuevo_articulo.php");
           break;
 
+          
+          // ------------ EDITAR ARTICULO--------------------
+        case 'editar-articulo';
+        include_once("php/inventario/nuevo_articulo.php");
+        break;
+
+        // ------------ ELIMINAR ARTICULO--------------------
+      case 'eliminar-articulo';
+        include_once("php/inventario/guardar.php");
+        break;
+
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           /*-------------------PROFESORES------------------*/

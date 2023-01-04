@@ -95,7 +95,86 @@ class Inventario{
         }
         return $resultado;
     }//cierre de la funcion insertar
+     /*--------------------------------------------------------------------------
+	 Function eliminar()
+	 Objetivo: Permite eliminar registros de la tabla de Contactos
+	 Retorno: valor booleano 
+	 1: true -> La operaciòn se ejecutò con èxito
+	 2: false -> La operaciòn no se pudo ejecutar
+	 --------------------------------------------------------------------------*/
 
+    public function eliminar()
+    {
+        // variables de trabajo 
+        $resultado = false;
+        $filas = 0 ;
+        // creamos la conexion
+        $conexion = conectarBD();
+        // creamos la variable con el query ->orden para la base de datos 
+        $sSQL ="DELETE FROM tbl_inventario WHERE codigo = ?;";
+         //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+        $pst = $conexion->prepare($sSQL);
+        $pst->bindParam(1, $this->codigo);
+        //se envia a ejecutar la conexion
+        $filas = $pst->execute();
+        $resultado = ($filas > 0) ? true : false;
+     } catch (Exception $e) {
+        echo "No se pudo realizar la conexión a la Base de Datos";
+        echo "<br>";
+        echo "Error:" . $e->getMessage();
+        $resultado = false;
+     }
+     return $resultado;
+ 
+    }
+    // cierrre de la funcion eliminar
+ /*--------------------------------------------------------------------------
+	 Function modificar()
+	 Objetivo: Permite editar los registros de un contacto
+	 Retorno: valor booleano 
+	 1: true -> La operaciòn se ejecutò con èxito
+	 2: false -> La operaciòn no se pudo ejecutar
+	 --------------------------------------------------------------------------*/
+     public function modificar()
+     {
+        //variables de trabajo
+        $resultado = false;
+        $filas = 0;
+        //creamos la conexion
+        $conexion = conectarBD();
+        // creamos la variable con el QUERY -> orden para la base de datos
+        $sSQL = "UPDATE tbl_inventario SET
+             codigo    = ?,
+             marca = ?,
+             modelo  = ?,
+             comentario    = ?,
+             id_estado    = ?,
+             cat_equipo    = ?
+             WHERE codigo = ?";
+        //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+        try {
+           $pst = $conexion->prepare($sSQL);
+           $pst->bindParam(1, $this->codigo);
+           $pst->bindParam(2, $this->marca);
+           $pst->bindParam(3, $this->modelo);
+           $pst->bindParam(4, $this->comentario);
+           $pst->bindParam(5, $this->estado);
+           $pst->bindParam(6, $this->cat_equipo);
+           $pst->bindParam(7, $this->codigo);
+  
+  
+           //se envia a ejecutar la conexion
+           $filas = $pst->execute();
+           $resultado = ($filas > 0) ? true : false;
+        } catch (Exception $e) {
+           echo "No se pudo realizar la conexión a la Base de Datos";
+           echo "<br>";
+           echo "Error:" . $e->getMessage();
+           $resultado = false;
+        }
+        return $resultado;
+     } //cierra el método modificar
 
 }
 // cierre de la clase

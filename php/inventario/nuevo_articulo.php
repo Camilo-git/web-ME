@@ -1,9 +1,14 @@
 <?php
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
+
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y el codigo
-$accion = $_REQUEST['accion'];
-$codigo = $_REQUEST['codigo'];
+$accion = $_GET['accion'];
+$codigo = $_GET['codigo'];
+echo $accion, $codigo;
 // si la accion es adicionar
 if ($accion == "ADICIONAR"){
     // Creamos las variables para los datos del articulo
@@ -20,14 +25,16 @@ if ($accion == "ADICIONAR"){
     // creamos una variable para la conexion
     $conexion = conectarBD();
     // creamos una variable para la consulta
-    $sSQL = "SELECT * FROM tbl_inventario WHERE codigo = '$codigo'";
+    $sSQL = "SELECT * FROM tbl_inventario WHERE codigo = '$codigo';";
+    // creamos una variable datos para poder ejecutar la consulta
+    $datos  = $conexion->query($sSQL);
     // creamos una variable para poder recorrer los datos
     foreach ($datos as $filas){
         $codigo = $filas['codigo'];
         $marca = $filas['marca'];
         $modelo = $filas['modelo'];
         $comentario = $filas['comentario'];
-        $estado = $filas['estado'];
+        $estado = $filas['id_estado'];
         $cat_equipo = $filas['cat_equipo'];
     }
 }
@@ -70,8 +77,8 @@ echo $codigo;
                 <label for="comentario">Comentario</label>
                 <input type="text" name="comentario" class="form-control" value="<?php echo $comentario; ?>">
                 <!-- creamos un input para poder recibir el estado del articulo -->
-                <label for="estado">Estado</label>
-                <input type="text" name="estado" class="form-control" value="<?php echo $estado; ?>">
+                <label for="id_estado">Estado</label>
+                <input type="text" name="id_estado" class="form-control" value="<?php echo $estado; ?>">
                 <!-- creamos un input para poder recibir la categoria del articulo -->
                 <label for="cat_equipo">Categoria</label>
                 <input type="text" name="cat_equipo" class="form-control" value="<?php echo $cat_equipo; ?>"><br>

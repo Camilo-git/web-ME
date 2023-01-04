@@ -57,8 +57,9 @@
 						<td><?php echo $fila['id_estado'];   ?></td>
 						<td><?php echo $fila['cat_equipo'];   ?></td>
 						<?php
-						echo '<td><a href="./principal.php?opcion=editar-inventario&accion=EDITAR&id=' . $fila['codigo'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
-												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['codigo'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
+						echo '<td><a href="./principal.php?opcion=editar-articulo&accion=EDITAR&codigo=' . $fila['codigo'] . '" title="Editar el Articulo"><i class="fas fa-pen"></i></a></td>
+						
+						<td><a href="./php/inventario/guardar.php?&accion=ELIMINAR&codigo=' . $fila['codigo'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 						?>
 					</tr>
 
