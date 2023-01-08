@@ -135,7 +135,7 @@ class Auxiliar
       //creamos la conexion
       $conexion = conectarBD();
       // creamos la variable con el QUERY -> orden para la base de datos
-      $sSQL = "DELETE FROM tbl_contactos WHERE con_cedula = ?";
+      $sSQL = "DELETE FROM tbl_auxiliares WHERE cedula = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
@@ -166,20 +166,22 @@ class Auxiliar
       //creamos la conexion
       $conexion = conectarBD();
       // creamos la variable con el QUERY -> orden para la base de datos
-      $sSQL = "UPDATE tbl_contactos SET
-           con_nombre    = ?,
-           con_celular = ?,
-           con_correo  = ?,
-           con_direccion    = ?
-           WHERE  con_cedula = ?";
+      $sSQL = "UPDATE tbl_auxiliares SET
+           cedula    = ?,
+           nombre    = ?,
+           celular = ?,
+           correo  = ?,
+           direccion    = ?
+           WHERE  cedula = ?";
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
-         $pst->bindParam(1, $this->nombre);
-         $pst->bindParam(2, $this->celular);
-         $pst->bindParam(3, $this->correo);
-         $pst->bindParam(4, $this->direccion);
-         $pst->bindParam(7, $this->cedula);
+         $pst->bindParam(1, $this->cedula);
+         $pst->bindParam(2, $this->nombre);
+         $pst->bindParam(3, $this->celular);
+         $pst->bindParam(4, $this->correo);
+         $pst->bindParam(5, $this->direccion);
+         $pst->bindParam(6, $this->cedula);
          //se envia a ejecutar la conexion
          $filas = $pst->execute();
          $resultado = ($filas > 0) ? true : false;

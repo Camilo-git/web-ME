@@ -41,7 +41,11 @@
 
 				$conexion = conectarBD();
 
-				$sSQL = "SELECT * FROM tbl_inventario";
+				$sSQL = "SELECT * ,
+					tbl_estados.estado
+				FROM
+					tbl_inventario
+				INNER JOIN tbl_estados ON tbl_inventario.id_estado = tbl_estados.id";
 
 				$datos = $conexion->query($sSQL);
 
@@ -54,7 +58,7 @@
 						<td><?php echo $fila['marca'];     ?></td>
 						<td><?php echo $fila['modelo'];  ?></td>
 						<td><?php echo $fila['comentario'];   ?></td>
-						<td><?php echo $fila['id_estado'];   ?></td>
+						<td><?php echo $fila['estado'];   ?></td>
 						<td><?php echo $fila['cat_equipo'];   ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-articulo&accion=EDITAR&codigo=' . $fila['codigo'] . '" title="Editar el Articulo"><i class="fas fa-pen"></i></a></td>

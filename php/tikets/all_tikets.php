@@ -72,7 +72,7 @@
 
 				?>
 					<tr>
-						<td><?php echo $fila['id']. " ) -----> ". $fila['estado'] .  " -----> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
+						<td><?php echo $fila['id']. " ) - -> ". $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
 						
 						<td><?php echo $fila['salida'];  ?></td>
 						<td><?php echo $fila['entrada'];   ?></td>
@@ -81,7 +81,7 @@
 							$sSQL = "SELECT
 							CONCAT(
 								tbl_inventario.codigo,
-								' -- ',
+								' - - ',
 								tbl_inventario.cat_equipo,
 								'<br><hr>'
 							) AS categoria
@@ -104,7 +104,8 @@
 						
 						<?php
 						echo '<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id=' . $fila['id'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
-												<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
+												
+						<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 						?>
 					</tr>
 

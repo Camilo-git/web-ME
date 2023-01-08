@@ -172,7 +172,7 @@ CREATE TABLE `tbl_auxiliares` (
   `nombre` varchar(100) NOT NULL,
   `celular` varchar(100) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL,
-  `direcion` varchar(100) DEFAULT NULL
+  `direccion` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --

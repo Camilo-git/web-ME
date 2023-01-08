@@ -165,6 +165,16 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
           include_once("php/auxiliares/nuevo_auxiliar.php");
           break;
 
+          // ------------editar-auxiliares-----------------
+          case 'editar-auxiliar':
+            include_once("php/auxiliares/nuevo_auxiliar.php");
+            break;
+
+          // ------------eliminar-auxiliares-----------------
+          case 'eliminar-auxiliar':
+            include_once("php/auxiliares/guardar.php");
+            break;
+    
           /*-----------------------tikets--------------*/
           // salida y entrada de tikets
         case 'salida_tiket':

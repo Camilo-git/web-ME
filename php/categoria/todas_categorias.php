@@ -38,7 +38,11 @@
 
 				$conexion = conectarBD();
 
-				$sSQL = "SELECT * FROM tbl_equipos";
+				$sSQL = "SELECT *,
+					tbl_estados.estado
+				FROM
+					tbl_equipos
+				INNER JOIN tbl_estados ON tbl_equipos.id_estado = tbl_estados.id;";
 
 				$datos = $conexion->query($sSQL);
 
@@ -49,7 +53,7 @@
 					<tr>
 						<td><?php echo $fila['cod'];         ?></td>
 						<td><?php echo $fila['nombre'];     ?></td>
-						<td><?php echo $fila['id_estado'];  ?></td>
+						<td><?php echo $fila['estado'];  ?></td>
 						<td><?php echo $fila['cantidad'];   ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-categoria&accion=EDITAR&cod=' . $fila['cod'] . '&nombre' . $fila['nombre'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
