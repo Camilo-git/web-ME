@@ -6,6 +6,7 @@
 
     // incluiimos la clase cls_salida para crear la clase
     include_once '../../clases/cls_salida.php';
+    date_default_timezone_set('America/Bogota');
     // creamos un objeto de la clase cls_salida
     $obj_salida = new Salida();
     // creamos las variables con los datos que llegan por el metodo post
@@ -18,19 +19,18 @@
     
     // llamamos al objeto de la clase cls_salida para ejeccutar la accion
     $obj_salida->cargarDatos($id_salida, $nom_auxiliar, $nom_docente, $fecha_out);
-
     // si la accion es ADICIONAR
-    if ($accion == "ADICIONAR") {
+    if ($accion == "Salida") {
 
         // si la opcion es insertar
         if ($obj_salida->insertar()) {
+
             echo'
-            // <script> 
-           
-            // alert("El registro SE guardo CORRECTAMENTE");
-            
-            // </script>
-            // ';
+            <script>
+              location.href="guardar_entrada.php?accion=ADICIONAR&id= ' . $id_salida . ' ";
+            </script> 
+            ';
+
          }
     }elseif ($accion == "EDITAR") {
         // si la opcion es modificar
@@ -42,22 +42,12 @@
             
             </script>
             ';
-         }
-    }else{
-        // si la opcion es eliminar
-        if ($obj_salida->eliminar()) {
-            echo'
-            <> 
-           
-            alert("El registro SE elimino CORRECTAMENTE");
-            
-            </script>
-            ';
-         }
+        
+    }
     }
     echo'
     <script>
-    location.href="guardar_entrada.php";
+    // location.href="guardar_entrada.php";
     </script> 
     ';
 

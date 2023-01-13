@@ -20,12 +20,11 @@
 			<thead>
 
 				<tr>
-					<th>id - - Comentario - - Aula</th>					
+					<th>Comentario - - Aula</th>					
 					<th>Salida</th>
 					<th>Entrada</th>
 					<th>Elementos</th>						
-					<th>Edi</th>
-					<th>Borrar</th>
+					<th>Entrega</th>
 					<!-- th como titulos deben aver en td espacios -->
 
 				</tr>
@@ -72,40 +71,39 @@
 
 				?>
 					<tr>
-						<td><?php echo $fila['id']. " ) - -> ". $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
+						<td><?php echo  $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
 						
 						<td><?php echo $fila['salida'];  ?></td>
 						<td><?php echo $fila['entrada'];   ?></td>
 						<td><?php
 
 							$sSQL = "SELECT
-							CONCAT(
-								tbl_inventario.codigo,
-								' - - ',
-								tbl_inventario.cat_equipo,
-								'<br><hr>'
-							) AS categoria
-							FROM
-								tbl_detalle
-							INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = 												tbl_inventario.codigo
-							WHERE
-								tbl_detalle.id_tiket = $fila[id];";
+									CONCAT(
+										tbl_inventario.codigo,
+										' - - ',
+										tbl_inventario.cat_equipo,
+										'<br><hr>'
+									) AS categoria
+									FROM
+										tbl_detalle
+									INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = 												tbl_inventario.codigo
+									WHERE
+										tbl_detalle.id_tiket = $fila[id];";
 
-							$datos = $conexion->query($sSQL);
+									$datos = $conexion->query($sSQL);
+
 
 							foreach ($datos as $filas) :
 								echo $filas['categoria'];
-
-
 							endforeach;
 
 							?></td>
 						
 						
 						<?php
-						echo '<td><a href="./principal.php?opcion=contactos_form&accion=EDITAR&id=' . $fila['id'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
+						echo '<td><a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="ENtregar el Tiket"><i class="fas fa-pen"></i></a></td>
 												
-						<td><a href="./principal.php?opcion=contactos_form&accion=ELIMINAR&id=' . $fila['id'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
+						';
 						?>
 					</tr>
 

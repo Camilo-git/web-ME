@@ -44,7 +44,7 @@
     <li class="nav-item dropdown">
       <a href="principal.php?opcion=tikets" class="nav-link dropdown-toggle" data-toggle="dropdown"> Tikets </a>
       <div class="dropdown-menu">
-        <a href="principal.php?opcion=salida_tiket" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
+        <a href="principal.php?opcion=Salida" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
         <a href="principal.php?opcion=all_tikets" class="dropdown-item"><i class="fas fa-users"></i> todos los tikets
         </a>
       </div>

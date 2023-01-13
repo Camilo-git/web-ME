@@ -175,15 +175,23 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
             include_once("php/auxiliares/guardar.php");
             break;
     
+
           /*-----------------------tikets--------------*/
-          // salida y entrada de tikets
-        case 'salida_tiket':
-          include_once("php/tikets/salida_tiket.php");
-          break;
           // todos los tikets
         case 'all_tikets':
           include_once("php/tikets/all_tikets.php");
+          break;          
+
+          // salida y entrada de tikets
+        case 'Salida':
+          include_once("php/tikets/salida_tiket.php");
           break;
+          // editar Entrada
+        case 'Entrada':
+          include_once("php/tikets/salida_tiket.php");          
+          break;
+
+
           // formulario para ingresar el tiket
         case 'entrada_tiket':
           include_once("php/tikets/entrada_tiket.php");

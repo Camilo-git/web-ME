@@ -75,5 +75,42 @@ class Entrada{
         // retornamos el resultado
         return $resulrado;
     }   // fin del metodo insertar
-}   // fin de la clase Salida
+
+    public function modificar()
+   {
+      //variables de trabajo
+      $resultado = false;
+      $filas = 0;
+      //creamos la conexion
+      $conexion = conectarBD();
+      // creamos la variable con el QUERY -> orden para la base de datos
+      $sSQL = "UPDATE tbl_entrada SET
+           id    = ?,
+           nom_auxiliar_in= ?,
+           nom_docente_in  = ?,
+           fecha_in    = ?           
+           WHERE id = ?";
+      //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+      try {
+         $pst = $conexion->prepare($sSQL);
+         $pst->bindParam(1, $this->id);
+         $pst->bindParam(2, $this->nom_auxiliar_in);
+         $pst->bindParam(3, $this->nom_docente_in);
+         $pst->bindParam(4, $this->fecha_in);
+         $pst->bindParam(5, $this->id);
+
+
+         //se envia a ejecutar la conexion
+         $filas = $pst->execute();
+         $resultado = ($filas > 0) ? true : false;
+      } catch (Exception $e) {
+         echo "No se pudo realizar la conexión a la Base de Datos";
+         echo "<br>";
+         echo "Error:" . $e->getMessage();
+         $resultado = false;
+      }
+      return $resultado;
+   } //cierra el método modificar
+}//cierra la clase
+// fin de la clase Salida
 ?>
