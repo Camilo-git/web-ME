@@ -20,11 +20,11 @@
 			<thead>
 
 				<tr>
-					<th>Comentario - - Aula</th>					
+					<th>Id </th>					
 					<th>Salida</th>
 					<th>Entrada</th>
 					<th>Elementos</th>						
-					<th>Entrega</th>
+					<th>Estado - - Aula - - Comentario</th>
 					<!-- th como titulos deben aver en td espacios -->
 
 				</tr>
@@ -71,7 +71,12 @@
 
 				?>
 					<tr>
-						<td><?php echo $fila['id'] . " - -> " . $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
+						<td>
+							<?php echo $fila['id'] . 
+								"<br><hr> "  ; 
+								echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
+							?>
+						</td>
 						
 						<td><?php echo $fila['salida'];  ?></td>
 						<td><?php echo $fila['entrada'];   ?></td>
@@ -86,7 +91,7 @@
 									) AS categoria
 									FROM
 										tbl_detalle
-									INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = 												tbl_inventario.codigo
+									INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo
 									WHERE
 										tbl_detalle.id_tiket = $fila[id];";
 
@@ -97,14 +102,17 @@
 								echo $filas['categoria'];
 							endforeach;
 
-							?></td>
-						
-						
-						<?php
-						echo '<td><a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="ENtregar el Tiket"><i class="fas fa-pen"></i></a></td>
-												
-						';
-						?>
+							?>
+						</td>
+								<!-- <?php
+									
+								?> -->
+								<td>
+							<?php echo  $fila['estado'] .
+								" - -> ". $fila['nombre_aula'] . 
+								"<br><hr> ". $fila['comentario'] ; 
+							?>
+						</td>
 					</tr>
 
 				<?php
