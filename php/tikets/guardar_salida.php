@@ -6,7 +6,6 @@
 
     // incluiimos la clase cls_salida para crear la clase
     include_once '../../clases/cls_salida.php';
-    date_default_timezone_set('America/Bogota');
     // creamos un objeto de la clase cls_salida
     $obj_salida = new Salida();
     // creamos las variables con los datos que llegan por el metodo post
@@ -14,7 +13,8 @@
     $id_salida = $_POST['num_id'];
     $nom_auxiliar = $_POST['txt_auxiliar'];
     $nom_docente = $_POST['txt_docente'];
-    $fecha_out = date('Y-m-d h:i:s a', time());
+    date_default_timezone_set('America/Bogota');
+    $fecha_out = date('Y-m-d H:i:s ', time());
     echo $fecha_out;
     
     // llamamos al objeto de la clase cls_salida para ejeccutar la accion

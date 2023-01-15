@@ -20,7 +20,7 @@ echo $id;
 
 $nom_auxiliar_in = $_POST['txt_auxiliar'] ;
 $nom_docente_in = $_POST['txt_docente'] ;
-$fecha_in =  date('Y-m-d h:i:s a', time()) ;
+$fecha_in =  date('Y-m-d H:i:s ', time()) ;
 // llamamos al objeto de la clase cls_entrada para ejeccutar la accion
 $obj_entrada->cargarDatos($id, $nom_auxiliar_in, $nom_docente_in, $fecha_in);
 // si la accion es ADICIONAR
@@ -42,8 +42,9 @@ if ($accion == "ADICIONAR") {
         location.href="../../principal.php?opcion=all_tikets";        
         </script>
         ';
-
         
+
+
 
 
      }

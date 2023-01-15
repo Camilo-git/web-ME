@@ -85,7 +85,7 @@
                                 <!-- creamos un codigo php con la zona para obtener la hora y la fecha que transcurre en el sistema -->
                                 <?php
                                     date_default_timezone_set('America/Bogota');
-                                    $DateAndTime = date('Y-m-d h:i:s a', time());  
+                                    $DateAndTime = date('Y-m-d * h:i A', time());  
                                     echo "Hora actual = $DateAndTime.";
                                 ?>
                                    

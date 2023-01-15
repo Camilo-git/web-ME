@@ -166,7 +166,7 @@ include_once("clases/cls_conectarB.php");
 
                     foreach ($datos as $fila) :
 
-                        echo $fila['categoria'] . "==";
+                        
                     ?>
 
                         <tr>

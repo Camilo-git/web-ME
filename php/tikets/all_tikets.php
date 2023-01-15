@@ -4,7 +4,7 @@
 		<h3><i class="fa fa-user-circle"></i> Prestamos Realizados </h3>
 	</div>
 	<div class="col-2">
-		<a href="./principal.php?opcion=contactos_form&accion=ADICIONAR&id=0" class="btn btn-primary" title="Crear un nuevo Contacto">
+		<a href="principal.php?opcion=Salida" class="btn btn-primary" title="Crear un nuevo Contacto">
 			<i class="fas fa-plus-circle"></i>
 			Adicionar
 		</a>
@@ -41,19 +41,19 @@
 					tbl_tiket.id,
 					tbl_tiket.comentario,
 					CONCAT(
-						
+						tbl_salida.fecha_out,
+						' <br><hr> ',
 						tbl_salida.nom_docente_out,
 						' <br><hr> ',
-						tbl_salida.nom_auxiliar_out,
-						' <br><hr> ',
-						tbl_salida.fecha_out
+						tbl_salida.nom_auxiliar_out
+						
 					) AS salida,
 					CONCAT(
+						tbl_entrada.fecha_in,
+						' <br><hr> ',
 						tbl_entrada.nom_docente_in,
 						' <br><hr> ',
-						tbl_entrada.nom_auxiliar_in,
-						' <br><hr> ',
-						tbl_entrada.fecha_in
+						tbl_entrada.nom_auxiliar_in
 					) AS entrada,
 					tbl_estados.estado,
 					tbl_tiket.nombre_aula
@@ -71,7 +71,7 @@
 
 				?>
 					<tr>
-						<td><?php echo  $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
+						<td><?php echo $fila['id'] . " - -> " . $fila['estado'] .  " - -> ". $fila['nombre_aula'] . "<br><hr> ". $fila['comentario'] ;         ?></td>
 						
 						<td><?php echo $fila['salida'];  ?></td>
 						<td><?php echo $fila['entrada'];   ?></td>

@@ -8,7 +8,7 @@
 
 
     <li class="nav-item dropdown">
-      <a href="" class="navbar-brand">Prestamos ME</a>
+      <a href="principal.php?opcion=all_tikets" class="navbar-brand">Prestamos ME.</a>
     </li>
 
     <!-- opcion de aulas -->

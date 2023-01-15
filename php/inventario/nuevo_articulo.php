@@ -1,14 +1,13 @@
 <?php
-echo "<pre>";
-print_r($_REQUEST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_REQUEST);
+// echo "</pre>";
 
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y el codigo
 $accion = $_GET['accion'];
 $codigo = $_GET['codigo'];
-echo $accion, $codigo;
 // si la accion es adicionar
 if ($accion == "ADICIONAR"){
     // Creamos las variables para los datos del articulo
@@ -39,8 +38,6 @@ if ($accion == "ADICIONAR"){
     }
 }
 // creamos el formulario
-echo $accion;
-echo $codigo;
 ?>
 
 <!-- creamos un div con la clase container para poder centrar el formulario -->
@@ -78,7 +75,16 @@ echo $codigo;
                 <input type="text" name="comentario" class="form-control" value="<?php echo $comentario; ?>">
                 <!-- creamos un input para poder recibir el estado del articulo -->
                 <label for="id_estado">Estado</label>
-                <input type="text" name="id_estado" class="form-control" value="<?php echo $estado; ?>">
+                <!-- creamos un div centrado -->
+                <div class="col-md-12">
+                    <!-- creamos una lista desplegable -->
+                    <select class="form-control" id="txt_estado" name="id_estado">
+                    <option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
+                    <?php
+                    include_once("php/listas/cargar_estados.php");
+                    ?>
+                    </select>
+                </div>
                 <!-- creamos un input para poder recibir la categoria del articulo -->
                 <label for="cat_equipo">Categoria</label>
                 <input type="text" name="cat_equipo" class="form-control" value="<?php echo $cat_equipo; ?>"><br>

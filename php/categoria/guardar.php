@@ -55,8 +55,8 @@ if ($accion == "ADICIONAR") {
 }
 
 
-// echo '
-// <script>
-// location.href="../../principal.php?opcion=categorias";
-// </script> 
-// ';
+echo '
+<script>
+location.href="../../principal.php?opcion=categorias";
+</script> 
+';

@@ -1,6 +1,6 @@
 <?php
 //----------condicion-------------------si verdadero---si falso------
-$opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
+$opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
 /* operarodes alternarios
   if( !isset($GET['opcion']) ){
     $opcion ='inicio';
@@ -26,7 +26,7 @@ $opcion = (!isset($_GET['opcion'])) ? 'inicio' : $_GET['opcion'];
 
 
 
-  <title>Agenda Ver 1.0</title>
+  <title>Medios Educativos V°1.0</title>
 
 </head>
 

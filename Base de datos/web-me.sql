@@ -179,7 +179,7 @@ CREATE TABLE `tbl_auxiliares` (
 -- Volcado de datos para la tabla `tbl_auxiliares`
 --
 
-INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direcion`) VALUES
+INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direccion`) VALUES
 ('1085265396', 'Benavides Castro Jose Luis ', '3135271772', 'jlbenavides@unicesmag.edu.co', ''),
 ('1085251168', 'De La Cruz Hernandez Miguel Ignacio', '3177474845', 'midelacruz@unicesmag.edu.co', ''),
 ('30735249', 'Diaz Pabon Nelsy Eugenia', '3053406408', 'nediaz@unicesmag.edu.co', ''),

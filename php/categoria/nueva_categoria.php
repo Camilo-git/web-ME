@@ -29,8 +29,6 @@ if ($accion == "ADICIONAR") {
     }
 }
 // creamos el formulario
-echo $accion;
-echo $codigo;
 ?>
 <!-- creamos un div con clase container para poder centrar el formulario -->
 <div class="container">
@@ -53,19 +51,24 @@ echo $codigo;
                 <input type="text" name="nombre" class="form-control" value="<?php echo $nombre; ?>">
                 <!-- creamos un input con clase form-control para poder darle estilo al input -->
                 <label>Estado</label>
-                <input type="text" name="estado" class="form-control" value="<?php echo $estado; ?>">
+               
+                 <!-- creamos un div centrado -->
+                 <div class="col-md-12">
+                    <!-- creamos una lista desplegable -->
+                    <select class="form-control" id="num_id_equipo" name="estado">
+                    <option value="<?php echo $estado ?>"><?php echo $estado ?></option>
+                    <?php
+                    include_once("php/listas/cargar_estados.php");
+                    ?>
+                    </select>
+                    </div>
                 <!-- creamos un input con clase form-control para poder darle estilo al input -->
                 <label>Cantidad</label>
                 <input type="text" name="cantidad" class="form-control" value="<?php echo $cantidad; ?>">
                 <!-- creamos un input con clase form-control para poder darle estilo al input -->
+                <br>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </form>
         </div>
     </div>
 </div>
-
-
-<?php
-
-print_r($_POST);
-?>
