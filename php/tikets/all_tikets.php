@@ -42,17 +42,17 @@
 					tbl_tiket.comentario,
 					CONCAT(
 						tbl_salida.fecha_out,
-						' <br><hr> ',
+						' <hr> ',
 						tbl_salida.nom_docente_out,
-						' <br><hr> ',
+						' <hr> ',
 						tbl_salida.nom_auxiliar_out
 						
 					) AS salida,
 					CONCAT(
 						tbl_entrada.fecha_in,
-						' <br><hr> ',
+						' <hr> ',
 						tbl_entrada.nom_docente_in,
-						' <br><hr> ',
+						' <hr> ',
 						tbl_entrada.nom_auxiliar_in
 					) AS entrada,
 					tbl_estados.estado,

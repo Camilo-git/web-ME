@@ -1,26 +1,32 @@
 <?php
 include_once("clases/cls_conectarB.php");
+
+echo "<pre>";
+
+print_r($_POST);
+print_r($_GET);
+print_r($_REQUEST);
+echo "</pre>";
 ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
             <h3 class="text-info text-right">
-                Tiket ->
+                <?php
+                $opcion = $_GET['opcion'];
+                $id_tiket = $_GET['id-tiket'];
+                echo $opcion;
+                echo " <input type='hidden' name='id-tiket' value='$id_tiket'br />";
+                ?>
+
             </h3>
         </div>
         <div class="col-md-6">
             <h3 class="text-primary">
                 <span>
                     <?php
-                    $conexion = conectarBD();
-                    $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-                    $dato = $conexion->query($sSQL);
-                    // imprimimos el resultado
-                    foreach ($dato as $fila) {
-                        $fila = $fila['id'];
-                        echo $fila;
-                        echo " <input type='hidden' name='num_id' value='$fila'br />";
-                    }
+                    echo  ' -> ' . $id_tiket;
+
                     ?>
                 </span>
             </h3>
@@ -40,15 +46,8 @@ include_once("clases/cls_conectarB.php");
                     <h3 class="text-primary">
                         <span>
                             <?php
-                            $conexion = conectarBD();
-                            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-                            $dato = $conexion->query($sSQL);
-                            // imprimimos el resultado
-                            foreach ($dato as $fila) {
-                                $fila = $fila['id'];
-                                echo $fila;
-                                echo " <input type='hidden' name='num_id' value='$fila'br />";
-                            }
+
+                            echo $id_tiket;
                             ?>
                         </span>
                     </h3>
@@ -128,15 +127,7 @@ include_once("clases/cls_conectarB.php");
                     <h3 class="text-primary">
                         <span>
                             <?php
-                            $conexion = conectarBD();
-                            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-                            $dato = $conexion->query($sSQL);
-                            // imprimimos el resultado
-                            foreach ($dato as $fila) {
-                                $fila = $fila['id'];
-                                echo $fila;
-                                echo " <input type='hidden' name='num_id' value='$fila'br />";
-                            }
+                            echo $id_tiket;
                             ?>
                         </span>
                     </h3>
@@ -173,6 +164,8 @@ include_once("clases/cls_conectarB.php");
     </div> <!-- row -->
     <br>
     <hr>
+
+
     <!-- creamos el formulario para tiket -->
     <form action="php/tikets/guardar_tiket.php" method="POST">
         <span>
@@ -254,9 +247,9 @@ include_once("clases/cls_conectarB.php");
                 <div class="row">
                     <div class="col-md-12">
 
-                        
 
-                        <button class="btn btn-block active btn-lg btn-outline-danger" name="btn_guardar" value="ADICIONAR">
+
+                        <button class="btn btn-block active btn-lg btn-outline-danger" name="accion" value="<?php echo $opcion; ?>">
                             Guardar
                         </button>
                     </div>

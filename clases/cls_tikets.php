@@ -1,6 +1,7 @@
-<?php 
+<?php
 include_once("cls_conectarB.php");
-class Tikets{
+class Tikets
+{
     //SE DEFINEN LAS VARIABLES PARA MANEJAR TODOS LOS CAMPOS DE LA CLASE
     private $id;
     private $comentario;
@@ -9,18 +10,18 @@ class Tikets{
     private $id_entrada;
     private $id_estado;
 
-   //METODO PARA CARGAR TODOS LOS DATOS
-   function cargarDatos($id,$comentario,$nombre_aula,$id_salida,$id_entrada,$id_estado)
-   {
-     $this->id=$id;
-     $this->comentario=$comentario;
-     $this->nombre_aula=$nombre_aula;
-     $this->id_salida=$id_salida;
-     $this->id_entrada=$id_entrada;
-     $this->id_estado=$id_estado;
-   }
-   
-   //SE DEFINEN LOS METODOS SET Y GET
+    //METODO PARA CARGAR TODOS LOS DATOS
+    function cargarDatos($id, $comentario, $nombre_aula, $id_salida, $id_entrada, $id_estado)
+    {
+        $this->id = $id;
+        $this->comentario = $comentario;
+        $this->nombre_aula = $nombre_aula;
+        $this->id_salida = $id_salida;
+        $this->id_entrada = $id_entrada;
+        $this->id_estado = $id_estado;
+    }
+
+    //SE DEFINEN LOS METODOS SET Y GET
     function setId($id)
     {
         $this->id = $id;
@@ -59,7 +60,7 @@ class Tikets{
     function getComentario()
     {
         return $this->comentario;
-    }   
+    }
 
     function getNombre_aula()
     {
@@ -81,11 +82,11 @@ class Tikets{
         return $this->id_estado;
     }
 
-       
 
-   
 
-   //METODOS CRU CREATE,READ,UPDATE,DELETE
+
+
+    //METODOS CRU CREATE,READ,UPDATE,DELETE
     /*--------------------------------------------------------------------------
      Function insertar()
      Objetivo: Permite el ingreso de registros nuevos a la tabla de Contactos
@@ -93,116 +94,108 @@ class Tikets{
      1: true -> La operaciòn se ejecutò con èxito
      2: false -> La operaciòn no se pudo ejecutar
      --------------------------------------------------------------------------*/
- //METODO PARA INSERTAR UN NUEVO REGISTRO
-   function insertar()
- {
-    //variables de trabajo
-    $resultado = false;
-    $filas =0;
-    //creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="INSERT INTO tbl_tiket VALUES (?,?,?,?,?,?)";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
+    //METODO PARA INSERTAR UN NUEVO REGISTRO
+    function insertar()
     {
-        $pst = $conexion->prepare($sSQL);
-        $pst->bindParam(1,$this->id);
-        $pst->bindParam(2,$this->comentario);
-        $pst->bindParam(3,$this->nombre_aula);
-        $pst->bindParam(4,$this->id_salida);
-        $pst->bindParam(5,$this->id_entrada);
-        $pst->bindParam(6,$this->id_estado);
-        $filas = $pst->execute();
-        $resultado=($filas>0) ? true : false;
-     
-   }
-   catch (Exception $e)
-   {
-    echo "No se pudo realizar la conexión a la Base de Datos";
-    echo "<br>";
-    echo "Error:".$e->getMessage();
-    $resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método insertar
-  /*--------------------------------------------------------------------------
+        //variables de trabajo
+        $resultado = false;
+        $filas = 0;
+        //creamos la conexion
+        $conexion = conectarBD();
+        // creamos la variable con el QUERY -> orden para la base de datos
+        $sSQL = "INSERT INTO tbl_tiket VALUES (?,?,?,?,?,?)";
+        //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+        try {
+            $pst = $conexion->prepare($sSQL);
+            $pst->bindParam(1, $this->id);
+            $pst->bindParam(2, $this->comentario);
+            $pst->bindParam(3, $this->nombre_aula);
+            $pst->bindParam(4, $this->id_salida);
+            $pst->bindParam(5, $this->id_entrada);
+            $pst->bindParam(6, $this->id_estado);
+            $filas = $pst->execute();
+            $resultado = ($filas > 0) ? true : false;
+        } catch (Exception $e) {
+            echo "No se pudo realizar la conexión a la Base de Datos";
+            echo "<br>";
+            echo "Error:" . $e->getMessage();
+            $resultado = false;
+        }
+        return $resultado;
+    } //cierra el método insertar
+    /*--------------------------------------------------------------------------
      Function eliminar()
      Objetivo: Permite eliminar registros de la tabla de Contactos
      Retorno: valor booleano 
      1: true -> La operaciòn se ejecutò con èxito
      2: false -> La operaciòn no se pudo ejecutar
      --------------------------------------------------------------------------*/
-  function eliminar()
-   {
-    //variables de trabajo
-    $resultado = false;
-    $filas =0;
-    //creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="DELETE FROM tbl_contactos WHERE con_id = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
+    function eliminar()
     {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->id);
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-    echo "No se pudo realizar la conexión a la Base de Datos";
-    echo "<br>";
-    echo "Error:".$e->getMessage();
-    $resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método eliminar
-  /*--------------------------------------------------------------------------
+        //variables de trabajo
+        $resultado = false;
+        $filas = 0;
+        //creamos la conexion
+        $conexion = conectarBD();
+        // creamos la variable con el QUERY -> orden para la base de datos
+        $sSQL = "DELETE FROM tbl_contactos WHERE con_id = ?";
+        //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+        try {
+            $pst = $conexion->prepare($sSQL);
+            $pst->bindParam(1, $this->id);
+            //se envia a ejecutar la conexion
+            $filas = $pst->execute();
+            $resultado = ($filas > 0) ? true : false;
+        } catch (Exception $e) {
+            echo "No se pudo realizar la conexión a la Base de Datos";
+            echo "<br>";
+            echo "Error:" . $e->getMessage();
+            $resultado = false;
+        }
+        return $resultado;
+    } //cierra el método eliminar
+    /*--------------------------------------------------------------------------
      Function modificar()
      Objetivo: Permite editar los registros de un contacto
      Retorno: valor booleano 
      1: true -> La operaciòn se ejecutò con èxito
      2: false -> La operaciòn no se pudo ejecutar
      --------------------------------------------------------------------------*/
- function modificar()
-   {
-    //variables de trabajo
-    $resultado = false;
-    $filas =0;
-    //creamos la conexion
-    $conexion = conectarBD();
-    // creamos la variable con el QUERY -> orden para la base de datos
-    $sSQL="UPDATE tbl_contactos SET
-           con_comentario    = ?,
-           con_celh_salida?,
-           con_h_entrada  = ?,
-           con_ced_aux    = ?
-           WHERE  con_id = ?";
-    //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
-    try
+    function modificar()
     {
-     $pst=$conexion->prepare($sSQL);
-     $pst->bindParam(1,$this->comentario);
-     $pst->bindParam(2,$this->ch_salida);
-     $pst->bindParam(3,$this->h_entrada);
-     $pst->bindParam(4,$this->ced_aux);
-     $pst->bindParam(7,$this->id);
-     //se envia a ejecutar la conexion
-     $filas=$pst->execute();
-     $resultado=($filas>0) ? true : false;
-   }
-   catch (Exception $e)
-   {
-    echo "No se pudo realizar la conexión a la Base de Datos";
-    echo "<br>";
-    echo "Error:".$e->getMessage();
-    $resultado=false;
-   }
-   return $resultado; 
-  }//cierra el método modificar
+        //variables de trabajo
+        $resultado = false;
+        $filas = 0;
+        //creamos la conexion
+        $conexion = conectarBD();
+        // creamos la variable con el QUERY -> orden para la base de datos
+        $sSQL = "UPDATE tbl_tiket SET
+           comentario = ?,
+           nombre_aula  = ?,
+        --    id_salida    = ?,
+        --    id_entrada    = ?,
+           id_estado    = ?
+           WHERE  id = ?";
+        //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
+        try {
+            $pst = $conexion->prepare($sSQL);
+            // $pst->bindParam(1, $this->id);
+            $pst->bindParam(1, $this->comentario);
+            $pst->bindParam(2, $this->nombre_aula);
+            // $pst->bindParam(4, $this->id_salida);
+            // $pst->bindParam(5, $this->id_entrada);
+            $pst->bindParam(3, $this->id_estado);
+            $pst->bindParam(4, $this->id);
+            $filas = $pst->execute();
+            $resultado = ($filas > 0) ? true : false;
+        } catch (Exception $e) {
+            echo "No se pudo realizar la conexión a la Base de Datos";
+            echo "<br>";
+            echo "Error:" . $e->getMessage();
+            $resultado = false;
+        }
+        return $resultado;
+    } //cierra el método modificar
 }//cierra la clase
 
 //para probar el método insertar
@@ -240,6 +233,3 @@ if ($contacto->modificar())
 {
     echo 'El contacto no se pudo editar correctamente';
 }*/
-
-
- ?>

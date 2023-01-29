@@ -113,16 +113,16 @@ $opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
           include_once("php/inventario/nuevo_articulo.php");
           break;
 
-          
+
           // ------------ EDITAR ARTICULO--------------------
         case 'editar-articulo';
-        include_once("php/inventario/nuevo_articulo.php");
-        break;
+          include_once("php/inventario/nuevo_articulo.php");
+          break;
 
-        // ------------ ELIMINAR ARTICULO--------------------
+          // ------------ ELIMINAR ARTICULO--------------------
         case 'eliminar-articulo';
-        include_once("php/inventario/guardar.php");
-        break;
+          include_once("php/inventario/guardar.php");
+          break;
 
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
@@ -138,17 +138,17 @@ $opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
         case 'docente-nuevo':
           include_once("php/profesores/nuevo_profesor.php");
           break;
-          
+
 
           // ------------ EDITAR profesor--------------------
         case 'editar-profesor';
-        include_once("php/profesores/nuevo_profesor.php");
-        break;
+          include_once("php/profesores/nuevo_profesor.php");
+          break;
 
-        // ------------ ELIMINAR profesor--------------------
-      case 'eliminar-profesor';
-        include_once("php/profesores/guardar.php");
-        break;
+          // ------------ ELIMINAR profesor--------------------
+        case 'eliminar-profesor';
+          include_once("php/profesores/guardar.php");
+          break;
 
           /*-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
           /*-----------------------auxiliares--------------*/
@@ -166,21 +166,21 @@ $opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
           break;
 
           // ------------editar-auxiliares-----------------
-          case 'editar-auxiliar':
-            include_once("php/auxiliares/nuevo_auxiliar.php");
-            break;
+        case 'editar-auxiliar':
+          include_once("php/auxiliares/nuevo_auxiliar.php");
+          break;
 
           // ------------eliminar-auxiliares-----------------
-          case 'eliminar-auxiliar':
-            include_once("php/auxiliares/guardar.php");
-            break;
-    
+        case 'eliminar-auxiliar':
+          include_once("php/auxiliares/guardar.php");
+          break;
+
 
           /*-----------------------tikets--------------*/
           // todos los tikets
         case 'all_tikets':
           include_once("php/tikets/all_tikets.php");
-          break;          
+          break;
 
           // salida y entrada de tikets
         case 'Salida':
@@ -188,12 +188,17 @@ $opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
           break;
           // editar Entrada
         case 'Entrada':
-          include_once("php/tikets/salida_tiket.php");          
+          include_once("php/tikets/salida_tiket.php");
           break;
 
 
           // formulario para ingresar el tiket
         case 'entrada_tiket':
+          include_once("php/tikets/entrada_tiket.php");
+          break;
+
+          // formulario para editar el tiket
+        case 'editar-tiket':
           include_once("php/tikets/entrada_tiket.php");
           break;
           // formulario para ingresar el detalle

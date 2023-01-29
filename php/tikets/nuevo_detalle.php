@@ -4,18 +4,22 @@ include_once("clases/cls_conectarB.php");
 
 <div class="container-fluid">
     <!-- agregamos el formulario -->
-    <form action="php/tikets/guardar_detalle.php" method="POST" <!-- traemos el ultimo id de la salida pra grabar varios detalles con ese id -->
+    <form action="php/tikets/guardar_detalle.php" method="POST">
+
         <span>
             <?php
-            $conexion = conectarBD();
-            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-            $dato = $conexion->query($sSQL);
-            // imprimimos el resultado
-            foreach ($dato as $fila) :
-                $fila = $fila['id'];
-                echo $fila;
-                echo " <input type='hidden' name='num_id' value='$fila'br />";
-            endforeach;
+
+            echo    "<pre>";
+            print_r($_POST);
+            print_r($_GET);
+            echo "</pre>";
+
+
+            $id_tiket = isset($_GET['id-tiket']) ? $_GET['id-tiket'] : $_POST['id_tiket'];
+
+            echo " <input type='hidden' name='id-tiket' value='$id_tiket'br />";
+
+
             ?>
         </span>
 
@@ -166,7 +170,7 @@ include_once("clases/cls_conectarB.php");
 
                     foreach ($datos as $fila) :
 
-                        
+
                     ?>
 
                         <tr>
@@ -191,6 +195,19 @@ include_once("clases/cls_conectarB.php");
 
 
             </table>
+            <hr>
+
+
+
         </div>
     </div>
+    <form action="principal.php">
+        <?php
+        echo " <input type='hidden' name='id-tiket' value='$id_tiket' br />";
+        ?>
+        <button class="btn btn-primary btn-block" id="btn-editar" name="opcion" value="editar-tiket">
+            Continuar
+        </button>
+
+    </form>
 </div>
