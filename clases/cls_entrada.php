@@ -90,6 +90,13 @@ class Entrada{
            nom_docente_in  = ?,
            fecha_in    = ?           
            WHERE id = ?";
+             $ejecutable = "UPDATE
+             tbl_tiket
+            SET id_estado = '2'
+             WHERE tbl_tiket.id ='$this->id';";
+            echo $this->id;
+    
+            $conexion->query($ejecutable);
       //PrepareStatement es el que transporta los datos a la base de datos y los trae de vuelta
       try {
          $pst = $conexion->prepare($sSQL);
@@ -113,4 +120,3 @@ class Entrada{
    } //cierra el método modificar
 }//cierra la clase
 // fin de la clase Salida
-?>

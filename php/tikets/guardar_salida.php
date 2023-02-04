@@ -19,10 +19,10 @@ echo $fecha_out;
 
 // llamamos al objeto de la clase cls_salida para ejeccutar la accion
 $obj_salida->cargarDatos($id_salida, $nom_auxiliar, $nom_docente, $fecha_out);
-// si la accion es ADICIONAR
+// si la accion es Salida
 if ($accion == "Salida") {
 
-    // si la opcion es insertar
+    // si la funcion es insertar
     if ($obj_salida->insertar()) {
 
         echo '

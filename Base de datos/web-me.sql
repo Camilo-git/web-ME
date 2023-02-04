@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2023 a las 17:55:38
+-- Tiempo de generación: 04-02-2023 a las 22:33:24
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,126 +40,125 @@ CREATE TABLE `tbl_aulas` (
 --
 
 INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) VALUES
-
-(0, 'San Damian', 'Catambuco', '1500', 'esta cede se encuentra en el corregimiento de Catambuco'),
-
-(1,'B 311','Ed.',28,'Sin comentario'),
-(2,'B 312','Ed.',43,'Sin comentario'),
-(3,'B 313','Ed.',36,'Sin comentario'),
-(4,'B 314','Ed.',49,'Sin comentario'),
-(5,'B 315','Ed.',51,'Sin comentario'),
-(6,'B 316','Ed.',44,'Sin comentario'),
-(7,'B 317','Ed.',40,'Sin comentario'),
-(8,'B 318','Ed.',40,'Sin comentario'),
-(9,'B 319','Ed.',46,'Sin comentario'),
-(10,'B 320','Ed.',38,'Sin comentario'),
-(11,'B 327','Ed.',40,'Sin comentario'),
-(12,'B 328','Ed.',40,'Sin comentario'),
-(13,'B 329','Ed.',54,'Sin comentario'),
-(14,'C 201','Ed.',41,'Sin comentario'),
-(15,'C 202','Ed.',37,'Sin comentario'),
-(16,'C 203','Ed.',36,'Sin comentario'),
-(17,'i 100','Ed.',20,'Sin comentario'),
-(18,'H 201F','Ed.',20,'Sin comentario'),
-(19,'S. Bellina','Ed.',20,'Sin comentario'),
-(20,'i 208','Ed.',30,'Sin comentario'),
-(21,'i 209','Ed.',45,'Sin comentario'),
-(22,'i 212','Ed.',50,'Sin comentario'),
-(23,'i 213','Ed.',50,'Sin comentario'),
-(24,'H 302','Ed.',35,'Sin comentario'),
-(25,'H 305','Ed.',32,'Sin comentario'),
-(26,'H 306','Ed.',60,'Sin comentario'),
-(27,'i 308','Ed.',34,'Sin comentario'),
-(28,'i 309','Ed.',60,'Sin comentario'),
-(29,'i 310','Ed.',38,'Sin comentario'),
-(30,'i 311','Ed.',36,'Sin comentario'),
-(31,'i 312','Ed.',48,'Sin comentario'),
-(32,'i 315','Ed.',46,'Sin comentario'),
-(33,'i 316','Ed.',48,'Sin comentario'),
-(34,'i 317','Ed.',45,'Sin comentario'),
-(35,'H 401','Ed.',32,'Sin comentario'),
-(36,'H 402','Ed.',41,'Sin comentario'),
-(37,'H 403','Ed.',27,'Sin comentario'),
-(38,'H 406','Ed.',22,'Sin comentario'),
-(39,'I 407','Ed.',22,'Sin comentario'),
-(40,'i 409','Ed.',38,'Sin comentario'),
-(41,'I 410','Ed.',18,'Sin comentario'),
-(42,'i 411','Ed.',36,'Sin comentario'),
-(43,'i 412','Ed.',31,'Sin comentario'),
-(44,'i 413','Ed.',50,'Sin comentario'),
-(45,'i 416','Ed.',50,'Sin comentario'),
-(46,'i 417','Ed.',50,'Sin comentario'),
-(47,'i 418','Ed.',50,'Sin comentario'),
-(48,'H 501','Ed.',36,'Sin comentario'),
-(49,'H 502','Ed.',19,'Sin comentario'),
-(50,'H 503','Ed.',29,'Sin comentario'),
-(51,'H 505','Ed.',31,'Sin comentario'),
-(52,'H 506','Ed.',50,'Sin comentario'),
-(53,'H 510LB','Ed.',47,'Sin comentario'),
-(54,'H 601 LS','Ed.',30,'Sin comentario'),
-(55,'H 602 LF','Ed.',60,'Sin comentario'),
-(56,'A 100','Ed.',37,'Sin comentario'),
-(57,'A 101','Ed.',37,'Sin comentario'),
-(58,'A 301','Ed.',60,'Sin comentario'),
-(59,'A 401','Ed.',40,'Sin comentario'),
-(60,'A 403','Ed.',65,'Sin comentario'),
-(61,'A 406','Ed.',34,'Sin comentario'),
-(62,'A 407','Ed.',36,'Sin comentario'),
-(63,'A 408','Ed.',35,'Sin comentario'),
-(64,'A 409','Ed.',40,'Sin comentario'),
-(65,'A 410','Ed.',40,'Sin comentario'),
-(66,'A 501','Ed.',34,'Sin comentario'),
-(67,'A 502','Ed.',40,'Sin comentario'),
-(68,'A 503','Ed.',48,'Sin comentario'),
-(69,'A 504','Ed.',49,'Sin comentario'),
-(70,'A 505','Ed.',44,'Sin comentario'),
-(71,'A 506','Ed.',40,'Sin comentario'),
-(72,'A 507','Ed.',40,'Sin comentario'),
-(73,'A 508','Ed.',47,'Sin comentario'),
-(74,'A 509','Ed.',32,'Sin comentario'),
-(75,'A 510','Ed.',38,'Sin comentario'),
-(76,'A 511','Ed.',40,'Sin comentario'),
-(77,'A 512','Ed.',41,'Sin comentario'),
-(78,'A 513','Ed.',40,'Sin comentario'),
-(79,'A 514','Ed.',32,'Sin comentario'),
-(80,'A 515','Ed.',30,'Sin comentario'),
-(81,'A 516','Ed.',31,'Sin comentario'),
-(82,'A 601','Ed.',32,'Sin comentario'),
-(83,'A 602','Ed.',40,'Sin comentario'),
-(84,'A 603','Ed.',44,'Sin comentario'),
-(85,'A 604','Ed.',44,'Sin comentario'),
-(86,'A 605','Ed.',40,'Sin comentario'),
-(87,'A 606','Ed.',43,'Sin comentario'),
-(88,'A 607','Ed.',35,'Sin comentario'),
-(89,'A 608','Ed.',45,'Sin comentario'),
-(90,'A 609','Ed.',35,'Sin comentario'),
-(91,'A 610','Ed.',35,'Sin comentario'),
-(92,'A 611','Ed.',37,'Sin comentario'),
-(93,'A 612','Ed.',41,'Sin comentario'),
-(94,'A 613','Ed.',36,'Sin comentario'),
-(95,'A 614','Ed.',31,'Sin comentario'),
-(96,'A 615','Ed.',30,'Sin comentario'),
-(97,'A 616','Ed.',26,'Sin comentario'),
-(98,'S 201','Ed.',53,'Sin comentario'),
-(99,'S 202','Ed.',29,'Sin comentario'),
-(100,'S 203','Ed.',23,'Sin comentario'),
-(101,'S 204','Ed.',36,'Sin comentario'),
-(102,'S 205','Ed.',20,'Sin comentario'),
-(103,'S 206','Ed.',20,'Sin comentario'),
-(104,'S207Lab','Ed.',5,'Sin comentario'),
-(105,'S 208','Ed.',55,'Sin comentario'),
-(106,'Cancha 1','Ed.',12,'Sin comentario'),
-(107,'Cancha 2','Ed.',12,'Sin comentario'),
-(108,'Cancha 3','Ed.',12,'Sin comentario'),
-(109,'Gimnasio','Ed.',30,'Sin comentario'),
-(110,'Danzas','Ed.',30,'Sin comentario'),
-(111,'Coliseo','Ed.',1500,'Sin comentario'),
-(112,'Hall Italia','Ed.',20,'Sin comentario'),
-(113,'Hall_1SFA','Ed.',100,'Sin comentario'),
-(114,'Hall_2SFA','Ed.',300,'Sin comentario'),
-(115,'Audit.SClara','Ed.',70,'Sin comentario'),
-(116,'Sala De Audien','Ed.',50,'Sin comentario')
-;
+(56, 'A 100', 'Ed.', 37, 'Sin comentario'),
+(57, 'A 101', 'Ed.', 37, 'Sin comentario'),
+(0, 'A 201', 'Ed. San Francisco', 35, 'este salón cuenta con Video-beam'),
+(58, 'A 301', 'Ed.', 60, 'Sin comentario'),
+(59, 'A 401', 'Ed.', 40, 'Sin comentario'),
+(60, 'A 403', 'Ed.', 65, 'Sin comentario'),
+(61, 'A 406', 'Ed.', 34, 'Sin comentario'),
+(62, 'A 407', 'Ed.', 36, 'Sin comentario'),
+(63, 'A 408', 'Ed.', 35, 'Sin comentario'),
+(64, 'A 409', 'Ed.', 40, 'Sin comentario'),
+(65, 'A 410', 'Ed.', 40, 'Sin comentario'),
+(66, 'A 501', 'Ed.', 34, 'Sin comentario'),
+(67, 'A 502', 'Ed.', 40, 'Sin comentario'),
+(68, 'A 503', 'Ed.', 48, 'Sin comentario'),
+(69, 'A 504', 'Ed.', 49, 'Sin comentario'),
+(70, 'A 505', 'Ed.', 44, 'Sin comentario'),
+(71, 'A 506', 'Ed.', 40, 'Sin comentario'),
+(72, 'A 507', 'Ed.', 40, 'Sin comentario'),
+(73, 'A 508', 'Ed.', 47, 'Sin comentario'),
+(74, 'A 509', 'Ed.', 32, 'Sin comentario'),
+(75, 'A 510', 'Ed.', 38, 'Sin comentario'),
+(76, 'A 511', 'Ed.', 40, 'Sin comentario'),
+(77, 'A 512', 'Ed.', 41, 'Sin comentario'),
+(78, 'A 513', 'Ed.', 40, 'Sin comentario'),
+(79, 'A 514', 'Ed.', 32, 'Sin comentario'),
+(80, 'A 515', 'Ed.', 30, 'Sin comentario'),
+(81, 'A 516', 'Ed.', 31, 'Sin comentario'),
+(82, 'A 601', 'Ed.', 32, 'Sin comentario'),
+(83, 'A 602', 'Ed.', 40, 'Sin comentario'),
+(84, 'A 603', 'Ed.', 44, 'Sin comentario'),
+(85, 'A 604', 'Ed.', 44, 'Sin comentario'),
+(86, 'A 605', 'Ed.', 40, 'Sin comentario'),
+(87, 'A 606', 'Ed.', 43, 'Sin comentario'),
+(88, 'A 607', 'Ed.', 35, 'Sin comentario'),
+(89, 'A 608', 'Ed.', 45, 'Sin comentario'),
+(90, 'A 609', 'Ed.', 35, 'Sin comentario'),
+(91, 'A 610', 'Ed.', 35, 'Sin comentario'),
+(92, 'A 611', 'Ed.', 37, 'Sin comentario'),
+(93, 'A 612', 'Ed.', 41, 'Sin comentario'),
+(94, 'A 613', 'Ed.', 36, 'Sin comentario'),
+(95, 'A 614', 'Ed.', 31, 'Sin comentario'),
+(96, 'A 615', 'Ed.', 30, 'Sin comentario'),
+(97, 'A 616', 'Ed.', 26, 'Sin comentario'),
+(115, 'Audit.SClara', 'Ed.', 70, 'Sin comentario'),
+(1, 'B 311', 'Ed.', 28, 'Sin comentario'),
+(2, 'B 312', 'Ed.', 43, 'Sin comentario'),
+(3, 'B 313', 'Ed.', 36, 'Sin comentario'),
+(4, 'B 314', 'Ed.', 49, 'Sin comentario'),
+(5, 'B 315', 'Ed.', 51, 'Sin comentario'),
+(6, 'B 316', 'Ed.', 44, 'Sin comentario'),
+(7, 'B 317', 'Ed.', 40, 'Sin comentario'),
+(8, 'B 318', 'Ed.', 40, 'Sin comentario'),
+(9, 'B 319', 'Ed.', 46, 'Sin comentario'),
+(10, 'B 320', 'Ed.', 38, 'Sin comentario'),
+(11, 'B 327', 'Ed.', 40, 'Sin comentario'),
+(12, 'B 328', 'Ed.', 40, 'Sin comentario'),
+(13, 'B 329', 'Ed.', 54, 'Sin comentario'),
+(14, 'C 201', 'Ed.', 41, 'Sin comentario'),
+(15, 'C 202', 'Ed.', 37, 'Sin comentario'),
+(16, 'C 203', 'Ed.', 36, 'Sin comentario'),
+(106, 'Cancha 1', 'Ed.', 12, 'Sin comentario'),
+(107, 'Cancha 2', 'Ed.', 12, 'Sin comentario'),
+(108, 'Cancha 3', 'Ed.', 12, 'Sin comentario'),
+(111, 'Coliseo', 'Ed.', 1500, 'Sin comentario'),
+(110, 'Danzas', 'Ed.', 30, 'Sin comentario'),
+(109, 'Gimnasio', 'Ed.', 30, 'Sin comentario'),
+(18, 'H 201F', 'Ed.', 20, 'tiene viedeo Bean con mantenimiento'),
+(24, 'H 302', 'Ed.', 35, 'Sin comentario'),
+(25, 'H 305', 'Ed.', 32, 'Sin comentario'),
+(26, 'H 306', 'Ed.', 60, 'Sin comentario'),
+(35, 'H 401', 'Ed.', 32, 'Sin comentario'),
+(36, 'H 402', 'Ed.', 41, 'Sin comentario'),
+(37, 'H 403', 'Ed.', 27, 'Sin comentario'),
+(38, 'H 406', 'Ed.', 22, 'Sin comentario'),
+(48, 'H 501', 'Ed.', 36, 'Sin comentario'),
+(49, 'H 502', 'Ed.', 19, 'Sin comentario'),
+(50, 'H 503', 'Ed.', 29, 'Sin comentario'),
+(51, 'H 505', 'Ed.', 31, 'Sin comentario'),
+(52, 'H 506', 'Ed.', 50, 'Sin comentario'),
+(53, 'H 510LB', 'Ed.', 47, 'Sin comentario'),
+(54, 'H 601 LS', 'Ed.', 30, 'Sin comentario'),
+(55, 'H 602 LF', 'Ed.', 60, 'Sin comentario'),
+(112, 'Hall Italia', 'Ed.', 20, 'Sin comentario'),
+(113, 'Hall_1SFA', 'Ed.', 100, 'Sin comentario'),
+(114, 'Hall_2SFA', 'Ed.', 300, 'Sin comentario'),
+(17, 'i 100', 'Ed.', 20, 'Sin comentario'),
+(20, 'i 208', 'Ed.', 30, 'Sin comentario'),
+(21, 'i 209', 'Ed.', 45, 'Sin comentario'),
+(22, 'i 212', 'Ed.', 50, 'Sin comentario'),
+(23, 'i 213', 'Ed.', 50, 'Sin comentario'),
+(27, 'i 308', 'Ed.', 34, 'Sin comentario'),
+(28, 'i 309', 'Ed.', 60, 'Sin comentario'),
+(29, 'i 310', 'Ed.', 38, 'Sin comentario'),
+(30, 'i 311', 'Ed.', 36, 'Sin comentario'),
+(31, 'i 312', 'Ed.', 48, 'Sin comentario'),
+(32, 'i 315', 'Ed.', 46, 'Sin comentario'),
+(33, 'i 316', 'Ed.', 48, 'Sin comentario'),
+(34, 'i 317', 'Ed.', 45, 'Sin comentario'),
+(39, 'I 407', 'Ed.', 22, 'Sin comentario'),
+(40, 'i 409', 'Ed.', 38, 'Sin comentario'),
+(41, 'I 410', 'Ed.', 18, 'Sin comentario'),
+(42, 'i 411', 'Ed.', 36, 'Sin comentario'),
+(43, 'i 412', 'Ed.', 31, 'Sin comentario'),
+(44, 'i 413', 'Ed.', 50, 'Sin comentario'),
+(45, 'i 416', 'Ed.', 50, 'Sin comentario'),
+(46, 'i 417', 'Ed.', 50, 'Sin comentario'),
+(47, 'i 418', 'Ed.', 50, 'Sin comentario'),
+(98, 'S 201', 'Ed.', 53, 'Sin comentario'),
+(99, 'S 202', 'Ed.', 29, 'Sin comentario'),
+(100, 'S 203', 'Ed.', 23, 'Sin comentario'),
+(101, 'S 204', 'Ed.', 36, 'Sin comentario'),
+(102, 'S 205', 'Ed.', 20, 'Sin comentario'),
+(103, 'S 206', 'Ed.', 20, 'Sin comentario'),
+(105, 'S 208', 'Ed.', 55, 'Sin comentario'),
+(19, 'S. Bellina', 'Ed.', 20, 'Sin comentario'),
+(104, 'S207Lab', 'Ed.', 5, 'Sin comentario'),
+(116, 'Sala De Audien', 'Ed.', 50, 'Sin comentario'),
+(0, 'San Damian', 'Catambuco', 1500, 'esta cede se encuentra en el corregimiento de Catambuco'),
+(0, 'Terraza Alvernia', 'Ed. Holanda', 80, 'Esta terraza cuenta con un televisor y una bodega de mesas ');
 
 -- --------------------------------------------------------
 
@@ -205,6 +204,53 @@ CREATE TABLE `tbl_detalle` (
   `cod_equipo` varchar(100) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_detalle`
+--
+
+INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
+(1, 1, 1, '01', 'Sin Comentario'),
+(2, 1, 1, '1101', 'Sin Comentario'),
+(3, 2, 1, '4001', 'Sin Comentario'),
+(4, 3, 1, '1112', 'Sin Comentario'),
+(5, 5, 1, '02', 'Sin Comentario'),
+(6, 4, 1, '2002', 'Sin Comentario'),
+(7, 4, 1, '5001', 'Sin Comentario'),
+(8, 4, 1, '4002', 'Sin Comentario'),
+(9, 4, 1, '3001', 'Sin Comentario'),
+(10, 4, 1, '3002', 'Sin Comentario'),
+(11, 6, 1, '01', 'Sin Comentario'),
+(12, 7, 1, '1103', 'Sin Comentario'),
+(13, 7, 7, '1103', 'entrega con daños'),
+(14, 7, 1, '02', 'Sin Comentario'),
+(15, 7, 1, '01', 'Sin Comentario'),
+(16, 7, 1, '01', 'Sin Comentario'),
+(17, 7, 1, '01', 'Sin Comentario'),
+(18, 8, 1, '02', 'Sin Comentario'),
+(19, 8, 1, '1101', 'Sin Comentario'),
+(20, 9, 1, '1105', 'Sin Comentario'),
+(21, 9, 1, '1105', 'Sin Comentario'),
+(22, 9, 1, '1101', 'Sin Comentario'),
+(23, 10, 1, '1104', 'Sin Comentario'),
+(24, 11, 1, '1105', 'Sin Comentario'),
+(25, 12, 1, '01', 'Sin Comentario'),
+(26, 12, 1, '1104', 'Sin Comentario'),
+(27, 12, 1, '3001', 'Sin Comentario'),
+(28, 12, 1, '5001', 'Sin Comentario'),
+(29, 13, 1, '1102', 'Sin Comentario'),
+(30, 13, 1, '5003', 'Sin Comentario'),
+(90, 14, 1, '4002', 'Sin Comentario'),
+(91, 15, 1, '2002', 'Sin Comentario'),
+(92, 15, 1, '1112', 'Sin Comentario'),
+(93, 15, 1, '01', 'Sin Comentario'),
+(94, 16, 1, '01', 'Sin Comentario'),
+(95, 17, 1, '2001', 'Sin Comentario'),
+(96, 17, 1, '01', 'Sin Comentario'),
+(97, 18, 1, '1112', 'Sin Comentario'),
+(98, 19, 1, '02', 'Sin Comentario'),
+(99, 20, 1, '01', 'Sin Comentario'),
+(100, 20, 1, '1101', 'Sin Comentario');
 
 -- --------------------------------------------------------
 
@@ -824,6 +870,32 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tbl_entrada`
+--
+
+INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
+(1, 'Ruales Luna Miller Manuel', 'Argoty Constain Sonia Patricia', '2023-02-04 16:30:14'),
+(2, 'Ruales Luna Miller Manuel', 'Argoty Portilla Santiago Fernando', '2023-02-04 16:30:42'),
+(3, 'Leidy Daniela Bacca Potosi', 'Argoty Lopez Segundo Jesus', '2023-02-04 16:06:40'),
+(4, 'German Camilo Bernal Muñoz', 'Argoty Constain Sonia Patricia', '2023-02-04 16:09:46'),
+(5, 'Lisseth Katherine Enriquez Delgado', 'Argoty Lopez Segundo Jesus', '2023-02-04 16:10:12'),
+(6, 'German Camilo Bernal Muñoz', 'Arevalo Teran Wiliam Andres', '2023-01-14 06:45:49'),
+(7, 'Lisseth Katherine Enriquez Delgado', 'Argoty Portilla Santiago Fernando', '2023-02-04 16:22:25'),
+(8, NULL, NULL, '2023-01-14 11:31:35'),
+(9, 'Diaz Pabon Nelsy Eugenia', 'Armero Chaves Paula Andrea', '2023-01-14 06:30:33'),
+(10, NULL, NULL, '2023-01-14 11:32:24'),
+(11, 'Maicol Rene Vallejo Viteri', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:37:40'),
+(12, NULL, NULL, '2023-01-14 11:32:51'),
+(13, NULL, NULL, '2023-01-14 06:29:50'),
+(14, NULL, NULL, '2023-01-29 12:56:21'),
+(15, NULL, NULL, '2023-01-29 15:43:27'),
+(16, 'German Camilo Bernal Muñoz', 'Arellano Cordoba Susana Paola', '2023-01-29 16:53:26'),
+(17, NULL, NULL, '2023-01-29 16:57:47'),
+(18, NULL, NULL, '2023-01-29 17:01:10'),
+(19, NULL, NULL, '2023-01-29 17:02:42'),
+(20, NULL, NULL, '2023-02-02 18:51:09');
+
 -- --------------------------------------------------------
 
 --
@@ -851,6 +923,7 @@ INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
 (16, 'Consola de Sonido', 2, 4),
 (3, 'Control', 2, 100),
 (4, 'Extensión', 2, 45),
+(0, 'Faldon', 2, 45),
 (9, 'florero', 2, 4),
 (19, 'Grabadora Periodistica', 2, 2),
 (14, 'llaves', 2, 100),
@@ -913,6 +986,8 @@ CREATE TABLE `tbl_inventario` (
 INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
 ('01', 'hd', '2015', 'sin datos', 2, 'Cables HDMI'),
 ('02', 'hdVGA', '2019', 'SIN COMENTARIO', 2, 'Cables VGA'),
+('0200', 'Rimax', '2016', 'bodega de hall', 2, 'Mesa'),
+('0300', 'Tela suave', '2016', 'Tres colores Blanco(B) Azul(A) Vino(V)', 2, 'Mantel'),
 ('1101', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
 ('1102', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
 ('1103', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
@@ -944,6 +1019,32 @@ CREATE TABLE `tbl_salida` (
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tbl_salida`
+--
+
+INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
+(1, 'Maicol Rene Vallejo Viteri', 'Argoty Portilla Santiago Fernando', '2023-01-14 08:18:15'),
+(2, 'German Camilo Bernal Muñoz', 'Aroca Perez Lina Juliethe', '2023-01-14 08:19:08'),
+(3, 'Diaz Pabon Nelsy Eugenia', 'Argoty Lopez Segundo Jesus', '2023-01-14 08:22:00'),
+(4, 'Maicol Rene Vallejo Viteri', 'Arevalo Teran Wiliam Andres', '2023-01-14 08:36:50'),
+(5, 'German Camilo Bernal Muñoz', 'Armero Chaves Paula Andrea', '2023-01-14 09:19:22'),
+(6, 'Maicol Rene Vallejo Viteri', 'Arevalo Teran Wiliam Andres', '2023-01-14 09:21:22'),
+(7, 'Maicol Rene Vallejo Viteri', 'Argoti Portilla Santiago Fernando', '2023-01-14 09:35:38'),
+(8, 'Benavides Castro Jose Luis ', 'Argoti Portilla Santiago Fernando', '2023-01-14 11:31:35'),
+(9, 'German Camilo Bernal Muñoz', 'Aroca Perez Lina Julieth', '2023-01-14 11:31:55'),
+(10, 'Leidy Daniela Bacca Potosi', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:32:24'),
+(11, 'Insuasti Quevedo William Alexander', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:32:38'),
+(12, 'Insuasti Quevedo William Alexander', 'AREVALO BENAVIDES AIDA ALICIA', '2023-01-14 11:32:51'),
+(13, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '2023-01-14 06:29:50'),
+(14, 'Leidy Daniela Bacca Potosi', 'Arevalo Teran Wiliam Andres', '2023-01-29 12:56:21'),
+(15, 'Leidy Daniela Bacca Potosi', 'Argoty Constain Sonia Patricia', '2023-01-29 15:43:27'),
+(16, 'German Camilo Bernal Muñoz', 'AREVALO BENAVIDES AIDA ALICIA', '2023-01-29 16:50:46'),
+(17, 'Insuasti Quevedo William Alexander', 'Arellano Cordoba Susana Paola', '2023-01-29 00:00:00'),
+(18, 'Lisseth Katherine Enriquez Delgado', 'Arevalo Teran Wiliam Andres', '2023-01-29 00:00:00'),
+(19, 'Leidy Daniela Bacca Potosi', 'Argote Puetaman Ivan Mauricio ', '2023-01-29 05:02:00'),
+(20, 'German Camilo Bernal Muñoz', 'Arevalo Ojeda Yolanda Carolina', '2023-02-02 06:51:00');
+
 -- --------------------------------------------------------
 
 --
@@ -953,11 +1054,37 @@ CREATE TABLE `tbl_salida` (
 CREATE TABLE `tbl_tiket` (
   `id` int(100) NOT NULL,
   `comentario` varchar(100) DEFAULT NULL,
-  `nombre_aula` varchar(100) NOT NULL,
-  `id_salida` int(100) NOT NULL,
-  `id_entrada` int(100) NOT NULL,
-  `id_estado` int(100) NOT NULL
+  `nombre_aula` varchar(100) DEFAULT NULL,
+  `id_salida` int(100) DEFAULT NULL,
+  `id_entrada` int(100) DEFAULT NULL,
+  `id_estado` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_tiket`
+--
+
+INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
+(1, 'sin comentario', 'A 506', 1, 1, 2),
+(2, 'entrega la sala a las 10:20', 'Sala De Audien', 2, 2, 2),
+(3, 'se convierte en oficina', 'A 101', 3, 3, 4),
+(4, 'el material lo reintegra a medio dia', 'Coliseo', 4, 4, 1),
+(5, 'sin comentario', 'A 201', 5, 5, 1),
+(6, 'sin comentario', 'A 301', 6, 6, 1),
+(7, 'sin comentario', 'i 417', 7, 7, 1),
+(8, 'sin comentario', 'A 507', 8, 8, 1),
+(9, 'sin comentario', 'A 505', 9, 9, 1),
+(10, 'asdf', 'A 506', 10, 10, 1),
+(11, 'regresa a las 6:00', 'A 506', 11, 11, 1),
+(12, 'snnn', 'A 504', 12, 12, 1),
+(13, 'sin comentario', 'A 506', 13, 13, 1),
+(14, 'sin comentario', 'A 504', 14, 14, 1),
+(15, 'sin comentario', 'A 505', 15, 15, 1),
+(16, 'regresa el lunes', 'Audit.SClara', 16, 16, 1),
+(17, 'sin comentario', 'B 320', 17, 17, 1),
+(18, 'sin comentario', 'A 410', 18, 18, 1),
+(19, 'sin comentario', 'A 507', 19, 19, 1),
+(20, 'sin comentario', 'A 507', 20, 20, 5);
 
 --
 -- Índices para tablas volcadas
@@ -1047,7 +1174,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
