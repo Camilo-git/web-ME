@@ -1,9 +1,9 @@
 <?php
 // cremos un script para visualizar los datos que llegan por post   
 
-echo "<pre>";
-print_r($_REQUEST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_REQUEST);
+// echo "</pre>";
 
 // incluimos la clase cls_aulas para crear la clase
 include_once('../../clases/cls_aulas.php');
@@ -18,7 +18,7 @@ $capacidad = isset($_POST['capacidad']) ? $_POST['capacidad'] : "";
 $comentario = isset($_POST['comentario']) ? $_POST['comentario'] : "";
 // creamos la variable $contacto para ejecutar la funcion cargar datos de la clase cls_aulas
 $obj_aulas->cargarDatos($id, $nombre, $edificio, $capacidad, $comentario);
-    echo    $accion, $id, $nombre, $accion;
+echo    $accion, $id, $nombre, $accion;
 if ($accion == "ADICIONAR") {
 
     if ($obj_aulas->insertar()) {

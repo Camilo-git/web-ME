@@ -1,7 +1,7 @@
-<?php 
-echo "<pre>";
-print_r($_REQUEST);
-echo "</pre>";
+<?php
+// echo "<pre>";
+// print_r($_REQUEST);
+// echo "</pre>";
 // incluimos la clase conectar para poder conectarnos a la base de datos
 include_once("clases/cls_conectarB.php");
 // creamos dos variables para la accion y la cedula del profesor
@@ -9,7 +9,7 @@ include_once("clases/cls_conectarB.php");
 $accion = $_GET['accion'];
 $cedula = $_GET['cedula'];
 // si la accion es ADICIONAR
-if ($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
     // Creamos las variables para los datos del profesor
     $cedula = 0;
 
@@ -18,7 +18,7 @@ if ($accion == "ADICIONAR"){
     $cel = "";
     $programa = "";
     $dependencia = "";
-}else{
+} else {
     // creamos una variable para la conexion para poder conectarnos a la base de datos
     $conexion = conectarBD();
     // creamos una variable para la consulta
@@ -26,7 +26,7 @@ if ($accion == "ADICIONAR"){
     // creamos una variable para ejecutar la consulta
     $datos = $conexion->query($sSQL);
     // creamos una variable para recorrer los datos
-    foreach ($datos as $fila){
+    foreach ($datos as $fila) {
         // creamos las variables para los datos del profesor
         $cedula = $fila['cedula'];
         $nombre = $fila['nombre'];
@@ -83,5 +83,5 @@ echo $cedula;
 </div>
 <?php
 
- print_r($_POST);
+print_r($_POST);
 ?>

@@ -9,10 +9,10 @@ include_once("clases/cls_conectarB.php");
         <span>
             <?php
 
-            echo    "<pre>";
-            print_r($_POST);
-            print_r($_GET);
-            echo "</pre>";
+            // echo    "<pre>";
+            // print_r($_POST);
+            // print_r($_GET);
+            // echo "</pre>";
 
 
             $id_tiket = isset($_GET['id-tiket']) ? $_GET['id-tiket'] : $_POST['id_tiket'];

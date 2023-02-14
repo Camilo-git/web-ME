@@ -1,10 +1,10 @@
 <?php
 
 // vemos todo lo que nos envian por el metodo post
-echo    "<pre>";
-print_r($_POST);
-print_r($_GET);
-echo "</pre>";
+// echo    "<pre>";
+// print_r($_POST);
+// print_r($_GET);
+// echo "</pre>";
 
 // incluimos la clase cls_entrada para crear la clase
 include_once '../../clases/cls_entrada.php';

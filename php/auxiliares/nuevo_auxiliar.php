@@ -6,7 +6,7 @@ include_once("clases/cls_conectarB.php");
 $accion = $_GET['accion'];
 $cedula = $_GET['cedula'];
 // si la accion es ADICIONAR 
-if($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
     // Creamos las variables para los datos del auxiliar
     $cedula = 0;
 
@@ -14,25 +14,22 @@ if($accion == "ADICIONAR"){
     $celular = "";
     $correo = "";
     $direccion = "";
-
-}else{
+} else {
     // creamos una variable para conectarnos a la base de datos
     $conexion = conectarBD();
     // creamos una variable $sSQL para la consulta 
     $sSQL = "SELECT * FROM tbl_auxiliares WHERE cedula = $cedula";
     // creamos una variable $datos para guardar el resultado de la consulta
-    $datos =$conexion->query($sSQL);
+    $datos = $conexion->query($sSQL);
     // creamos una variable $fila para recorrer los datos de la consulta
-    foreach($datos as $filas){
+    foreach ($datos as $filas) {
         // creamos las variables para los datos del auxiliar
         $cedula = $filas['cedula'];
         $nombre = $filas['nombre'];
         $celular = $filas['celular'];
         $correo = $filas['correo'];
         $direccion = $filas['direccion'];
-
     }
-
 }
 echo $accion;
 echo $cedula;
@@ -55,7 +52,7 @@ echo $cedula;
             <form class="form-group" action="php/auxiliares/guardar.php" method="POST">
                 <!-- creamos un input con la clase form-control para poder darle estilo al input -->
                 <input type="hidden" name="accion" value="<?php echo $accion; ?>">
-                
+
 
                 <!-- creamos unlabel para la cedula -->
                 <label for="cedula">Cedula</label>
@@ -85,5 +82,5 @@ echo $cedula;
 </div>
 <?php
 
- print_r($_POST);
+//  print_r($_POST);
 ?>

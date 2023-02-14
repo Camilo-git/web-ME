@@ -1,9 +1,9 @@
 <!-- guardar el detalle -->
 <?php
 // vemos todo lo que nos envian por el metodo post
-echo    "<pre>";
-print_r($_POST);
-echo "</pre>";
+// echo    "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
 
 // incluiimos la clase cls_salida para crear la clase

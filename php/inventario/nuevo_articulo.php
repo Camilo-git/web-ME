@@ -9,7 +9,7 @@ include_once("clases/cls_conectarB.php");
 $accion = $_GET['accion'];
 $codigo = $_GET['codigo'];
 // si la accion es adicionar
-if ($accion == "ADICIONAR"){
+if ($accion == "ADICIONAR") {
     // Creamos las variables para los datos del articulo
     $codigo = "";
 
@@ -19,8 +19,7 @@ if ($accion == "ADICIONAR"){
     $comentario = "";
     $estado = "";
     $cat_equipo = "";
-    
-}else{
+} else {
     // creamos una variable para la conexion
     $conexion = conectarBD();
     // creamos una variable para la consulta
@@ -28,7 +27,7 @@ if ($accion == "ADICIONAR"){
     // creamos una variable datos para poder ejecutar la consulta
     $datos  = $conexion->query($sSQL);
     // creamos una variable para poder recorrer los datos
-    foreach ($datos as $filas){
+    foreach ($datos as $filas) {
         $codigo = $filas['codigo'];
         $marca = $filas['marca'];
         $modelo = $filas['modelo'];
@@ -54,10 +53,10 @@ if ($accion == "ADICIONAR"){
             <!-- creamos el formulario con clase form-group para poder enviarle los datos a guardar.php darle estilo -->
             <form class="form-group" action="php/inventario/guardar.php" method="POST">
 
-                
+
                 <!-- creamos un input para poder recibir la accion -->
                 <input type="hidden" name="accion" value="<?php echo $accion; ?>">
-                
+
                 <!-- creamos un input para poder recibir el codigo del articulo -->
                 <input type="hidden" name="codigo" value="<?php echo $codigo; ?>">
 
@@ -79,16 +78,27 @@ if ($accion == "ADICIONAR"){
                 <div class="col-md-12">
                     <!-- creamos una lista desplegable -->
                     <select class="form-control" id="txt_estado" name="id_estado">
-                    <option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
-                    <?php
-                    include_once("php/listas/cargar_estados.php");
-                    ?>
+                        <option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
+                        <?php
+                        include_once("php/listas/cargar_estados.php");
+                        ?>
                     </select>
-                </div>
-                <!-- creamos un input para poder recibir la categoria del articulo -->
-                <label for="cat_equipo">Categoria</label>
-                <input type="text" name="cat_equipo" class="form-control" value="<?php echo $cat_equipo; ?>"><br>
+                </div> <!-- creamos un input para poder recibir la categoria del articulo -->
+                <label for="id_estado">Categoria</label>
+                <!-- creamos un div centrado -->
+                <div class="col-md-12">
+                    <!-- creamos una lista desplegable -->
+                    <select class="form-control" id="cat_equipo" name="cat_equipo">
+                        <option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
+                        <?php
+                        include_once("php/listas/cargar_categorias.php");
+                        ?>
+                    </select>
+                </div><br>
                 <!-- creamos un boton centrado para poder enviar los datos -->
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
         </div>
+    </div>
+</div>

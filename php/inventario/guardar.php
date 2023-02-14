@@ -1,9 +1,9 @@
 <?php
 // creamos un script para visualizar los datos que lleguen por post
 
-echo "<pre>";
-print_r($_REQUEST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_REQUEST);
+// echo "</pre>";
 
 // incluimos la clase cls_invetario.php para poder crear la clase
 include_once("../../clases/cls_inventario.php");
@@ -41,6 +41,3 @@ echo'
 location.href="../../principal.php?opcion=inventario";
 </script> 
 ';
-
-
-?>

@@ -1,8 +1,8 @@
 <?php
 // creamos un script para visualizar los datos que llegan por el metodo post
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
 
 // incluimos la clase cls_equipos para crear la clase
@@ -62,6 +62,3 @@ echo'
 location.href="../../principal.php?opcion=profesores";
 </script> 
 ';
-
-
-?>

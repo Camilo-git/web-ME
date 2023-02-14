@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2023 a las 22:33:24
+-- Tiempo de generación: 14-02-2023 a las 21:19:00
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -204,53 +204,6 @@ CREATE TABLE `tbl_detalle` (
   `cod_equipo` varchar(100) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_detalle`
---
-
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
-(1, 1, 1, '01', 'Sin Comentario'),
-(2, 1, 1, '1101', 'Sin Comentario'),
-(3, 2, 1, '4001', 'Sin Comentario'),
-(4, 3, 1, '1112', 'Sin Comentario'),
-(5, 5, 1, '02', 'Sin Comentario'),
-(6, 4, 1, '2002', 'Sin Comentario'),
-(7, 4, 1, '5001', 'Sin Comentario'),
-(8, 4, 1, '4002', 'Sin Comentario'),
-(9, 4, 1, '3001', 'Sin Comentario'),
-(10, 4, 1, '3002', 'Sin Comentario'),
-(11, 6, 1, '01', 'Sin Comentario'),
-(12, 7, 1, '1103', 'Sin Comentario'),
-(13, 7, 7, '1103', 'entrega con daños'),
-(14, 7, 1, '02', 'Sin Comentario'),
-(15, 7, 1, '01', 'Sin Comentario'),
-(16, 7, 1, '01', 'Sin Comentario'),
-(17, 7, 1, '01', 'Sin Comentario'),
-(18, 8, 1, '02', 'Sin Comentario'),
-(19, 8, 1, '1101', 'Sin Comentario'),
-(20, 9, 1, '1105', 'Sin Comentario'),
-(21, 9, 1, '1105', 'Sin Comentario'),
-(22, 9, 1, '1101', 'Sin Comentario'),
-(23, 10, 1, '1104', 'Sin Comentario'),
-(24, 11, 1, '1105', 'Sin Comentario'),
-(25, 12, 1, '01', 'Sin Comentario'),
-(26, 12, 1, '1104', 'Sin Comentario'),
-(27, 12, 1, '3001', 'Sin Comentario'),
-(28, 12, 1, '5001', 'Sin Comentario'),
-(29, 13, 1, '1102', 'Sin Comentario'),
-(30, 13, 1, '5003', 'Sin Comentario'),
-(90, 14, 1, '4002', 'Sin Comentario'),
-(91, 15, 1, '2002', 'Sin Comentario'),
-(92, 15, 1, '1112', 'Sin Comentario'),
-(93, 15, 1, '01', 'Sin Comentario'),
-(94, 16, 1, '01', 'Sin Comentario'),
-(95, 17, 1, '2001', 'Sin Comentario'),
-(96, 17, 1, '01', 'Sin Comentario'),
-(97, 18, 1, '1112', 'Sin Comentario'),
-(98, 19, 1, '02', 'Sin Comentario'),
-(99, 20, 1, '01', 'Sin Comentario'),
-(100, 20, 1, '1101', 'Sin Comentario');
 
 -- --------------------------------------------------------
 
@@ -870,32 +823,6 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_entrada`
---
-
-INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
-(1, 'Ruales Luna Miller Manuel', 'Argoty Constain Sonia Patricia', '2023-02-04 16:30:14'),
-(2, 'Ruales Luna Miller Manuel', 'Argoty Portilla Santiago Fernando', '2023-02-04 16:30:42'),
-(3, 'Leidy Daniela Bacca Potosi', 'Argoty Lopez Segundo Jesus', '2023-02-04 16:06:40'),
-(4, 'German Camilo Bernal Muñoz', 'Argoty Constain Sonia Patricia', '2023-02-04 16:09:46'),
-(5, 'Lisseth Katherine Enriquez Delgado', 'Argoty Lopez Segundo Jesus', '2023-02-04 16:10:12'),
-(6, 'German Camilo Bernal Muñoz', 'Arevalo Teran Wiliam Andres', '2023-01-14 06:45:49'),
-(7, 'Lisseth Katherine Enriquez Delgado', 'Argoty Portilla Santiago Fernando', '2023-02-04 16:22:25'),
-(8, NULL, NULL, '2023-01-14 11:31:35'),
-(9, 'Diaz Pabon Nelsy Eugenia', 'Armero Chaves Paula Andrea', '2023-01-14 06:30:33'),
-(10, NULL, NULL, '2023-01-14 11:32:24'),
-(11, 'Maicol Rene Vallejo Viteri', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:37:40'),
-(12, NULL, NULL, '2023-01-14 11:32:51'),
-(13, NULL, NULL, '2023-01-14 06:29:50'),
-(14, NULL, NULL, '2023-01-29 12:56:21'),
-(15, NULL, NULL, '2023-01-29 15:43:27'),
-(16, 'German Camilo Bernal Muñoz', 'Arellano Cordoba Susana Paola', '2023-01-29 16:53:26'),
-(17, NULL, NULL, '2023-01-29 16:57:47'),
-(18, NULL, NULL, '2023-01-29 17:01:10'),
-(19, NULL, NULL, '2023-01-29 17:02:42'),
-(20, NULL, NULL, '2023-02-02 18:51:09');
-
 -- --------------------------------------------------------
 
 --
@@ -979,33 +906,6 @@ CREATE TABLE `tbl_inventario` (
   `cat_equipo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_inventario`
---
-
-INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
-('01', 'hd', '2015', 'sin datos', 2, 'Cables HDMI'),
-('02', 'hdVGA', '2019', 'SIN COMENTARIO', 2, 'Cables VGA'),
-('0200', 'Rimax', '2016', 'bodega de hall', 2, 'Mesa'),
-('0300', 'Tela suave', '2016', 'Tres colores Blanco(B) Azul(A) Vino(V)', 2, 'Mantel'),
-('1101', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
-('1102', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
-('1103', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
-('1104', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
-('1105', 'Lenovo', '2015', 'Actualizad', 2, 'Portatil'),
-('1111', 'Hewlett Packard', '2022', 'Actualizad', 2, 'Portatil'),
-('1112', 'Hewlett Packard', '2022', 'Actualizado y con mantenimiento', 2, 'Portatil'),
-('2001', 'Epson', '2021', 'Con mantenimiento ', 2, 'Video-beam'),
-('2002', 'Epson', '2021', 'Con mantenimiento ', 2, 'Video-beam'),
-('3001', 'Generica', '2022', 'Con mantenimiento ', 2, 'Extensión'),
-('3002', 'Generica', '2022', 'Con mantenimiento ', 2, 'Extensión'),
-('4001', 'Epson', '2021', 'con pilas', 2, 'Control'),
-('4002', 'Epson', '2021', 'con pilas', 2, 'Control'),
-('5001', 'jbl', '2022', 'Con su cable de carga', 2, 'Parlantes'),
-('5002', 'jbl', '2022', 'Con su cable de carga', 2, 'Parlantes'),
-('5003', 'genius', '2019', 'realizada reparacion', 2, 'Parlantes'),
-('5004', 'genius', '2019', 'Con mantenimiento ', 2, 'Parlantes');
-
 -- --------------------------------------------------------
 
 --
@@ -1018,32 +918,6 @@ CREATE TABLE `tbl_salida` (
   `nom_docente_out` varchar(100) DEFAULT NULL,
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_salida`
---
-
-INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
-(1, 'Maicol Rene Vallejo Viteri', 'Argoty Portilla Santiago Fernando', '2023-01-14 08:18:15'),
-(2, 'German Camilo Bernal Muñoz', 'Aroca Perez Lina Juliethe', '2023-01-14 08:19:08'),
-(3, 'Diaz Pabon Nelsy Eugenia', 'Argoty Lopez Segundo Jesus', '2023-01-14 08:22:00'),
-(4, 'Maicol Rene Vallejo Viteri', 'Arevalo Teran Wiliam Andres', '2023-01-14 08:36:50'),
-(5, 'German Camilo Bernal Muñoz', 'Armero Chaves Paula Andrea', '2023-01-14 09:19:22'),
-(6, 'Maicol Rene Vallejo Viteri', 'Arevalo Teran Wiliam Andres', '2023-01-14 09:21:22'),
-(7, 'Maicol Rene Vallejo Viteri', 'Argoti Portilla Santiago Fernando', '2023-01-14 09:35:38'),
-(8, 'Benavides Castro Jose Luis ', 'Argoti Portilla Santiago Fernando', '2023-01-14 11:31:35'),
-(9, 'German Camilo Bernal Muñoz', 'Aroca Perez Lina Julieth', '2023-01-14 11:31:55'),
-(10, 'Leidy Daniela Bacca Potosi', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:32:24'),
-(11, 'Insuasti Quevedo William Alexander', 'Argote Puetaman Ivan Mauricio ', '2023-01-14 11:32:38'),
-(12, 'Insuasti Quevedo William Alexander', 'AREVALO BENAVIDES AIDA ALICIA', '2023-01-14 11:32:51'),
-(13, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '2023-01-14 06:29:50'),
-(14, 'Leidy Daniela Bacca Potosi', 'Arevalo Teran Wiliam Andres', '2023-01-29 12:56:21'),
-(15, 'Leidy Daniela Bacca Potosi', 'Argoty Constain Sonia Patricia', '2023-01-29 15:43:27'),
-(16, 'German Camilo Bernal Muñoz', 'AREVALO BENAVIDES AIDA ALICIA', '2023-01-29 16:50:46'),
-(17, 'Insuasti Quevedo William Alexander', 'Arellano Cordoba Susana Paola', '2023-01-29 00:00:00'),
-(18, 'Lisseth Katherine Enriquez Delgado', 'Arevalo Teran Wiliam Andres', '2023-01-29 00:00:00'),
-(19, 'Leidy Daniela Bacca Potosi', 'Argote Puetaman Ivan Mauricio ', '2023-01-29 05:02:00'),
-(20, 'German Camilo Bernal Muñoz', 'Arevalo Ojeda Yolanda Carolina', '2023-02-02 06:51:00');
 
 -- --------------------------------------------------------
 
@@ -1059,32 +933,6 @@ CREATE TABLE `tbl_tiket` (
   `id_entrada` int(100) DEFAULT NULL,
   `id_estado` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_tiket`
---
-
-INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(1, 'sin comentario', 'A 506', 1, 1, 2),
-(2, 'entrega la sala a las 10:20', 'Sala De Audien', 2, 2, 2),
-(3, 'se convierte en oficina', 'A 101', 3, 3, 4),
-(4, 'el material lo reintegra a medio dia', 'Coliseo', 4, 4, 1),
-(5, 'sin comentario', 'A 201', 5, 5, 1),
-(6, 'sin comentario', 'A 301', 6, 6, 1),
-(7, 'sin comentario', 'i 417', 7, 7, 1),
-(8, 'sin comentario', 'A 507', 8, 8, 1),
-(9, 'sin comentario', 'A 505', 9, 9, 1),
-(10, 'asdf', 'A 506', 10, 10, 1),
-(11, 'regresa a las 6:00', 'A 506', 11, 11, 1),
-(12, 'snnn', 'A 504', 12, 12, 1),
-(13, 'sin comentario', 'A 506', 13, 13, 1),
-(14, 'sin comentario', 'A 504', 14, 14, 1),
-(15, 'sin comentario', 'A 505', 15, 15, 1),
-(16, 'regresa el lunes', 'Audit.SClara', 16, 16, 1),
-(17, 'sin comentario', 'B 320', 17, 17, 1),
-(18, 'sin comentario', 'A 410', 18, 18, 1),
-(19, 'sin comentario', 'A 507', 19, 19, 1),
-(20, 'sin comentario', 'A 507', 20, 20, 5);
 
 --
 -- Índices para tablas volcadas
@@ -1174,7 +1022,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
