@@ -54,7 +54,19 @@
 				?>
 
 					<tr>
-						<td><?php echo $fila['codigo'];         ?></td>
+						<td>
+							<!-- utilizamos un generador de codigo online
+								 pasandole como parametro al enlace el codigo que manejamos							
+							 	 https://barcode.tec-it.com/-->
+
+							<div style='text-align: center;'>
+								<!-- insert your custom barcode setting your data in the GET parameter "data" -->
+								<img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data=<?php echo $fila['codigo']; ?>&code=Code128&translate-esc=true&imagetype=Jpg' />
+							</div>
+							<!-- cierre generador de codigo de barras  -->
+
+							<?php echo $fila['codigo'];         ?>
+						</td>
 						<td><?php echo $fila['marca'];     ?></td>
 						<td><?php echo $fila['modelo'];  ?></td>
 						<td><?php echo $fila['comentario'];   ?></td>
