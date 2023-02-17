@@ -105,7 +105,7 @@
             <!-- creamos un div centrado -->
             <div class="col-md-6">
                 <!-- creamos una lista desplegable -->
-                <select class="form-control" id="txt_auxiliar" name="txt_auxiliar">
+                <select class="form-control" id="txt_auxiliar" name="txt_auxiliar" autofocus>
                     <option value="#">Auxiliar responsable</option>
                     <?php
                     include_once("php/listas/cargar_auxiliares.php");

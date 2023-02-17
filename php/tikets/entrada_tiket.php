@@ -15,28 +15,18 @@ include_once("clases/cls_conectarB.php");
                 <?php
                 $opcion = $_GET['opcion'];
                 $id_tiket = $_GET['id-tiket'];
-                echo $opcion;
+                // echo $opcion;
                 echo " <input type='hidden' name='id-tiket' value='$id_tiket'br />";
                 ?>
 
             </h3>
         </div>
-        <div class="col-md-6">
-            <h3 class="text-primary">
-                <span>
-                    <?php
-                    echo  ' -> ' . $id_tiket;
-
-                    ?>
-                </span>
-            </h3>
-        </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="text-right">
+                    <h3 class="text-center">
                         <div>
                             Salida :
                         </div>
@@ -55,8 +45,8 @@ include_once("clases/cls_conectarB.php");
             </div>
             <br>
             <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-right">
+                <div class="col-md-4">
+                    <h3 class="text-center">
                         Entrega :
                     </h3>
                 </div>
@@ -87,8 +77,8 @@ include_once("clases/cls_conectarB.php");
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-right">
+                <div class="col-md-4">
+                    <h3 class="text-center">
                         Recibe :
                     </h3>
                 </div>
@@ -116,51 +106,7 @@ include_once("clases/cls_conectarB.php");
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-right">
-                        Entrada :
-                    </h3>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="text-primary">
-                        <span>
-                            <?php
-                            echo $id_tiket;
-                            ?>
-                        </span>
-                    </h3>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-right">
-                        Recibe :
-                    </h3>
-                </div>
-                <div class="col-md-6">
 
-                    <button type="button" class="btn btn-success disabled btn-block">
-                        id_auxiliar
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-right">
-                        Entrega :
-                    </h3>
-                </div>
-                <div class="col-md-6">
-
-                    <button type="button" class="btn btn-success btn-block disabled">
-                        id_docente
-                    </button>
-                </div>
-            </div>
-        </div>
     </div> <!-- row -->
     <br>
     <hr>
@@ -197,7 +143,7 @@ include_once("clases/cls_conectarB.php");
                             <!-- creamos un div centrado -->
                             <div class="col-md-6">
                                 <!-- creamos una lista desplegable -->
-                                <select class="form-control" id="txt_aula" name="txt_aula">
+                                <select autofocus class="form-control" id="txt_aula" name="txt_aula">
                                     <option value="0">Seleccione el AULA</option>
                                     <?php
                                     include_once("php/listas/cargar_aulas.php");
@@ -240,7 +186,7 @@ include_once("clases/cls_conectarB.php");
                         </h3>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" placeholder="Ingrese el comentario" name="txt_comentario" value="" id="txt">
+                        <input value="Sin Comentario" type="text" class="form-control" placeholder="Ingrese el comentario" name="txt_comentario" value="" id="txt">
                     </div>
                 </div>
                 <br>

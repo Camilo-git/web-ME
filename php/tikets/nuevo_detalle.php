@@ -31,7 +31,7 @@ include_once("clases/cls_conectarB.php");
                         <div class="row">
                             <div class="col-md-6">
                                 <h5 class="text-center">
-                                    Codigo Equipo
+                                    Estado
                                 </h5>
                             </div>
                             <div class="col-md-6">
@@ -42,10 +42,10 @@ include_once("clases/cls_conectarB.php");
                                     <!-- creamos un div centrado -->
                                     <div class="col-md-12">
                                         <!-- creamos una lista desplegable -->
-                                        <select class="form-control" id="num_id_equipo" name="cod_inventario">
-                                            <option value="1">Equipo N°</option>
+                                        <select class="form-control" id="txt_estado" name="txt_estado">
+                                            <option value="1">Prestamo</option>
                                             <?php
-                                            include_once("php/listas/cargar_equipo.php");
+                                            include_once("php/listas/cargar_estados.php");
                                             ?>
                                         </select>
                                     </div>
@@ -77,7 +77,7 @@ include_once("clases/cls_conectarB.php");
                         <div class="row">
                             <div class="col-md-6">
                                 <h5 class="text-center">
-                                    Estado
+                                    Codigo Equipo
                                 </h5>
                             </div>
                             <div class="col-md-6">
@@ -88,10 +88,10 @@ include_once("clases/cls_conectarB.php");
                                     <!-- creamos un div centrado -->
                                     <div class="col-md-12">
                                         <!-- creamos una lista desplegable -->
-                                        <select class="form-control" id="txt_estado" name="txt_estado">
-                                            <option value="1">Prestamo</option>
+                                        <select autofocus class="form-control" id="num_id_equipo" name="cod_inventario">
+                                            <option value="1">Equipo N°</option>
                                             <?php
-                                            include_once("php/listas/cargar_estados.php");
+                                            include_once("php/listas/cargar_equipo.php");
                                             ?>
                                         </select>
                                     </div>

@@ -29,7 +29,7 @@ if ($accion == "ADICIONAR") {
     if ($obj_entrada->insertar()) {
         echo '
         <script>
-        alert("El registro se guardo CORRECTAMENTE");
+        // alert("El registro se guardo CORRECTAMENTE");
         location.href="guardar_tiket.php?accion=ADICIONAR&id=' . $id . ' ";
         </script> 
         ';

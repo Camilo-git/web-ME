@@ -20,10 +20,10 @@
 			<thead>
 
 				<tr>
-					<th>Id </th>					
+					<th>Id </th>
 					<th>Salida</th>
 					<th>Entrada</th>
-					<th>Elementos</th>						
+					<th>Elementos</th>
 					<th>Estado - - Aula - - Comentario</th>
 					<!-- th como titulos deben aver en td espacios -->
 
@@ -41,6 +41,7 @@
 					tbl_tiket.id,
 					tbl_tiket.comentario,
 					CONCAT(
+						'<br><hr>',
 						tbl_salida.fecha_out,
 						' <hr> ',
 						tbl_salida.nom_docente_out,
@@ -72,14 +73,120 @@
 				?>
 					<tr>
 						<td>
-							<?php echo $fila['id'] . 
-								"<br><hr> "  ; 
-								echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
+							<?php echo $fila['id'] .
+								"<br><hr> ";
+							echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
 							?>
 						</td>
-						
-						<td><?php echo $fila['salida'];  ?></td>
-						<td><?php echo $fila['entrada'];   ?></td>
+
+						<td><?php
+
+							$sSQL = "SELECT
+									*
+								FROM
+									`tbl_salida`
+								WHERE
+									`id` = $fila[id]";
+							$datos = $conexion->query($sSQL);
+
+							foreach ($datos as $fila2) :
+
+
+								$sSQL = "SELECT
+											*
+									FROM
+										tbl_docentes
+									WHERE
+										nombre = '$fila2[nom_docente_out]'";
+
+
+								$datos = $conexion->query($sSQL);
+
+								foreach ($datos as $filas3) {
+									echo "C.c. " . $filas3['cedula'];
+									echo "<br><hr>";
+								}
+
+								echo $fila2['nom_docente_out'];
+								echo "<br><hr>";
+
+								$sSQL = "SELECT
+											*
+									FROM
+										tbl_auxiliares
+									WHERE
+										nombre = '$fila2[nom_auxiliar_out]'";
+
+
+								$datos = $conexion->query($sSQL);
+
+								foreach ($datos as $filas4) {
+									echo "C.c. " . $filas4['cedula'];
+									echo "<br><hr>";
+								}
+
+								echo $fila2['nom_auxiliar_out'];
+								echo "<br><hr>";
+								echo $fila2['fecha_out'];
+								echo "<br><hr>";
+							endforeach;
+
+							?></td>
+						<td>
+							<?php
+
+							$sSQL = "SELECT
+									*
+								FROM
+									`tbl_entrada`
+								WHERE
+									`id` = $fila[id]";
+							$datos = $conexion->query($sSQL);
+
+							foreach ($datos as $fila2) :
+
+
+								$sSQL = "SELECT
+										*
+								FROM
+									tbl_docentes
+								WHERE
+									nombre = '$fila2[nom_docente_in]'";
+
+
+								$datos = $conexion->query($sSQL);
+
+								foreach ($datos as $filas3) {
+									echo "C.c. " . $filas3['cedula'];
+									echo "<br><hr>";
+								}
+
+								echo $fila2['nom_docente_in'];
+								echo "<br><hr>";
+
+								$sSQL = "SELECT
+										*
+								FROM
+									tbl_auxiliares
+								WHERE
+									nombre = '$fila2[nom_auxiliar_in]'";
+
+
+								$datos = $conexion->query($sSQL);
+
+								foreach ($datos as $filas4) {
+									echo "C.c. " . $filas4['cedula'];
+									echo "<br><hr>";
+								}
+
+								echo $fila2['nom_auxiliar_in'];
+								echo "<br><hr>";
+								echo $fila2['fecha_in'];
+								echo "<br><hr>";
+							endforeach;
+
+							?>
+						</td>
 						<td><?php
 
 							$sSQL = "SELECT
@@ -95,22 +202,22 @@
 									WHERE
 										tbl_detalle.id_tiket = $fila[id];";
 
-									$datos = $conexion->query($sSQL);
+							$datos = $conexion->query($sSQL);
 
 
-							foreach ($datos as $filas) :
-								echo $filas['categoria'];
+							foreach ($datos as $fila1) :
+								echo $fila1['categoria'];
 							endforeach;
 
 							?>
 						</td>
-								<!-- <?php
-									
+						<!-- <?php
+
 								?> -->
-								<td>
+						<td>
 							<?php echo  $fila['estado'] .
-								" - -> ". $fila['nombre_aula'] . 
-								"<br><hr> ". $fila['comentario'] ; 
+								" - -> " . $fila['nombre_aula'] .
+								"<br><hr> " . $fila['comentario'];
 							?>
 						</td>
 					</tr>
