@@ -1,5 +1,5 @@
 <div class="row my-3">
-	
+
 	<div class="col-10">
 		<h3><i class="fa fa-user-circle"></i> Docentes IU.Cesmag</h3>
 	</div>
@@ -16,59 +16,59 @@
 
 	<div class="col-12">
 
-			<table id="miTabla"  class="table table-striped table-bordered table-hover">
+		<table id="miTabla" class="table table-striped table-bordered table-hover">
 			<thead>
-			
-					<tr>
-						<th>Cedula</th>
-						<th>Nombre</th>
-						<th>Correoo</th>
-						<th>Cel</th>
-						<th>Programa</th>
-						<th>Dependencia</th>
-						<th>borra</th>
-						<th>editar</th>
-						<!-- th como titulos deben aver en td espacios -->
-						
-					</tr>
+
+				<tr>
+					<th>Cedula</th>
+					<th>Nombre</th>
+					<th>Correoo</th>
+					<th>Cel</th>
+					<th>Programa</th>
+					<th>Dependencia</th>
+					<th>borra</th>
+					<th>editar</th>
+					<!-- th como titulos deben aver en td espacios -->
+
+				</tr>
 			</thead>
 
 			<tbody>
-						<?php 
-							
-							include_once("clases/cls_conectarB.php");
+				<?php
 
-							$conexion = conectarBD();
+				include_once("clases/cls_conectarB.php");
 
-							$sSQL = "SELECT * FROM tbl_docentes";
+				$conexion = conectarBD();
 
-							$datos = $conexion->query($sSQL);
-						 
-							foreach ($datos as $fila):
+				$sSQL = "SELECT * FROM tbl_docentes";
 
-									?>
+				$datos = $conexion->query($sSQL);
 
-										<tr>
-											<td><?php echo $fila['cedula'];         ?></td>											
-											<td><?php echo $fila['nombre'];     ?></td>
-											<td><?php echo $fila['correo'];  ?></td>
-											<td><?php echo $fila['cel'];   ?></td>
-											<td><?php echo $fila['programa'];     ?></td>
-											<td><?php echo $fila['dependencia'];     ?></td>
-											<?php 
-												echo'<td><a href="./principal.php?opcion=editar-profesor&accion=EDITAR&cedula='.$fila	['cedula'].'" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
+				foreach ($datos as $fila) :
+
+				?>
+
+					<tr>
+						<td><?php echo $fila['cedula'];         ?></td>
+						<td><?php echo $fila['nombre'];     ?></td>
+						<td><?php echo $fila['correo'];  ?></td><!-- traemos el numero de celular y creamos el enlace directo al chat de WhatsApp -->
+						<td><a href="https://api.whatsapp.com/send?phone=57<?php echo $fila['cel']; ?>&amp;text=Buenos%20dias"><?php echo $fila['cel']; ?></a></td>
+						<td><?php echo $fila['programa'];     ?></td>
+						<td><?php echo $fila['dependencia'];     ?></td>
+						<?php
+						echo '<td><a href="./principal.php?opcion=editar-profesor&accion=EDITAR&cedula=' . $fila['cedula'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
 												
-												<td><a href="./php/profesores/guardar.php?accion=ELIMINAR&cedula='.$fila	['cedula'].'" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
-											?>
-										</tr>
-
-									<?php  
-								
-							endforeach;
-								
-							desconectarBD($conexion);						
+												<td><a href="./php/profesores/guardar.php?accion=ELIMINAR&cedula=' . $fila['cedula'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
 						?>
-				
+					</tr>
+
+				<?php
+
+				endforeach;
+
+				desconectarBD($conexion);
+				?>
+
 
 			</tbody>
 
@@ -78,6 +78,3 @@
 		</table>
 	</div>
 </div>
-
-
-

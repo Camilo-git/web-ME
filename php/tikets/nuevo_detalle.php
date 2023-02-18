@@ -120,6 +120,8 @@ include_once("clases/cls_conectarB.php");
                         <th>cod equipo</th>
                         <th>Estado</th>
                         <th>Comentario</th>
+                        <th>Entrega</th>
+
                         <!-- th como titulos deben aver en td espacios -->
 
                     </tr>
@@ -134,16 +136,10 @@ include_once("clases/cls_conectarB.php");
 
                     // damos a la busqueda
 
-                    $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-                    $dato = $conexion->query($sSQL);
-                    // imprimimos el resultado
-                    foreach ($dato as $fila) :
-                        $fila = $fila['id'];
 
-                        echo " <input type='hidden' name='num_id' value='$fila'br />";
-                    endforeach;
 
                     $sql = "SELECT
+                    tbl_detalle.id,
                     CONCAT(
                         tbl_inventario.codigo,
                         ' -- ',
@@ -160,7 +156,7 @@ include_once("clases/cls_conectarB.php");
                 INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo
                 INNER JOIN tbl_estados ON tbl_detalle.id_estado = tbl_estados.id
                 WHERE
-                    tbl_detalle.id_tiket = $fila ";
+                    tbl_detalle.id_tiket = $id_tiket ";
 
 
 
@@ -168,15 +164,18 @@ include_once("clases/cls_conectarB.php");
 
 
 
-                    foreach ($datos as $fila) :
+                    foreach ($datos as $fila1) :
 
 
                     ?>
 
                         <tr>
-                            <td><?php echo $fila['categoria'];         ?></td>
-                            <td><?php echo $fila['estado'];  ?></td>
-                            <td><?php echo $fila['comentario'];     ?></td>
+                            <td><?php echo $fila1['categoria'];         ?></td>
+                            <td><?php echo $fila1['estado'];  ?></td>
+                            <td><?php echo $fila1['comentario'];     ?></td>
+                            <?php
+                            echo '<td><a href="php/tikets/guardar_detalle.php?accion=ENTREGA-DETALLE&id=' . $fila1['id'] . '" title="entrega el detalle"><i class="fas fa-pen"></i></a></td>';
+                            ?>
                         </tr>
 
                     <?php

@@ -3,6 +3,7 @@
 // vemos todo lo que nos envian por el metodo post
 // echo    "<pre>";
 // print_r($_POST);
+// print_r($_GET);
 // echo "</pre>";
 
 
@@ -11,12 +12,15 @@ include_once '../../clases/cls_detalle.php';
 // creamos un objeto de la clase cls_detalle
 $obj_detalle = new Detalle();
 // creamos las variables con los datos que llegan por el metodo post
-$id = 0;
-$accion = $_POST['btn_guardar'];
-$id_tiket = $_POST['id-tiket'];
-$cod_inventario = $_POST['cod_inventario'];
-$estado = $_POST['txt_estado'];
-$comentario = $_POST['txt_comentario'];
+$accion = isset($_GET['accion']) ? $_GET['accion'] : $_POST['btn_guardar'];
+echo $accion;
+
+$id = isset($_GET['id']) ? $_GET['id'] : 0;
+echo $id;
+$id_tiket = isset($_POST['id-tiket']) ? $_POST['id-tiket'] : null;
+$cod_inventario = isset($_POST['cod_inventario']) ? $_POST['cod_inventario'] : null;
+$estado = isset($_POST['txt_estado']) ? $_POST['txt_estado'] : null;
+$comentario = isset($_POST['txt_comentario']) ? $_POST['txt_comentario'] : 0;
 
 // llamamos al objeto de la clase cls_detalle para ejeccutar la accion
 $obj_detalle->cargarDatos($id, $id_tiket,  $estado, $cod_inventario, $comentario);
@@ -28,21 +32,35 @@ if ($accion == "ADICIONAR") {
     if ($obj_detalle->insertar()) {
         echo '
         <script>
-        location.href="../../principal.php?opcion=nuevo_detalle&id-tiket= ' . $id_tiket . ' ";
+         location.href="../../principal.php?opcion=nuevo_detalle&id-tiket= ' . $id_tiket . ' ";
         </script>
         ';
     }
-} elseif ($accion == "EDITAR") {
-    // si la opcion es modificar
-    if ($obj_detalle->modificar()) {
-        echo '
+} elseif ($accion == "ENTREGA-DETALLE") {
+
+    include_once("../../clases/cls_conectarB.php");
+    $conexion = conectarBD();
+
+    $ejecutable = "UPDATE
+             tbl_detalle
+            SET id_estado = '2'
+             WHERE tbl_detalle.id ='$id';";
+    echo $id;
+
+    $conexion->query($ejecutable);
+
+
+
+
+
+    echo '
             <script> 
-            
-            alert("El registro SE modifico CORRECTAMENTE");
+                // location.href="guardar_entrada.php?accion=ADICIONAR&id=' . $id . ' ";            
+                // alert("El equipo se entrego CORRECTAMENTE");
+                
             
             </script>
             ';
-    }
 } else {
     // si la opcion es eliminar
     if ($obj_detalle->eliminar()) {
