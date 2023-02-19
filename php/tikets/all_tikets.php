@@ -40,22 +40,6 @@
 				$sSQL = "SELECT
 					tbl_tiket.id,
 					tbl_tiket.comentario,
-					CONCAT(
-						'<br><hr>',
-						tbl_salida.fecha_out,
-						' <hr> ',
-						tbl_salida.nom_docente_out,
-						' <hr> ',
-						tbl_salida.nom_auxiliar_out
-						
-					) AS salida,
-					CONCAT(
-						tbl_entrada.fecha_in,
-						' <hr> ',
-						tbl_entrada.nom_docente_in,
-						' <hr> ',
-						tbl_entrada.nom_auxiliar_in
-					) AS entrada,
 					tbl_estados.estado,
 					tbl_tiket.nombre_aula
 					FROM
@@ -75,7 +59,7 @@
 						<td>
 							<?php echo $fila['id'] .
 								"<br><hr> ";
-							echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
+							echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '&id-tiket=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
 							?>
 						</td>
 
@@ -190,15 +174,25 @@
 						<td><?php
 
 							$sSQL = "SELECT
+									
 									CONCAT(
+										tbl_estados.estado,
+										' - ',
 										tbl_inventario.codigo,
-										' - - ',
+										' - ',
 										tbl_inventario.cat_equipo,
 										'<br><hr>'
 									) AS categoria
 									FROM
 										tbl_detalle
-									INNER JOIN tbl_inventario ON tbl_detalle.cod_equipo = tbl_inventario.codigo
+									INNER JOIN
+										tbl_estados
+										ON
+										tbl_detalle.id_estado = tbl_estados.id
+									INNER JOIN
+										tbl_inventario
+										ON
+										tbl_detalle.cod_equipo = tbl_inventario.codigo
 									WHERE
 										tbl_detalle.id_tiket = $fila[id];";
 

@@ -174,7 +174,7 @@ include_once("clases/cls_conectarB.php");
                             <td><?php echo $fila1['estado'];  ?></td>
                             <td><?php echo $fila1['comentario'];     ?></td>
                             <?php
-                            echo '<td><a href="php/tikets/guardar_detalle.php?accion=ENTREGA-DETALLE&id=' . $fila1['id'] . '" title="entrega el detalle"><i class="fas fa-pen"></i></a></td>';
+                            echo '<td><a href="php/tikets/guardar_detalle.php?accion=ENTREGA-DETALLE&id-tiket=' . $id_tiket . '&id=' . $fila1['id'] . '" title="entrega el detalle"><i class="fas fa-pen"></i></a></td>';
                             ?>
                         </tr>
 
