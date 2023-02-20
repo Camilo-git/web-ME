@@ -202,15 +202,11 @@
 							foreach ($datos as $fila5) :
 								echo $fila5['categoria'];
 							endforeach;
-							echo $fila['id'];
 
 							?>
 						</td>
-						<!-- <?php
-								echo $fila['id'];
 
-								?> -->
-						<td><a href="principal.php?opcion=nuevo_detalle&id-tiket='.<?php echo $fila['id']; ?>.'">
+						<td><a href="principal.php?opcion=nuevo_detalle&id-tiket=<?php echo $fila['id']; ?>">
 								<?php echo  $fila['estado'] .
 									" </a> - -> " . $fila['nombre_aula'] .
 									"<br><hr> " . $fila['comentario'];

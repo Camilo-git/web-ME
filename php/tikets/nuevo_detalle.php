@@ -202,7 +202,7 @@ include_once("clases/cls_conectarB.php");
     </div>
     <form action="principal.php">
         <?php
-        echo " <input type='hidden' name='id-tiket' value='$id_tiket' br />";
+        echo " <input type='hidden' name='id-tiket' value=$id_tiket br />";
         ?>
         <button class="btn btn-primary btn-block" id="btn-editar" name="opcion" value="editar-tiket">
             Continuar

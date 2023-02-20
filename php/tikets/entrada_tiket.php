@@ -120,10 +120,9 @@ include_once("clases/cls_conectarB.php");
             $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
             $dato = $conexion->query($sSQL);
             // imprimimos el resultado
-            foreach ($dato as $fila) {
-                $fila = $fila['id'];
-                echo " <input type='hidden' name='id' value='$fila'br />";
-            }
+
+            echo " <input type='hidden' name='id' value=$id_tiket br />";
+            echo $id_tiket;
             ?>
         </span>
 
