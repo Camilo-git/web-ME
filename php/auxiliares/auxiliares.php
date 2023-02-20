@@ -51,7 +51,7 @@
 						<td><?php echo $fila['cedula'];         ?></td>
 						<td><?php echo $fila['nombre'];     ?></td>
 						<!-- traemos el numero de celular y creamos el enlace directo al chat de WhatsApp -->
-						<td><a href="https://api.whatsapp.com/send?phone=57<?php echo $fila['celular']; ?>&amp;text=Saludo%20de%20Paz%20y%20Bien"><?php echo $fila['celular']; ?></a></td>
+						<td><a href="https://api.whatsapp.com/send?phone=57<?php echo $fila['celular']; ?>&amp;text=Saludo%20de%20Paz%20y%20Bien" target="_blank"><?php echo $fila['celular']; ?></a></td>
 						<td><?php echo $fila['correo'];   ?></td>
 						<td><?php echo $fila['direccion'];     ?></td>
 						<?php

@@ -8,7 +8,8 @@
 
 
     <li class="nav-item dropdown">
-      <a href="principal.php?opcion=all_tikets" class="navbar-brand">Prestamos ME.</a>
+      <a href="https://linktr.ee/horariosunicesmag?utm_source=linktree_profile_share&ltsid=cbc0051a-7d4a-4fa8-a82e-859d1cf9fce7"
+        class="navbar-brand" target="_blank">Horarios ME.</a>
     </li>
 
     <!-- opcion de aulas -->
