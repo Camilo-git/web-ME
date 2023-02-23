@@ -88,7 +88,7 @@
 
 								foreach ($datos as $filas3) {
 									echo "C.c. " . $filas3['cedula'];
-									echo "<br><hr>";
+									echo "<br>";
 								}
 
 								echo $fila2['nom_docente_out'];
@@ -106,7 +106,7 @@
 
 								foreach ($datos as $filas4) {
 									echo "C.c. " . $filas4['cedula'];
-									echo "<br><hr>";
+									echo "<br>";
 								}
 
 								echo $fila2['nom_auxiliar_out'];
@@ -142,7 +142,7 @@
 
 								foreach ($datos as $filas3) {
 									echo "C.c. " . $filas3['cedula'];
-									echo "<br><hr>";
+									echo "<br>";
 								}
 
 								echo $fila2['nom_docente_in'];
@@ -160,7 +160,7 @@
 
 								foreach ($datos as $filas4) {
 									echo "C.c. " . $filas4['cedula'];
-									echo "<br><hr>";
+									echo "<br>";
 								}
 
 								echo $fila2['nom_auxiliar_in'];
