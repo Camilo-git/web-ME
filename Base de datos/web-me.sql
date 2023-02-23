@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2023 a las 12:02:03
+-- Tiempo de generación: 23-02-2023 a las 22:12:48
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -854,33 +854,7 @@ CREATE TABLE `tbl_equipos` (
 --
 
 INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
-(0, 'Cables en general\r\n', 2, 100),
-(1, 'Cables HDMI', 2, 152),
-(2, 'Cables VGA', 2, 100),
-(3, 'Portatil', 2, 45),
-(4, 'Video-beam', 2, 100),
-(5, 'Control', 2, 100),
-(6, 'Extensión', 2, 45),
-(7, 'Parlantes', 2, 20),
-(8, 'Cabinas', 2, 8),
-(9, 'Mesa', 2, 40),
-(10, 'Mantel', 2, 45),
-(11, 'Faldon', 2, 45),
-(12, 'llaves', 2, 100),
-(13, 'Consola de Sonido', 2, 4),
-(14, 'Microfono', 2, 18),
-(15, 'Base micrófono', 2, 18),
-(16, 'sillas', 2, 400),
-(17, 'Tablones', 2, 5),
-(18, 'Tablero Movil', 2, 15),
-(19, 'Panel', 2, 10),
 (20, 'Bandera', 2, 18),
-<<<<<<< HEAD
-(21, 'Camara Web', 2, 6),
-(22, 'florero', 2, 4),
-(23, 'Grabadora Periodistica', 2, 2),
-(24, 'Señalizador Laser', 2, 5);
-=======
 (17, 'Base micrófono', 2, 18),
 (6, 'Cabinas', 2, 8),
 (1, 'Cables en general', 2, 200),
@@ -906,7 +880,6 @@ INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
 (12, 'Tablero Movil', 2, 15),
 (12, 'Tablones', 2, 5),
 (2, 'Video-beam', 2, 100);
->>>>>>> 29fc8542139cf46a74cdd27c3e447308ab5e6588
 
 -- --------------------------------------------------------
 
