@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-02-2023 a las 21:19:00
+-- Tiempo de generación: 23-02-2023 a las 12:02:03
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -105,6 +105,7 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (108, 'Cancha 3', 'Ed.', 12, 'Sin comentario'),
 (111, 'Coliseo', 'Ed.', 1500, 'Sin comentario'),
 (110, 'Danzas', 'Ed.', 30, 'Sin comentario'),
+(0, 'Externo ', 'Fuera de las instalaciones de la universidad cesmag', 1000, 'Eventos de la institucion'),
 (109, 'Gimnasio', 'Ed.', 30, 'Sin comentario'),
 (18, 'H 201F', 'Ed.', 20, 'tiene viedeo Bean con mantenimiento'),
 (24, 'H 302', 'Ed.', 35, 'Sin comentario'),
@@ -147,6 +148,7 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (45, 'i 416', 'Ed.', 50, 'Sin comentario'),
 (46, 'i 417', 'Ed.', 50, 'Sin comentario'),
 (47, 'i 418', 'Ed.', 50, 'Sin comentario'),
+(0, 'Medios Educativos', 'Holanda 2° piso ', 7, 'Oficina principal de medios educativos'),
 (98, 'S 201', 'Ed.', 53, 'Sin comentario'),
 (99, 'S 202', 'Ed.', 29, 'Sin comentario'),
 (100, 'S 203', 'Ed.', 23, 'Sin comentario'),
@@ -158,7 +160,9 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (104, 'S207Lab', 'Ed.', 5, 'Sin comentario'),
 (116, 'Sala De Audien', 'Ed.', 50, 'Sin comentario'),
 (0, 'San Damian', 'Catambuco', 1500, 'esta cede se encuentra en el corregimiento de Catambuco'),
-(0, 'Terraza Alvernia', 'Ed. Holanda', 80, 'Esta terraza cuenta con un televisor y una bodega de mesas ');
+(0, 'sin aula', 'no aplica', 0, 'sin comentario'),
+(0, 'Terraza Alvernia', 'Ed. Holanda', 80, 'Esta terraza cuenta con un televisor y una bodega de mesas '),
+(0, 'Zona Comun', 'Universidad Cesmag', 5000, 'Cuenta con el resto de los espacios no mencionados como bancas y zonas de descanso');
 
 -- --------------------------------------------------------
 
@@ -179,13 +183,11 @@ CREATE TABLE `tbl_auxiliares` (
 --
 
 INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direccion`) VALUES
-('1085265396', 'Benavides Castro Jose Luis ', '3135271772', 'jlbenavides@unicesmag.edu.co', ''),
 ('1085251168', 'De La Cruz Hernandez Miguel Ignacio', '3177474845', 'midelacruz@unicesmag.edu.co', ''),
 ('30735249', 'Diaz Pabon Nelsy Eugenia', '3053406408', 'nediaz@unicesmag.edu.co', ''),
 ('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga'),
 ('94509957', 'Insuasti Quevedo William Alexander', '3186652786', 'wainsuasti@unicesmag.edu.co', 'calle 23 #2-99 Carolina'),
 ('1085339826', 'Leidy Daniela Bacca Potosi', '3145639902', 'ldbacca@unicesmag.edu.co', 'mz B4 cz 7 B/Belen'),
-('1004508418', 'Lisseth Katherine Enriquez Delgado', '3122510352', 'lkenriquez@unicesmag.edu.co', 'Clle 22b #26-112'),
 ('1193473050', 'Maicol Rene Vallejo Viteri', '3132941949', '', 'MZ-a cz-8 B/la cruz'),
 ('1004623930', 'Ruales Luna Miller Manuel', '3183758760', 'mmruales@unicesmag.edu.co', ''),
 ('1085249941', 'Salazar Usamag Diego Armando', '3206863043', 'dasalazar@unicesmag.edu.co', ''),
@@ -225,6 +227,7 @@ CREATE TABLE `tbl_docentes` (
 --
 
 INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `dependencia`) VALUES
+('0', 'Abandono de datos', 'sin-correo@ejm.co', 'sin cel', 'no id', 'no id'),
 ('59818906', 'Agreda Guerrero Maria Del Pilar', 'mpagreda@unicesmag.edu.co', '', '', ''),
 ('98386828', 'Alban Guerrero Juan Francisco', 'jfalban@unicesmag.edu.co', '', '', ''),
 ('98394281', 'Almeida Mejia Mario Fernando', 'mfalmeida@unicesmag.edu.co', '', '', ''),
@@ -380,6 +383,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('12980847', 'Davila Paz Alvaro Hernan', 'ahdavila@unicesmag.edu.co', '', '', ''),
 ('52168205', 'Daza Cuervo Bertha Ines', 'bidaza@unicesmag.edu.co', '', '', ''),
 ('5203817', 'De La Cruz Escobar Libardo ', 'lacruz@unicesmag.edu.co', '', '', ''),
+('1085251168', 'De La Cruz Hernandez Miguel Ignacio', 'midelacruz@unicesmag.edu.co', '', '', ''),
 ('37085328', 'Delgado Achicanoy Natalia Fernanda', 'nfdelgado@unicesmag.edu.co', '', '', ''),
 ('12745519', 'Delgado Caicedo Edmundo Andres', 'eadelgado@unicesmag.edu.co', '', '', ''),
 ('12750917', 'DELGADO CHACON EDWIN HERNANDO', 'ehdelgado@unicesmag.edu.co', '', '', ''),
@@ -394,6 +398,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('1085284023', 'Delgado Pulistar Fernando Augusto', 'fadelgado@unicesmag.edu.co', '', '', ''),
 ('1085264680', 'Diaz Argote Jonathan Alexander', 'jadiaz1@unicesmag.edu.co', '', '', ''),
 ('87065145', 'DIAZ ORTEGA PAULO ALEJANDRO', 'padiaz1@unicesmag.edu.co', '', '', ''),
+('30735249', 'Diaz Pabon Nelsy Eugenia', 'nediaz@unicesmag.edu.co', '', '', ''),
 ('12750879', 'Diaz Timana Galo Miller', 'gmdiaz@unicesmag.edu.co', '', '', ''),
 ('1085277139', 'DOMINGUEZ BURBANO MARIO FERNANDO', 'mfdominguez@unicesmag.edu.co', '', '', ''),
 ('98362619', 'Dorado Goyes Jorge Arturo', 'jadorado@unicesmag.edu.co', '', '', ''),
@@ -453,6 +458,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('27081478', 'Garces Bolaños Nubia Fernanda', 'nfgarces@unicesmag.edu.co', '', '', ''),
 ('36751197', 'Garzon Eraso Taryn Paola', 'tpgarzon@unicesmag.edu.co', '', '', ''),
 ('17344289', 'Gaviria Rojas Leon Dario', 'ldgaviria@unicesmag.edu.co', '', '', ''),
+('1032479967', 'German Camilo Bernal Muñoz', 'gcbernal@unicesmag.edu.co', '', '', ''),
 ('1086359590', 'Gomez Melo Leidy Marcela', 'lmgomez@unicesmag.edu.co', '', '', ''),
 ('98379634', 'Gonzalez Guzman Carlos Fernando', 'cfgonzalez@unicesmag.edu.co', '', '', ''),
 ('59310452', 'Gonzalez Lopez Jully Paulin', 'jpgonzalez@unicesmag.edu.co', '', '', ''),
@@ -485,6 +491,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('79605441', 'IBARRA OSORIO EDGAR GUILLERMO', 'egibarra@unicesmag.edu.co', '', '', ''),
 ('59814691', 'Ibarra Romo Dayra Del Rocio', 'dribarra@unicesmag.edu.co', '', '', ''),
 ('1085263276', 'Ibarra Rosero Wilson Danilo', 'wdibarra@unicesmag.edu.co', '', '', ''),
+('94509957', 'Insuasti Quevedo William Alexander', 'wainsuasti@unicesmag.edu.co', '', '', ''),
 ('87070838', 'Insuasty Cardenas Andres', 'ainsuasty@unicesmag.edu.co', '', '', ''),
 ('30741002', 'Insuasty Insuasty Adriana Elisa', 'aeinsuasty@unicesmag.edu.co', '', '', ''),
 ('1061710901', 'JACOME ALVAREZ NANCY CARMELA', 'ncjacome@unicesmag.edu.co', '', '', ''),
@@ -512,6 +519,8 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('30740952', 'Lasso Bastidas Nury Elena', 'nelasso@unicesmag.edu.co', '', '', ''),
 ('98390410', 'Lasso Chaparro Oscar Bernardo', 'oblasso@unicesmag.edu.co', '', '', ''),
 ('87063904', 'Lasso Guerrero Juan Gabriel', 'jglasso@unicesmag.edu.co', '', '', ''),
+('01', 'lavamatic', 'lavamatic@lavanderia.co', '316895458', 'Lavanderia', 'Mantenimiento'),
+('1085339826', 'Leidy Daniela Bacca Potosi', 'ldbacca@unicesmag.edu.co', '', '', ''),
 ('1085283466', 'Leyton Yela Ginna Viviana', 'gvleyton@unicesmag.edu.co', '', '', ''),
 ('1085265512', 'Llerena Riascos Rafael Esteban', 'rellerena@unicesmag.edu.co', '', '', ''),
 ('1085260855', 'LOPEZ BENAVIDES BELIJI LILETH', 'bllopez@unicesmag.edu.co', '', '', ''),
@@ -529,6 +538,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('1085262914', 'Luna Eraso Jenny Lorena', 'jlluna@unicesmag.edu.co', '', '', ''),
 ('1085250846', 'Luna Hernandez Jose Alberto', 'jaluna@unicesmag.edu.co', '', '', ''),
 ('34323119', 'Luna Solarte Adelaine Nataly', 'anluna@unicesmag.edu.co', '', '', ''),
+('1193473050', 'Maicol Rene Vallejo Viteri', 'ejem@unicesmag.edu.co', '', '', ''),
 ('98390643', 'Maigual Riascos Byron Helmer ', 'bhmaigual@unicesmag.edu.co', '', '', ''),
 ('12752134', 'MARQUEZ CORDOBA JUAN CARLOS', 'jcmarquez@unicesmag.edu.co', '', '', ''),
 ('98399957', 'Martinez Caicedo Mario German', 'mgmartinez@unicesmag.edu.co', '', '', ''),
@@ -563,7 +573,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('12995720', 'MORA GOMEZ NELSON ARMANDO', 'namora@unicesmag.edu.co', '', '', ''),
 ('59816771', 'Mora Ponce Maritza Eugenia', 'memora@unicesmag.edu.co', '', '', ''),
 ('36751009', 'Mora Rosas Paola', 'pmora@unicesmag.edu.co', '', '', ''),
-('1012331180', 'Mora Vanegas Claudia Del Pilar', 'cpmora@unicesmag.edu.co', '', '', ''),
+('1012331180', 'Mora Vanegas Claudia Del Pilar', 'cpmora@unicesmag.edu.co', '3142702121', 'Humanidades', 'Psicologia'),
 ('36950932', 'Morales Caicedo Ana Patricia', 'apmorales@unicesmag.edu.co', '', '', ''),
 ('79292135', 'Morales Jacome Carlos Eduardo', 'cemorales@unicesmag.edu.co', '', '', ''),
 ('12962674', 'Morales Upegui Holman Fernando', 'hfmorales@unicesmag.edu.co', '', '', ''),
@@ -575,7 +585,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('36752044', 'Mosquera Ortega Paula Andrea', 'pamosquera@unicesmag.edu.co', '', '', ''),
 ('12996981', 'Muñoz Agredo Mario Fernando', 'mfmunoz@unicesmag.edu.co', '', '', ''),
 ('12985129', 'Muñoz Botina Jose Maria', 'jmmunoz@unicesmag.edu.co', '', '', ''),
-('1004189565', 'Muñoz Cañar Jaime Andres', 'jamunoz@unicesmag.edu.co', '', '', ''),
+('1004189565', 'Muñoz Cañar Jaime Andres', 'jamunoz@unicesmag.edu.co', '301548895', 'Ingenieria', 'Centro de Idiomas'),
 ('12984915', 'Muñoz Carlos Alfredo', 'camunoz@unicesmag.edu.co', '', '', ''),
 ('94449977', 'Muñoz Criollo Ivan Alexander', 'iamunoz@unicesmag.edu.co', '', '', ''),
 ('87247343', 'Muñoz Delgado Jesus Enrique', 'jemunoz@unicesmag.edu.co', '', '', ''),
@@ -726,6 +736,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('79504911', 'Rosero Paredes Henry Oswald', 'horosero@unicesmag.edu.co', '', '', ''),
 ('30723342', 'Rosero Sosa Maria Mercedes', 'mmrosero@unicesmag.edu.co', '', '', ''),
 ('59822946', 'ROSERO UNIGARRO LUCY YASMIN', 'lyrosero@unicesmag.edu.co', '', '', ''),
+('1004623930', 'Ruales Luna Miller Manuel', 'mmruales@unicesmag.edu.co', '', '', ''),
 ('1085269473', 'Ruano Ibarra Jhon Freddy', 'jfruano@unicesmag.edu.co', '', '', ''),
 ('12996429', 'Rueda Zarama Javier Andres', 'jarueda@unicesmag.edu.co', '', '', ''),
 ('52040002', 'Ruiz Aux Maria Mercedes', 'mmruiz@unicesmag.edu.co', '', '', ''),
@@ -740,6 +751,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('37081961', 'Salazar Burbano Maria Fernanda', 'mfsalazar@unicesmag.edu.co', '', '', ''),
 ('27094662', 'Salazar Suarez Magda Mireya', 'mmsalazar@unicesmag.edu.co', '', '', ''),
 ('87066707', 'SALAZAR TORRES WILSON ANDRES', 'wasalazar@unicesmag.edu.co', '', '', ''),
+('1085249941', 'Salazar Usamag Diego Armando', 'dasalazar@unicesmag.edu.co', '', '', ''),
 ('59177592', 'Samudio Garcia Yanira Alexandra', 'yasamudio@unicesmag.edu.co', '', '', ''),
 ('1085270469', 'Sanchez Eraso Johana Katherine', 'jksanchez@unicesmag.edu.co', '', '', ''),
 ('1032428787', 'Sanchez Meza Jorge Luis', 'jlsanchez@unicesmag.edu.co', '', '', ''),
@@ -767,6 +779,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('1085244687', 'Timaran Muñoz Sofia Alexandra', 'satimaran@unicesmag.edu.co', '', '', ''),
 ('12967500', 'Timaran Pereira Silvio Ricardo', 'srtimaran@unicesmag.edu.co', '', '', ''),
 ('12754304', 'TIMARAN VINELLI RAUL ALEJANDRO', 'ratimaran@unicesmag.edu.co', '', '', ''),
+('27224776', 'Tobar Guerrero Ana Del Pilar', 'aptobar@unicesmag.edu.co', '', '', ''),
 ('98387728', 'Tobar Torres Carlos Fernando', 'cftobar@unicesmag.edu.co', '', '', ''),
 ('59825021', 'Torres Burbano Maria Patricia', 'mptorres@unicesmag.edu.co', '', '', ''),
 ('1085247971', 'Torres Erazo Luis Alfonso', 'latorres@unicesmag.edu.co', '', '', ''),
@@ -792,7 +805,8 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('1085289761', 'VILLOTA CABALLOS JAVIER ALEJANDRO', 'javillota1@unicesmag.edu.co', '', '', ''),
 ('98397682', 'Villota Carvajal Jairo Jeobany', 'jjvillota@unicesmag.edu.co', '', '', ''),
 ('79627985', 'Villota Eraso Andres ', 'avillota@unicesmag.edu.co', '', '', ''),
-('12999342', 'Villota Luna Heivar Sandro', 'hsvillota@unicesmag.edu.co', '', '', ''),
+('12999342', 'Villota Luna Heivar Sandro', 'hsvillota@unicesmag.edu.co', '', '', '');
+INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `dependencia`) VALUES
 ('27090031', 'Villota Ortega Diana Gicela', 'dgvillota@unicesmag.edu.co', '', '', ''),
 ('12973884', 'Villota Ortega Oscar Alfredo', 'oavillota@unicesmag.edu.co', '', '', ''),
 ('12748693', 'Villota Oviedo Hector Julio', 'hjvillota@unicesmag.edu.co', '', '', ''),
@@ -804,8 +818,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('13072186', 'Yepes Betancourt Camilo', 'cyepes@unicesmag.edu.co', '', '', ''),
 ('79712020', 'YEPES TREJOS ANDRES', 'ayepes@unicesmag.edu.co', '', '', ''),
 ('1085285135', 'Zambrano Guerrero Christian Alexander ', 'cazambrano@unicesmag.edu.co', '', '', ''),
-('1085260335', 'Zambrano Guerrero Wilmer Ferney', 'wfzambrano@unicesmag.edu.co', '', '', '');
-INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `dependencia`) VALUES
+('1085260335', 'Zambrano Guerrero Wilmer Ferney', 'wfzambrano@unicesmag.edu.co', '', '', ''),
 ('98386574', 'Zambrano Hinestrosa Jairo Roberto', 'jrzambrano@unicesmag.edu.co', '', '', ''),
 ('94460651', 'Zamora Muñoz Dario Edwin', 'dezamora@unicesmag.edu.co', '', '', ''),
 ('36759749', 'Zuleta Medina Alejandra', 'azuleta@unicesmag.edu.co', '', '', '');
@@ -844,19 +857,21 @@ INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
 (20, 'Bandera', 2, 18),
 (17, 'Base micrófono', 2, 18),
 (6, 'Cabinas', 2, 8),
+(1, 'Cables en general', 2, 200),
 (0, 'Cables HDMI', 2, 152),
-(21, 'Cables VGA', 2, 100),
+(0, 'Cables VGA', 2, 100),
 (15, 'Camara Web', 2, 6),
 (16, 'Consola de Sonido', 2, 4),
 (3, 'Control', 2, 100),
 (4, 'Extensión', 2, 45),
-(0, 'Faldon', 2, 45),
+(21, 'Faldon', 2, 45),
 (9, 'florero', 2, 4),
 (19, 'Grabadora Periodistica', 2, 2),
 (14, 'llaves', 2, 100),
 (8, 'Mantel', 2, 45),
 (7, 'Mesa', 2, 40),
 (13, 'Microfono', 2, 18),
+(100, 'Otros', 2, 100),
 (18, 'Panel', 2, 10),
 (5, 'Parlantes', 2, 20),
 (1, 'Portatil', 2, 45),
@@ -883,13 +898,15 @@ CREATE TABLE `tbl_estados` (
 
 INSERT INTO `tbl_estados` (`id`, `estado`) VALUES
 (1, 'Prestamo'),
-(2, 'Oficina'),
+(2, 'Entregado'),
 (3, 'Pendiente'),
 (4, 'Vencido'),
 (5, 'Salida'),
 (6, 'Mantenimiento'),
 (7, 'entrada'),
-(8, 'otro');
+(8, 'otro'),
+(9, 'Solicitud'),
+(10, 'Lavandería');
 
 -- --------------------------------------------------------
 
@@ -905,6 +922,31 @@ CREATE TABLE `tbl_inventario` (
   `id_estado` int(100) NOT NULL,
   `cat_equipo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_inventario`
+--
+
+INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
+('01bm', 'Global', '2016', 'Sin novedad', 2, 'Base micrófono'),
+('01cab', 'Global', '2023', 'Sin novedad', 2, 'Cabinas'),
+('01cs', 'sanyo', '2023', 'Sin novedad', 2, 'Consola de Sonido'),
+('01ctr', 'Global', '2023', 'Sin novedad', 2, 'Control'),
+('01cw', 'Global', '2023', 'Sin novedad', 2, 'Camara Web'),
+('01ext', 'Global', '2023', 'Sin novedad', 2, 'Extensión'),
+('01fl', 'Porcelana', '2023', 'Sin novedad', 2, 'florero'),
+('01hd', 'Global', '2023', 'Sin novedad', 2, 'Cables HDMI'),
+('01llaves', 'Global', '2023', 'Sin novedad', 2, 'llaves'),
+('01ma', 'tela s', '2023', 'Sin novedad', 2, 'Mantel'),
+('01me', 'plegable', '2023', 'Sin novedad', 2, 'Mesa'),
+('01pa', 'Madera', '2015', 'Sin novedad', 2, 'Panel'),
+('01par', 'Global', '2023', 'Sin novedad', 2, 'Parlantes'),
+('01pd', 'Poder', '2023', 'Sin novedad', 2, 'Cables en general'),
+('01pn', 'Madera', '2013', 'Sin novedad', 2, 'Panel'),
+('01red', 'Generica', '2023', 'Sin novedad', 2, 'Cables en general'),
+('01si', 'Rimax', '2016', 'Sin novedad', 2, 'sillas'),
+('01sl', 'Global', '2023', 'Sin novedad', 2, 'Señalizador Laser'),
+('01vga', 'Global', '2023', 'Sin novedad', 2, 'Cables VGA');
 
 -- --------------------------------------------------------
 
@@ -1028,7 +1070,7 @@ ALTER TABLE `tbl_detalle`
 -- AUTO_INCREMENT de la tabla `tbl_estados`
 --
 ALTER TABLE `tbl_estados`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

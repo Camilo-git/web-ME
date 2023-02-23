@@ -116,10 +116,7 @@ include_once("clases/cls_conectarB.php");
     <form action="php/tikets/guardar_tiket.php" method="POST">
         <span>
             <?php
-            $conexion = conectarBD();
-            $sSQL = "SELECT MAX(id) AS id FROM tbl_salida";
-            $dato = $conexion->query($sSQL);
-            // imprimimos el resultado
+
 
             echo " <input type='hidden' name='id' value=$id_tiket br />";
             echo $id_tiket;

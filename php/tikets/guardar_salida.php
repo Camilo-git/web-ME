@@ -14,7 +14,7 @@ $id_salida = $_POST['num_id'];
 $nom_auxiliar = $_POST['txt_auxiliar'];
 $nom_docente = $_POST['txt_docente'];
 date_default_timezone_set('America/Bogota');
-$fecha_out = date('Y-m-d h:i:A ', time());
+$fecha_out = date('Y-m-d H:i:A ', time());
 echo $fecha_out;
 
 // llamamos al objeto de la clase cls_salida para ejeccutar la accion
