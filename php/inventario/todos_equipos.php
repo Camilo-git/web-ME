@@ -22,11 +22,11 @@
 
 				<tr>
 					<th>Cod</th>
+					<th>cat_equipo</th>
 					<th>Marca</th>
 					<th>Modelo</th>
 					<th>Comentario</th>
 					<th>Estado</th>
-					<th>cat_equipo</th>
 					<th>edita</th>
 					<th>borra</th>
 					<!-- th como titulos deben aver en td espacios -->
@@ -58,7 +58,6 @@
 							<!-- utilizamos un generador de codigo online
 								 pasandole como parametro al enlace el codigo que manejamos							
 							 	 https://barcode.tec-it.com/-->
-
 							<div style='text-align: center;'>
 								<!-- insert your custom barcode setting your data in the GET parameter "data" -->
 								<img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data=<?php echo $fila['codigo']; ?>&code=Code128&translate-esc=true&imagetype=Jpg' />
@@ -67,11 +66,11 @@
 
 							<?php echo $fila['codigo'];         ?>
 						</td>
+						<td><?php echo $fila['cat_equipo'];   ?></td>
 						<td><?php echo $fila['marca'];     ?></td>
 						<td><?php echo $fila['modelo'];  ?></td>
 						<td><?php echo $fila['comentario'];   ?></td>
 						<td><?php echo $fila['estado'];   ?></td>
-						<td><?php echo $fila['cat_equipo'];   ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-articulo&accion=EDITAR&codigo=' . $fila['codigo'] . '" title="Editar el Articulo"><i class="fas fa-pen"></i></a></td>
 						

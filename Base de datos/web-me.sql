@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2023 a las 22:12:48
+-- Tiempo de generación: 24-02-2023 a las 15:15:08
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -855,31 +855,30 @@ CREATE TABLE `tbl_equipos` (
 
 INSERT INTO `tbl_equipos` (`cod`, `nombre`, `id_estado`, `cantidad`) VALUES
 (20, 'Bandera', 2, 18),
-(17, 'Base micrófono', 2, 18),
-(6, 'Cabinas', 2, 8),
-(1, 'Cables en general', 2, 200),
-(0, 'Cables HDMI', 2, 152),
-(0, 'Cables VGA', 2, 100),
-(15, 'Camara Web', 2, 6),
-(16, 'Consola de Sonido', 2, 4),
-(3, 'Control', 2, 100),
-(4, 'Extensión', 2, 45),
-(21, 'Faldon', 2, 45),
-(9, 'florero', 2, 4),
-(19, 'Grabadora Periodistica', 2, 2),
-(14, 'llaves', 2, 100),
-(8, 'Mantel', 2, 45),
-(7, 'Mesa', 2, 40),
-(13, 'Microfono', 2, 18),
-(100, 'Otros', 2, 100),
-(18, 'Panel', 2, 10),
-(5, 'Parlantes', 2, 20),
-(1, 'Portatil', 2, 45),
-(10, 'Señalizador Laser', 2, 5),
-(11, 'sillas', 2, 400),
-(12, 'Tablero Movil', 2, 15),
-(12, 'Tablones', 2, 5),
-(2, 'Video-beam', 2, 100);
+(15, 'Base micrófono', 2, 18),
+(8, 'Cabinas', 2, 8),
+(0, 'Cables en general', 2, 100),
+(1, 'Cables HDMI', 2, 152),
+(2, 'Cables VGA', 2, 100),
+(21, 'Camara Web', 2, 6),
+(13, 'Consola de Sonido', 2, 4),
+(5, 'Control', 2, 100),
+(6, 'Extensión', 2, 45),
+(11, 'Faldon', 2, 45),
+(22, 'florero', 2, 4),
+(23, 'Grabadora Periodistica', 2, 2),
+(12, 'llaves', 2, 100),
+(10, 'Mantel', 2, 45),
+(9, 'Mesa', 2, 40),
+(14, 'Microfono', 2, 18),
+(19, 'Panel', 2, 10),
+(7, 'Parlantes', 2, 20),
+(3, 'Portatil', 2, 45),
+(24, 'Señalizador Laser', 2, 5),
+(16, 'sillas', 2, 400),
+(18, 'Tablero Movil', 2, 15),
+(17, 'Tablones', 2, 5),
+(4, 'Video-beam', 2, 100);
 
 -- --------------------------------------------------------
 
