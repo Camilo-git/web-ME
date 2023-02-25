@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-02-2023 a las 15:15:08
+-- Tiempo de generación: 25-02-2023 a las 23:51:03
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -206,6 +206,18 @@ CREATE TABLE `tbl_detalle` (
   `cod_equipo` varchar(100) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_detalle`
+--
+
+INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
+(1, 1, 2, '13ctr', 'Sin Comentario'),
+(2, 2, 5, '00ext', 'Sin Comentario'),
+(3, 2, 5, '00hdm', 'Sin Comentario'),
+(4, 3, 1, '13ctr', 'Sin Comentario'),
+(5, 3, 2, '32por', 'Sin Comentario'),
+(6, 3, 3, '32por', 'lo entrega sin cargador');
 
 -- --------------------------------------------------------
 
@@ -836,6 +848,16 @@ CREATE TABLE `tbl_entrada` (
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `tbl_entrada`
+--
+
+INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
+(1, 'Insuasti Quevedo William Alexander', 'German Camilo Bernal Muñoz', '2023-02-25 16:44:15'),
+(2, 'Diaz Pabon Nelsy Eugenia', 'Argoti Portilla Santiago Fernando', '2023-02-25 16:46:24'),
+(3, NULL, NULL, '2023-02-25 16:49:04'),
+(4, NULL, NULL, '2023-02-25 16:58:53');
+
 -- --------------------------------------------------------
 
 --
@@ -927,25 +949,119 @@ CREATE TABLE `tbl_inventario` (
 --
 
 INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_estado`, `cat_equipo`) VALUES
-('01bm', 'Global', '2016', 'Sin novedad', 2, 'Base micrófono'),
-('01cab', 'Global', '2023', 'Sin novedad', 2, 'Cabinas'),
-('01cs', 'sanyo', '2023', 'Sin novedad', 2, 'Consola de Sonido'),
-('01ctr', 'Global', '2023', 'Sin novedad', 2, 'Control'),
-('01cw', 'Global', '2023', 'Sin novedad', 2, 'Camara Web'),
-('01ext', 'Global', '2023', 'Sin novedad', 2, 'Extensión'),
-('01fl', 'Porcelana', '2023', 'Sin novedad', 2, 'florero'),
-('01hd', 'Global', '2023', 'Sin novedad', 2, 'Cables HDMI'),
-('01llaves', 'Global', '2023', 'Sin novedad', 2, 'llaves'),
-('01ma', 'tela s', '2023', 'Sin novedad', 2, 'Mantel'),
-('01me', 'plegable', '2023', 'Sin novedad', 2, 'Mesa'),
-('01pa', 'Madera', '2015', 'Sin novedad', 2, 'Panel'),
-('01par', 'Global', '2023', 'Sin novedad', 2, 'Parlantes'),
-('01pd', 'Poder', '2023', 'Sin novedad', 2, 'Cables en general'),
-('01pn', 'Madera', '2013', 'Sin novedad', 2, 'Panel'),
-('01red', 'Generica', '2023', 'Sin novedad', 2, 'Cables en general'),
-('01si', 'Rimax', '2016', 'Sin novedad', 2, 'sillas'),
-('01sl', 'Global', '2023', 'Sin novedad', 2, 'Señalizador Laser'),
-('01vga', 'Global', '2023', 'Sin novedad', 2, 'Cables VGA');
+('00bam', 'Global', '2016', 'Sin novedad', 2, 'Base micrófono'),
+('00cab', 'Global', '2023', 'Sin novedad', 2, 'Cabinas'),
+('00caw', 'Global', '2023', 'Sin novedad', 2, 'Camara Web'),
+('00cso', 'sanyo', '2023', 'Sin novedad', 2, 'Consola de Sonido'),
+('00ctr', 'Global', '2023', 'Sin novedad', 2, 'Control'),
+('00ext', 'Global', '2023', 'Sin novedad', 2, 'Extensión'),
+('00fal', 'Porcelana', '2023', 'Sin novedad', 2, 'florero'),
+('00hdm', 'Global', '2023', 'Sin novedad', 2, 'Cables HDMI'),
+('00key', 'Global', '2023', 'Sin novedad', 2, 'llaves'),
+('00man', 'tela s', '2023', 'Sin novedad', 2, 'Mantel'),
+('00mes', 'plegable', '2023', 'Sin novedad', 2, 'Mesa'),
+('00pan', 'Madera', '2015', 'Sin novedad', 2, 'Panel'),
+('00par', 'Global', '2023', 'Sin novedad', 2, 'Parlantes'),
+('00por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('00red', 'Generica', '2023', 'Sin novedad', 2, 'Cables en general'),
+('00sel', 'Global', '2023', 'Sin novedad', 2, 'Señalizador Laser'),
+('00sil', 'Rimax', '2016', 'Sin novedad', 2, 'sillas'),
+('00vga', 'Global', '2023', 'Sin novedad', 2, 'Cables VGA'),
+('00vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('01ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('01por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('01vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('02ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('02por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('02vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('03ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('03por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('03vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('04ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('04por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('04vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('05ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('05por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('05vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('06ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('06por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('06vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('07ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('07por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('07vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('08ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('08por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('08vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('09ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('09por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('09vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('10ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('10por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('10vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('11ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('11por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('11vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('12ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('12por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('12vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('13ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('13por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('13vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('14ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('14por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('14vid', 'Epson', '2023', 'Sin novedad', 2, 'Video-beam'),
+('15ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('15por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('15vid', 'Global', '2023', 'Sin novedad', 2, 'Video-beam'),
+('16ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('16por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('17ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('17por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('18ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('18por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('19ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('19por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('20ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('20por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('21ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('21por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('22ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('22por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('23ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('23por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('24ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('24por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('25ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('25por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('26ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('26por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('27ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('27por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('28ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('28por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('29ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('29por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('30ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('30por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('31ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('31por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('32ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('32por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('33ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('33por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('34ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('34por', 'marca', '2023', 'Sin novedad', 2, 'Portatil'),
+('35ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('36ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('37ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('38ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('39ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('41ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('42ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('43ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('44ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('45ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('49ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control');
 
 -- --------------------------------------------------------
 
@@ -959,6 +1075,16 @@ CREATE TABLE `tbl_salida` (
   `nom_docente_out` varchar(100) DEFAULT NULL,
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_salida`
+--
+
+INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
+(1, 'Leidy Daniela Bacca Potosi', 'German Camilo Bernal Muñoz', '2023-02-25 16:25:00'),
+(2, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '2023-02-25 16:44:00'),
+(3, 'German Camilo Bernal Muñoz', 'Gomez Melo Leidy Marcela', '2023-02-25 16:49:00'),
+(4, 'German Camilo Bernal Muñoz', 'Galeano Casanova Jairo Alexander', '2023-02-25 16:58:00');
 
 -- --------------------------------------------------------
 
@@ -974,6 +1100,16 @@ CREATE TABLE `tbl_tiket` (
   `id_entrada` int(100) DEFAULT NULL,
   `id_estado` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_tiket`
+--
+
+INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
+(1, 'Sin Comentario', 'A 605', 1, 1, 2),
+(2, 'salida para san damian', 'Externo ', 2, 2, 2),
+(3, 'portátil sin cargador', 'A 201', 3, 3, 3),
+(4, 'Sin Comentario', 'A 502', 4, 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -1063,7 +1199,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
