@@ -107,14 +107,21 @@
                 <!-- creamos una lista desplegable -->
                 <select class="form-control" id="txt_auxiliar" name="txt_auxiliar" autofocus>
                     <script>
-                        document.addEventListener('keydown', function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-  }
-});
+                        // Obtener el elemento select por ID
+                        var selectElement1 = document.getElementById("txt_auxiliar");
 
-
+                        // Agregar un evento de escucha para la tecla "Enter"
+                        selectElement1.addEventListener("keydown", function(event) {
+                            if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
+                                event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
+                                var nextElement = selectElement1.parentElement.parentElement.nextElementSibling; // Obtener el siguiente elemento de la página
+                                if (nextElement) { // Si hay un siguiente elemento
+                                    nextElement.querySelector("select").focus(); // Enfocar en el siguiente elemento select
+                                }
+                            }
+                        });
                     </script>
+
                     <option value="#">Auxiliar responsable</option>
                     <?php
                     include_once("php/listas/cargar_auxiliares.php");
@@ -134,6 +141,19 @@
             <div class="col-md-6">
                 <!-- creamos una lista desplegable -->
                 <select class="form-control" id="txt_docente" name="txt_docente">
+                    <script>
+                        // Obtener el elemento select por ID
+                        var selectElement2 = document.getElementById("txt_docente");
+
+                        // Agregar un evento de escucha para la tecla "Enter"
+                        selectElement2.addEventListener("keydown", function(event) {
+                            if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
+                                event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
+                                document.getElementById("btn_guardar").focus(); // Enfocar en el botón Guardar
+                            }
+                        });
+                    </script>
+
                     <option value="#">introdusca un carnet</option>
                     <?php
                     include_once("php/listas/cargar_docentes.php");
@@ -150,5 +170,3 @@
             </div>
         </div>
     </form> <!-- fin del formulario -->
-
-</div>

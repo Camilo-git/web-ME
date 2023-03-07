@@ -198,6 +198,24 @@ include_once("clases/cls_conectarB.php");
                 </div>
             </div>
         </div>
+        <!-- este codigo nos permite que el evento enter cambie al siguiente elemento  -->
+        <script>
+            // Selecciona todos los elementos de entrada (input) y lista desplegable (select) dentro del contenedor con la clase "row"
+            const inputElements = document.querySelectorAll('.row input, .row select');
+
+            // Recorre cada elemento y agrega un controlador de eventos de teclado
+            inputElements.forEach(function(element, index) {
+                element.addEventListener('keydown', function(event) {
+                    // Verifica si la tecla presionada es Enter
+                    if (event.keyCode === 13) {
+                        // Evita que se envíe el formulario por defecto al presionar Enter
+                        event.preventDefault();
+                        // Encuentra el siguiente elemento en el arreglo y enfoca en él
+                        inputElements[index + 1].focus();
+                    }
+                });
+            });
+        </script>
 
 
 

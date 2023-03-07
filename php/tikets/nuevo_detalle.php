@@ -93,6 +93,22 @@ include_once("clases/cls_conectarB.php");
                                             <?php
                                             include_once("php/listas/cargar_equipo.php");
                                             ?>
+
+                                            <script>
+                                                // Obtener el elemento select por ID
+                                                var selectElement = document.getElementById("num_id_equipo");
+
+                                                // Agregar un evento de escucha para la tecla "Enter"
+                                                selectElement.addEventListener("keydown", function(event) {
+                                                    if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
+                                                        event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
+                                                        var nextElement = document.getElementById("btn_guardar"); // Obtener el botón por ID
+                                                        if (nextElement) { // Si el botón existe
+                                                            nextElement.focus(); // Enfocar en el botón
+                                                        }
+                                                    }
+                                                });
+                                            </script>
                                         </select>
                                     </div>
                                 </div>
