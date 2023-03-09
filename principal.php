@@ -112,7 +112,10 @@ $opcion = (!isset($_GET['opcion'])) ? 'all_tikets' : $_GET['opcion'];
         case 'inventario-nuevo':
           include_once("php/inventario/nuevo_articulo.php");
           break;
-
+          // inventario solo codigos 
+        case 'codigos':
+          include_once("php/inventario/codigos.php");
+          break;
 
           // ------------ EDITAR ARTICULO--------------------
         case 'editar-articulo';

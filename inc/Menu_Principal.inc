@@ -26,6 +26,8 @@
         <a href="principal.php?opcion=categorias" class="dropdown-item"><i class="fa fa-user-circle"></i> Categorias
         </a>
         <a href="principal.php?opcion=inventario" class="dropdown-item"><i class="fas fa-users"></i> Inventario </a>
+        <a href="principal.php?opcion=codigos" class="dropdown-item"><i class="fas fa-users"></i> Codigos </a>
+
       </div>
     </li>
     <!-- opcion de profesores -->
@@ -48,6 +50,7 @@
         <a href="principal.php?opcion=Salida" class="dropdown-item"><i class="fa fa-user-circle"></i> Nuevo </a>
         <a href="principal.php?opcion=all_tikets" class="dropdown-item"><i class="fas fa-users"></i> todos los tikets
         </a>
+        <a href="principal.php?opcion=Categorias" class="dropdown-item"><i class="fas fa-users"></i>Categorias </a>
       </div>
     </li>
 

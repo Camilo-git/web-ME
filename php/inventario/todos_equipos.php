@@ -21,14 +21,14 @@
 			<thead>
 
 				<tr>
-					<th>Cod</th>
-					<th>cat_equipo</th>
-					<th>Marca</th>
-					<th>Modelo</th>
-					<th>Comentario</th>
+					<th>Borrar</th>
+					<th>Editar</th>
 					<th>Estado</th>
-					<th>edita</th>
-					<th>borra</th>
+					<th>Comentario</th>
+					<th>Modelo</th>
+					<th>Marca</th>
+					<th>Categoria <br> Equipo </th>
+					<th>Codigo</th>
 					<!-- th como titulos deben aver en td espacios -->
 
 				</tr>
@@ -54,6 +54,16 @@
 				?>
 
 					<tr>
+						<?php
+						echo '<td><a href="./principal.php?opcion=editar-articulo&accion=EDITAR&codigo=' . $fila['codigo'] . '" title="Editar el Articulo"><i class="fas fa-pen"></i></a></td>
+						
+						<td><a href="./php/inventario/guardar.php?&accion=ELIMINAR&codigo=' . $fila['codigo'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
+						?>
+						<td><?php echo $fila['estado'];   ?></td>
+						<td><?php echo $fila['comentario'];   ?></td>
+						<td><?php echo $fila['modelo'];  ?></td>
+						<td><?php echo $fila['marca'];     ?></td>
+						<td><?php echo $fila['cat_equipo'];   ?></td>
 						<td>
 							<!-- utilizamos un generador de codigo online
 								 pasandole como parametro al enlace el codigo que manejamos							
@@ -66,16 +76,6 @@
 
 							<?php echo $fila['codigo'];         ?>
 						</td>
-						<td><?php echo $fila['cat_equipo'];   ?></td>
-						<td><?php echo $fila['marca'];     ?></td>
-						<td><?php echo $fila['modelo'];  ?></td>
-						<td><?php echo $fila['comentario'];   ?></td>
-						<td><?php echo $fila['estado'];   ?></td>
-						<?php
-						echo '<td><a href="./principal.php?opcion=editar-articulo&accion=EDITAR&codigo=' . $fila['codigo'] . '" title="Editar el Articulo"><i class="fas fa-pen"></i></a></td>
-						
-						<td><a href="./php/inventario/guardar.php?&accion=ELIMINAR&codigo=' . $fila['codigo'] . '" title="Borrar el Contacto"><i class="fas fa-trash-alt"></i></a></td>';
-						?>
 					</tr>
 
 				<?php
