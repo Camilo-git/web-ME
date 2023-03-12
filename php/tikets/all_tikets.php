@@ -16,11 +16,11 @@
 
 	<div class="col-12">
 
-		<table id="miTabla" class="table table-striped table-bordered table-hover">
+		<table data-order='[[ 0, "desc" ]]' data-page-length='25' id="miTabla" class="table table-striped table-bordered table-hover">
 			<thead>
 
 				<tr>
-					<th>Id </th>
+					<th autofocus>Id </th>
 					<th>Salida</th>
 					<th>Entrada</th>
 					<th>Elementos</th>
@@ -59,7 +59,13 @@
 						<td>
 							<?php echo $fila['id'] .
 								"<br><hr> ";
-							echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '&id-tiket=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
+							if ($fila['estado'] != "Entregado") {
+								# code...
+								echo '<a href="./principal.php?opcion=Entrada&accion=ENTREGA&id=' . $fila['id'] . '&id-tiket=' . $fila['id'] . '" title="Entregar el Tiket"><i class="fas fa-pen"></i></a>';
+							}
+
+
+
 							?>
 						</td>
 
@@ -206,11 +212,24 @@
 							?>
 						</td>
 
-						<td><a href="principal.php?opcion=nuevo_detalle&id-tiket=<?php echo $fila['id']; ?>">
-								<?php echo  $fila['estado'] .
-									" </a> - -> " . $fila['nombre_aula'] .
-									"<br><hr> " . $fila['comentario'];
-								?>
+						<td>
+							<?php
+							if ($fila['estado'] != "Entregado") {
+								# code...
+
+								echo "<a href='principal.php?opcion=nuevo_detalle&id-tiket= $fila[id]'>";
+
+								echo  $fila['estado'];
+							} else {
+								# code...
+								echo $fila['estado'];
+							}
+							// fin funcion if
+
+
+							echo " </a> - -> " . $fila['nombre_aula'] .
+								"<br><hr> " . $fila['comentario'];
+							?>
 						</td>
 					</tr>
 
