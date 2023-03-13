@@ -21,8 +21,8 @@
 			<thead>
 
 				<tr>
-					<th>Borrar</th>
 					<th>Editar</th>
+					<th>Borrar</th>
 					<th>Estado</th>
 					<th>Comentario</th>
 					<th>Modelo</th>
