@@ -52,7 +52,10 @@
 						<td><?php echo $fila['nombre'];     ?></td>
 						<!-- traemos el numero de celular y creamos el enlace directo al chat de WhatsApp -->
 						<td><a href="https://api.whatsapp.com/send?phone=57<?php echo $fila['celular']; ?>&amp;text=Saludo%20de%20Paz%20y%20Bien" target="_blank"><?php echo $fila['celular']; ?></a></td>
-						<td><?php echo $fila['correo'];   ?></td>
+
+						<td>
+							<a href="mailto:<?php echo $fila['correo']; ?>"><?php echo $fila['correo'];   ?></a>
+						</td>
 						<td><?php echo $fila['direccion'];     ?></td>
 						<?php
 						echo '<td><a href="./principal.php?opcion=editar-auxiliar&accion=EDITAR&cedula=' . $fila['cedula'] . '" title="Editar el Contacto"><i class="fas fa-pen"></i></a></td>
