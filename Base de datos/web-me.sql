@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2023 a las 02:16:53
+-- Tiempo de generación: 18-03-2023 a las 19:15:27
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -40,7 +40,6 @@ CREATE TABLE `tbl_aulas` (
 --
 
 INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) VALUES
-(1, 'a', 'Edificio', 30, 'Sin Comentario'),
 (2, 'A301', 'Edificio', 30, 'Sin Comentario'),
 (3, 'A401', 'Edificio', 30, 'Sin Comentario'),
 (4, 'A402', 'Edificio', 30, 'Sin Comentario'),
@@ -99,6 +98,7 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (57, 'B314', 'Edificio', 30, 'Sin Comentario'),
 (58, 'B315', 'Edificio', 30, 'Sin Comentario'),
 (59, 'B328', 'Edificio', 30, 'Sin Comentario'),
+(0, 'Biblioteca', 'Italia piso 1°', 100, 'Espacio adecuado para lectura'),
 (60, 'Camara de Gesell', 'Edificio', 30, 'Sin Comentario'),
 (61, 'Cancha 1', 'Edificio', 30, 'Sin Comentario'),
 (62, 'Cancha 2', 'Edificio', 30, 'Sin Comentario'),
@@ -106,6 +106,7 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (64, 'Cancha Tenis', 'Edificio', 30, 'Sin Comentario'),
 (65, 'CFSD', 'Edificio', 30, 'Sin Comentario'),
 (66, 'COLISEO G. CASTELLANA ', 'Edificio', 30, 'Sin Comentario'),
+(0, 'Externa', 'Externo', 0, 'Este espacio hace referencia a lugares fuera de la institución'),
 (67, 'Gimnasio', 'Edificio', 30, 'Sin Comentario'),
 (68, 'H302', 'Edificio', 30, 'Sin Comentario'),
 (69, 'H305', 'Edificio', 30, 'Sin Comentario'),
@@ -143,11 +144,12 @@ INSERT INTO `tbl_aulas` (`id`, `nombre`, `edificio`, `capacidad`, `comentario`) 
 (101, 'I416', 'Edificio', 30, 'Sin Comentario'),
 (102, 'I417', 'Edificio', 30, 'Sin Comentario'),
 (103, 'I418', 'Edificio', 30, 'Sin Comentario'),
-(104, 'Laboratorio de Electr�nica', 'Edificio', 30, 'Sin Comentario'),
-(105, 'Laboratorio de f�sica', 'Edificio', 30, 'Sin Comentario'),
+(104, 'Laboratorio de Electrónica', 'Edificio Holanda piso 6°', 30, 'Sin Comentario'),
+(105, 'Laboratorio de física', 'Edificio', 30, 'Sin Comentario'),
 (106, 'Laboratorio de Redes', 'Edificio', 30, 'Sin Comentario'),
 (107, 'Laboratorio Goretti', 'Edificio', 30, 'Sin Comentario'),
-(108, 'PendienteQuimica1', 'Edificio', 30, 'Sin Comentario'),
+(1, 'Medios Educativos', 'Edificio Holanda 2°', 30, 'Oficina destinada a los recursos educativos'),
+(0, 'Oficina', 'N/A', 1, 'oficina personal'),
 (109, 'Polideportivo', 'Edificio', 30, 'Sin Comentario'),
 (110, 'Ps', 'Edificio', 30, 'Sin Comentario'),
 (112, 'S201-Sala Mac', 'Edificio', 30, 'Sin Comentario'),
@@ -183,7 +185,7 @@ CREATE TABLE `tbl_auxiliares` (
 --
 
 INSERT INTO `tbl_auxiliares` (`cedula`, `nombre`, `celular`, `correo`, `direccion`) VALUES
-('1085251168', 'De La Cruz Hernandez Miguel Ignacio', '3177474845', 'midelacruz@unicesmag.edu.co', ''),
+('1085251168', 'De La Cruz Hernandez Miguel\r\n', '3177474845', 'midelacruz@unicesmag.edu.co', ''),
 ('30735249', 'Diaz Pabon Nelsy Eugenia', '3053406408', 'nediaz@unicesmag.edu.co', ''),
 ('1032479967', 'German Camilo Bernal Muñoz', '3104689209', 'gcbernal@unicesmag.edu.co', 'carrera 8e #16-09 praga'),
 ('94509957', 'Insuasti Quevedo William Alexander', '3186652786', 'wainsuasti@unicesmag.edu.co', 'calle 23 #2-99 Carolina'),
@@ -206,18 +208,6 @@ CREATE TABLE `tbl_detalle` (
   `cod_equipo` varchar(100) DEFAULT NULL,
   `comentario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_detalle`
---
-
-INSERT INTO `tbl_detalle` (`id`, `id_tiket`, `id_estado`, `cod_equipo`, `comentario`) VALUES
-(1, 1, 2, '13ctr', 'Sin Comentario'),
-(2, 2, 5, '00ext', 'Sin Comentario'),
-(3, 2, 5, '00hdm', 'Sin Comentario'),
-(4, 3, 1, '13ctr', 'Sin Comentario'),
-(5, 3, 2, '32por', 'Sin Comentario'),
-(6, 3, 3, '32por', 'lo entrega sin cargador');
 
 -- --------------------------------------------------------
 
@@ -264,7 +254,6 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('59123399', 'Arteaga Figueroa Angela Maria', 'amarteaga@unicesmag.edu.co', '', '', ''),
 ('34556308', 'Arteaga Hoyos Amanda Del Rosario', 'ararteaga@unicesmag.edu.co', '', '', ''),
 ('98384398', 'Arturo Calvache Jorge Armando', 'jaarturo@unicesmag.edu.co', '', '', ''),
-('qasdf', 'asdfasdf', 'qwerqwer', 'asdggh', 'asdfa', 'asdfa'),
 ('87100617', 'Aux Patiño Over Hernan', 'ohaux@unicesmag.edu.co', '', '', ''),
 ('87067598', 'Ayala Benavides Joan Carlos', 'jcayala@unicesmag.edu.co', '', '', ''),
 ('30728738', 'Ayala Guatusmal Liliana', 'layala@unicesmag.edu.co', '', '', ''),
@@ -341,6 +330,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('36758196', 'CARDENAS JIMENEZ CLAUDIA ANDREA', 'cacardenas@unicesmag.edu.co', '', '', ''),
 ('1085282616', 'Cardenas Ortega Angela Maria', 'amcardenas@unicesmag.edu.co', '', '', ''),
 ('1085270319', 'Cardozo De La Espriella Maria Alejandra', 'macardozo@unicesmag.edu.co', '', '', ''),
+('87027323', 'Carlos Arbey Castillo Muñoz', '', '', '', ''),
 ('59814445', 'Carrera Guevara Marly Ahitza', 'macarrera@unicesmag.edu.co', '', '', ''),
 ('30733080', 'Casanova Guerrrero  Ana Lucia', 'alcasanova@unicesmag.edu.co', '', '', ''),
 ('1085937350', 'Casanova Trejo Robin Daniel', 'rdcasanova@unicesmag.edu.co', '', '', ''),
@@ -531,6 +521,7 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('30740952', 'Lasso Bastidas Nury Elena', 'nelasso@unicesmag.edu.co', '', '', ''),
 ('98390410', 'Lasso Chaparro Oscar Bernardo', 'oblasso@unicesmag.edu.co', '', '', ''),
 ('87063904', 'Lasso Guerrero Juan Gabriel', 'jglasso@unicesmag.edu.co', '', '', ''),
+('1085270479', 'Laura Gabriela López Martínez ', '', '3234639719', 'Derecho', 'Ciencias sociales y humanas'),
 ('01', 'lavamatic', 'lavamatic@lavanderia.co', '316895458', 'Lavanderia', 'Mantenimiento'),
 ('1085339826', 'Leidy Daniela Bacca Potosi', 'ldbacca@unicesmag.edu.co', '', '', ''),
 ('1085283466', 'Leyton Yela Ginna Viviana', 'gvleyton@unicesmag.edu.co', '', '', ''),
@@ -816,9 +807,9 @@ INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `de
 ('12997727', 'Villarreal  Jose Luis', 'jlvillarreal@unicesmag.edu.co', '', '', ''),
 ('1085289761', 'VILLOTA CABALLOS JAVIER ALEJANDRO', 'javillota1@unicesmag.edu.co', '', '', ''),
 ('98397682', 'Villota Carvajal Jairo Jeobany', 'jjvillota@unicesmag.edu.co', '', '', ''),
-('79627985', 'Villota Eraso Andres ', 'avillota@unicesmag.edu.co', '', '', ''),
-('12999342', 'Villota Luna Heivar Sandro', 'hsvillota@unicesmag.edu.co', '', '', '');
+('79627985', 'Villota Eraso Andres ', 'avillota@unicesmag.edu.co', '', '', '');
 INSERT INTO `tbl_docentes` (`cedula`, `nombre`, `correo`, `cel`, `programa`, `dependencia`) VALUES
+('12999342', 'Villota Luna Heivar Sandro', 'hsvillota@unicesmag.edu.co', '', '', ''),
 ('27090031', 'Villota Ortega Diana Gicela', 'dgvillota@unicesmag.edu.co', '', '', ''),
 ('12973884', 'Villota Ortega Oscar Alfredo', 'oavillota@unicesmag.edu.co', '', '', ''),
 ('12748693', 'Villota Oviedo Hector Julio', 'hjvillota@unicesmag.edu.co', '', '', ''),
@@ -847,16 +838,6 @@ CREATE TABLE `tbl_entrada` (
   `nom_docente_in` varchar(100) DEFAULT NULL,
   `fecha_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_entrada`
---
-
-INSERT INTO `tbl_entrada` (`id`, `nom_auxiliar_in`, `nom_docente_in`, `fecha_in`) VALUES
-(1, 'Insuasti Quevedo William Alexander', 'German Camilo Bernal Muñoz', '2023-02-25 16:44:15'),
-(2, 'Diaz Pabon Nelsy Eugenia', 'Argoti Portilla Santiago Fernando', '2023-02-25 16:46:24'),
-(3, NULL, NULL, '2023-02-25 16:49:04'),
-(4, NULL, NULL, '2023-02-25 16:58:53');
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1066,8 @@ INSERT INTO `tbl_inventario` (`codigo`, `marca`, `modelo`, `comentario`, `id_est
 ('43ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
 ('44ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
 ('45ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
-('49ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control');
+('49ctr', 'Epson', '2023', 'Sin novedad', 2, 'Control'),
+('5000\'34911', 'Logitech', '2021', 'con tripode', 2, 'Camara Web');
 
 -- --------------------------------------------------------
 
@@ -1099,16 +1081,6 @@ CREATE TABLE `tbl_salida` (
   `nom_docente_out` varchar(100) DEFAULT NULL,
   `fecha_out` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_salida`
---
-
-INSERT INTO `tbl_salida` (`id`, `nom_auxiliar_out`, `nom_docente_out`, `fecha_out`) VALUES
-(1, 'Leidy Daniela Bacca Potosi', 'German Camilo Bernal Muñoz', '2023-02-25 16:25:00'),
-(2, 'German Camilo Bernal Muñoz', 'Argoti Portilla Santiago Fernando', '2023-02-25 16:44:00'),
-(3, 'German Camilo Bernal Muñoz', 'Gomez Melo Leidy Marcela', '2023-02-25 16:49:00'),
-(4, 'German Camilo Bernal Muñoz', 'Galeano Casanova Jairo Alexander', '2023-02-25 16:58:00');
 
 -- --------------------------------------------------------
 
@@ -1124,16 +1096,6 @@ CREATE TABLE `tbl_tiket` (
   `id_entrada` int(100) DEFAULT NULL,
   `id_estado` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tbl_tiket`
---
-
-INSERT INTO `tbl_tiket` (`id`, `comentario`, `nombre_aula`, `id_salida`, `id_entrada`, `id_estado`) VALUES
-(1, 'Sin Comentario', 'A 605', 1, 1, 2),
-(2, 'salida para san damian', 'Externo ', 2, 2, 2),
-(3, 'portátil sin cargador', 'A 201', 3, 3, 3),
-(4, 'Sin Comentario', 'A 502', 4, 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -1223,7 +1185,7 @@ ALTER TABLE `tbl_tiket`
 -- AUTO_INCREMENT de la tabla `tbl_detalle`
 --
 ALTER TABLE `tbl_detalle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados`
@@ -1269,15 +1231,6 @@ ALTER TABLE `tbl_inventario`
 ALTER TABLE `tbl_salida`
   ADD CONSTRAINT `tbl_salida_ibfk_1` FOREIGN KEY (`nom_auxiliar_out`) REFERENCES `tbl_auxiliares` (`nombre`),
   ADD CONSTRAINT `tbl_salida_ibfk_2` FOREIGN KEY (`nom_docente_out`) REFERENCES `tbl_docentes` (`nombre`);
-
---
--- Filtros para la tabla `tbl_tiket`
---
-ALTER TABLE `tbl_tiket`
-  ADD CONSTRAINT `tbl_tiket_ibfk_1` FOREIGN KEY (`nombre_aula`) REFERENCES `tbl_aulas` (`nombre`),
-  ADD CONSTRAINT `tbl_tiket_ibfk_2` FOREIGN KEY (`id_salida`) REFERENCES `tbl_salida` (`id`),
-  ADD CONSTRAINT `tbl_tiket_ibfk_3` FOREIGN KEY (`id_entrada`) REFERENCES `tbl_entrada` (`id`),
-  ADD CONSTRAINT `tbl_tiket_ibfk_4` FOREIGN KEY (`id_estado`) REFERENCES `tbl_estados` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
