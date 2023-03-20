@@ -109,7 +109,7 @@ include_once("clases/cls_conectarB.php");
                                                     }
                                                 });
                                             </script>
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -122,23 +122,24 @@ include_once("clases/cls_conectarB.php");
             <br>
 
             <input type="hidden" id="btn_guardar" name="btn_guardar" value="ADICIONAR">
-            <button type="hidden" class="btn btn-primary btn-block" id="btn_guardar" name="btn_guardar" value="ADICIONAR">
+            <!-- <button type="hidden" class="btn btn-primary btn-block" id="btn_guardar" name="btn_guardar" value="ADICIONAR">
                 Guardar
-            </button>
+            </button> -->
         </div>
-    </form>
+    </form></br>
+    <hr>
     <script>
-    // Obtener el elemento select por ID
-    var selectElement = document.getElementById("num_id_equipo");
+        // Obtener el elemento select por ID
+        var selectElement = document.getElementById("num_id_equipo");
 
-    // Agregar un evento de escucha para la tecla "Enter"
-    selectElement.addEventListener("keydown", function(event) {
-        if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
-            event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
-            document.querySelector("form").submit(); // Enviar el formulario
-        }
-    });
-</script>
+        // Agregar un evento de escucha para la tecla "Enter"
+        selectElement.addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
+                event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
+                document.querySelector("form").submit(); // Enviar el formulario
+            }
+        });
+    </script>
 
 
 
@@ -242,5 +243,5 @@ include_once("clases/cls_conectarB.php");
         </button>
 
     </form>
-    
+
 </div>
