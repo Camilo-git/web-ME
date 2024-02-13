@@ -149,7 +149,7 @@
                     selectElement2.addEventListener("keydown", function(event) {
                         if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
                             event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
-                            document.getElementById("btn_guardar").focus(); // Enfocar en el botón Guardar
+                            document.querySelector("form").submit(); // Enviar el formulario
                         }
                     });
                 </script>
@@ -167,6 +167,7 @@
             <button class="btn btn-primary btn-block" id="btn_guardar" name="btn_guardar" value="<?php echo $opcion = $_GET['opcion']; ?>">
                 Guardar
             </button>
+            <input type="hidden" name="btn_guardar" value="<?php echo $opcion = $_GET['opcion']; ?>">
         </div>
     </div>
     </form> <!-- fin del formulario -->

@@ -146,6 +146,17 @@ include_once("clases/cls_conectarB.php");
                                     ?>
                                 </select>
                             </div>
+                            <!-- creamos un script el cual al presional la tecla enter envia el formulario -->
+                            <script>
+                                document.getElementById('txt_aula').addEventListener('keydown', function(event) {
+                                    if (event.keyCode === 13) {
+                                        event.preventDefault();
+                                        document.querySelector("form").submit(); // Enviar el formulario
+
+                                    }
+                                });
+                            </script>
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -194,6 +205,7 @@ include_once("clases/cls_conectarB.php");
                         <button class="btn btn-block active btn-lg btn-outline-danger" name="accion" value="<?php echo $opcion; ?>">
                             Guardar
                         </button>
+                        <input type="hidden" name="accion" value="<?php echo $opcion; ?>">
                     </div>
                 </div>
             </div>

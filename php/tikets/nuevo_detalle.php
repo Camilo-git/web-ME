@@ -141,6 +141,15 @@ include_once("clases/cls_conectarB.php");
         });
     </script>
 
+    <form action="principal.php">
+        <?php
+        echo " <input type='hidden' name='id-tiket' value=$id_tiket br />";
+        ?>
+        <button class="btn btn-primary btn-block" id="btn-editar" name="opcion" value="editar-tiket">
+            Continuar
+        </button>
+
+    </form>
 
 
     <div class="row my-3">
@@ -234,14 +243,6 @@ include_once("clases/cls_conectarB.php");
 
         </div>
     </div>
-    <form action="principal.php">
-        <?php
-        echo " <input type='hidden' name='id-tiket' value=$id_tiket br />";
-        ?>
-        <button class="btn btn-primary btn-block" id="btn-editar" name="opcion" value="editar-tiket">
-            Continuar
-        </button>
-
-    </form>
+    
 
 </div>

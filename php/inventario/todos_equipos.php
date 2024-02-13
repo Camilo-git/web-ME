@@ -69,8 +69,9 @@
 								 pasandole como parametro al enlace el codigo que manejamos							
 							 	 https://barcode.tec-it.com/-->
 							<div style='text-align: center;'>
-								<!-- insert your custom barcode setting your data in the GET parameter "data" -->
-								<img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data=<?php echo $fila['codigo']; ?>&code=Code128&translate-esc=true&imagetype=Jpg' />
+								<!--insertamos el codigo de con las caracteristicas que necesitamos -->
+								
+								<!-- <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data=<?php echo $fila['codigo']; ?>&code=Code128&translate-esc=true&imagetype=Jpg' /> -->
 							</div>
 							<!-- cierre generador de codigo de barras  -->
 
