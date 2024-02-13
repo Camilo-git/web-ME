@@ -118,6 +118,16 @@
             case 'nuevo_detalle':
               include_once("php/tikets/nuevo_detalle.php");
               break;
+/*-------------------api pokemon------------------*/
+
+            case 'api':
+              include_once("php/apis/api.php");
+              break;
+/*-------------------api drive------------------*/
+
+            case 'api_drive':
+              include_once("php/apis/api-drive.php");
+              break;
 
             default:
               include_once("php/inicio.php");

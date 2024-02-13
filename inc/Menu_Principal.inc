@@ -49,7 +49,17 @@
       </div>
     </li>
 
+    <!-- opcion para api pokemon -->
 
+    <li class="nav-item dropdown">
+      <a href="principal.php?opcion=api" class="nav-link"> Pokemon </a>
+    </li>
+
+    <!-- opcion para api en google drive de hoja de calculo -->
+
+    <li class="nav-item dropdown">
+      <a href="principal.php?opcion=api_drive" class="nav-link"> Drive </a>
+    </li>
   </ul>
 
 
