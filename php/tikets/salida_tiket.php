@@ -4,6 +4,11 @@
     <!-- creamos el fomrulario -->
     <!-- creamos una sentencia ternaria para imprimir la url para guardar la salida y otra para editar la entrada-->
     <?php
+    // imprimimos lo que recibimos por el metodo get y post
+    // echo "<pre>";
+    // print_r($_GET);
+    // print_r($_POST);
+    // echo "</pre>";
 
     $opcion =  $_GET['opcion'];
     // verificamos lo que recibimos para asi mostrar la ruta a seguir
@@ -53,7 +58,7 @@
 
                     if ($opcion == "Salida") {
                         echo "Medios Educativos.";
-                        $nom_docente_in         =  "Introduzca carnet";
+                        $nom_docente_in         =  "";
                     } elseif ($opcion == "Entrada") {
                         echo "Entrega de elementos";
 
@@ -86,6 +91,7 @@
                         date_default_timezone_set('America/Bogota');
                         $DateAndTime = date('Y-m-d * h:i A', time());
                         echo "Hora actual = $DateAndTime.";
+
                         ?>
 
                     </span>
@@ -116,7 +122,7 @@
                             event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
                             var nextElement = selectElement1.parentElement.parentElement.nextElementSibling; // Obtener el siguiente elemento de la página
                             if (nextElement) { // Si hay un siguiente elemento
-                                nextElement.querySelector("select").focus(); // Enfocar en el siguiente elemento select
+                                nextElement.querySelector("input").focus(); // Enfocar en el siguiente elemento select
                             }
                         }
                     });
@@ -140,25 +146,26 @@
         <!-- creamos un div centrado -->
         <div class="col-md-6">
             <!-- creamos una lista desplegable -->
-            <select class="form-control" id="txt_docente" name="txt_docente">
-                <script>
-                    // Obtener el elemento select por ID
-                    var selectElement2 = document.getElementById("txt_docente");
-
-                    // Agregar un evento de escucha para la tecla "Enter"
-                    selectElement2.addEventListener("keydown", function(event) {
-                        if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
-                            event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
-                            document.querySelector("form").submit(); // Enviar el formulario
-                        }
-                    });
-                </script>
-
+            <input class="form-control" list="txt_docente_options" id="txt_docente" name="txt_docente" autocomplete="on" value = "<?php echo $nom_docente_in; ?>" >
+            <datalist id="txt_docente_options">
                 <option value="<?php echo $nom_docente_in; ?>"><?php echo $nom_docente_in; ?></option>
-                <?php
-                include_once("php/listas/cargar_docentes.php");
-                ?>
-            </select>
+                    <?php
+
+                      include_once("php/listas/cargar_docentes.php");
+                    ?>
+            </datalist>
+            <script>
+                // Obtener el elemento input por ID
+                var inputElement = document.getElementById("txt_docente");
+
+                // Agregar un evento de escucha para la tecla "Enter"
+                inputElement.addEventListener("keydown", function(event) {
+                    if (event.keyCode === 13) { // 13 es el código de tecla para "Enter"
+                        event.preventDefault(); // Detener la acción predeterminada (submit del formulario)
+                        document.querySelector("form").submit(); // Enviar el formulario
+                    }
+                });
+            </script>
         </div>
     </div>
     <!-- creamos un boton -->
