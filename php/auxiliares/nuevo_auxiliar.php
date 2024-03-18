@@ -8,7 +8,7 @@ $cedula = $_GET['cedula'];
 // si la accion es ADICIONAR 
 if ($accion == "ADICIONAR") {
     // Creamos las variables para los datos del auxiliar
-    $cedula = 0;
+    $cedula = "";
 
     $nombre = "";
     $celular = "";
@@ -31,8 +31,7 @@ if ($accion == "ADICIONAR") {
         $direccion = $filas['direccion'];
     }
 }
-echo $accion;
-echo $cedula;
+// creamos el formulario para el auxiliar
 
 ?>
 

@@ -119,7 +119,7 @@ include_once("clases/cls_conectarB.php");
 
 
             echo " <input type='hidden' name='id' value=$id_tiket br />";
-            echo $id_tiket;
+            
             ?>
         </span>
 

@@ -146,13 +146,11 @@
         <!-- creamos un div centrado -->
         <div class="col-md-6">
             <!-- creamos una lista desplegable -->
-            <input class="form-control" list="txt_docente_options" id="txt_docente" name="txt_docente" autocomplete="on" value = "<?php echo $nom_docente_in; ?>" >
+            <input class="form-control" list="txt_docente_options" id="txt_docente" name="txt_docente" autocomplete="on" value="<?php echo $nom_docente_in; ?>">
             <datalist id="txt_docente_options">
-                <option value="<?php echo $nom_docente_in; ?>"><?php echo $nom_docente_in; ?></option>
-                    <?php
-
-                      include_once("php/listas/cargar_docentes.php");
-                    ?>
+                <?php
+                include_once("php/listas/cargar_docentes.php");
+                ?>
             </datalist>
             <script>
                 // Obtener el elemento input por ID

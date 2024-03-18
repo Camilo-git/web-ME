@@ -11,7 +11,7 @@ $cedula = $_GET['cedula'];
 // si la accion es ADICIONAR
 if ($accion == "ADICIONAR") {
     // Creamos las variables para los datos del profesor
-    $cedula = 0;
+    $cedula = "";
 
     $nombre = "";
     $correo = "";
@@ -37,8 +37,6 @@ if ($accion == "ADICIONAR") {
     }
 }
 // creamos el formulario
-echo $accion;
-echo $cedula;
 
 ?>
 
