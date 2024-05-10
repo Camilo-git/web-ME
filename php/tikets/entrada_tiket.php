@@ -139,12 +139,14 @@ include_once("clases/cls_conectarB.php");
                             <!-- creamos un div centrado -->
                             <div class="col-md-6">
                                 <!-- creamos una lista desplegable -->
-                                <select autofocus class="form-control" id="txt_aula" name="txt_aula">
+                                <input autofocus class="form-control" list="txt_aula_options" id="txt_aula" name="txt_aula" autocomplete="on" value="">
+                                <datalist id="txt_aula_options">
+                                <!-- <select autofocus class="form-control" id="txt_aula" name="txt_aula"> -->
                                     <option value="0">Seleccione el AULA</option>
                                     <?php
                                     include_once("php/listas/cargar_aulas.php");
                                     ?>
-                                </select>
+                                </datalist>
                             </div>
                             <!-- creamos un script el cual al presional la tecla enter envia el formulario -->
                             <script>

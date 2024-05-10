@@ -88,8 +88,10 @@ include_once("clases/cls_conectarB.php");
                                     <!-- creamos un div centrado -->
                                     <div class="col-md-12">
                                         <!-- creamos una lista desplegable -->
-                                        <select autofocus class="form-control" id="num_id_equipo" name="cod_inventario">
-                                            <option value="1">Equipo N°</option>
+                                        <input autofocus class="form-control" list="txt_detalle_options" id="num_id_equipo" name="cod_inventario" autocomplete="on" value="">
+                                        <datalist id="txt_detalle_options">
+                                        <!-- <select autofocus class="form-control" id="num_id_equipo" name="cod_inventario"> -->
+                                            
                                             <?php
                                             include_once("php/listas/cargar_equipo.php");
                                             ?>
@@ -110,7 +112,7 @@ include_once("clases/cls_conectarB.php");
                                                 });
                                             </script>
 
-                                        </select>
+                                            </datalist>
                                     </div>
                                 </div>
                             </div>
